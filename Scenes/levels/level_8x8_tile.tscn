@@ -1,0 +1,226 @@
+[gd_scene load_steps=2 format=3 uid="uid://drxk1obwry4kp"]
+
+[ext_resource type="PackedScene" uid="uid://q1ij6djenla5" path="res://Scenes/Tile/tile_background.tscn" id="1_16eyg"]
+
+[node name="Level_8x8_tile" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -176.0
+offset_top = -176.0
+offset_right = 176.0
+offset_bottom = 176.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 8
+
+[node name="tile_background" parent="Control/GridContainer" instance=ExtResource("1_16eyg")]
+layout_mode = 2
+
+[node name="tile_background2" parent="Control/GridContainer" instance=ExtResource("1_16eyg")]
+layout_mode = 2
+
+[node name="tile_background3" parent="Control/GridContainer" instance=ExtResource("1_16eyg")]
+layout_mode = 2
+
+[node name="tile_background4" parent="Control/GridContainer" instance=ExtResource("1_16eyg")]
+layout_mode = 2
+
+[node name="tile_background5" parent="Control/GridContainer" instance=ExtResource("1_16eyg")]
+layout_mode = 2
+
+[node name="tile_background6" parent="Control/GridContainer" instance=ExtResource("1_16eyg")]
+layout_mode = 2
+
+[node name="tile_background7" parent="Control/GridContainer" instance=ExtResource("1_16eyg")]
+layout_mode = 2
+
+[node name="tile_background8" parent="Control/GridContainer" instance=ExtResource("1_16eyg")]
+layout_mode = 2
+
+[node name="tile_background9" parent="Control/GridContainer" instance=ExtResource("1_16eyg")]
+layout_mode = 2
+
+[node name="tile_background10" parent="Control/GridContainer" instance=ExtResource("1_16eyg")]
+layout_mode = 2
+
+[node name="tile_background11" parent="Control/GridContainer" instance=ExtResource("1_16eyg")]
+layout_mode = 2
+
+[node name="tile_background12" parent="Control/GridContainer" instance=ExtResource("1_16eyg")]
+layout_mode = 2
+
+[node name="tile_background13" parent="Control/GridContainer" instance=ExtResource("1_16eyg")]
+layout_mode = 2
+
+[node name="tile_background14" parent="Control/GridContainer" instance=ExtResource("1_16eyg")]
+layout_mode = 2
+
+[node name="tile_background15" parent="Control/GridContainer" instance=ExtResource("1_16eyg")]
+layout_mode = 2
+
+[node name="tile_background16" parent="Control/GridContainer" instance=ExtResource("1_16eyg")]
+layout_mode = 2
+
+[node name="tile_background17" parent="Control/GridContainer" instance=ExtResource("1_16eyg")]
+layout_mode = 2
+
+[node name="tile_background18" parent="Control/GridContainer" instance=ExtResource("1_16eyg")]
+layout_mode = 2
+
+[node name="tile_background19" parent="Control/GridContainer" instance=ExtResource("1_16eyg")]
+layout_mode = 2
+
+[node name="tile_background20" parent="Control/GridContainer" instance=ExtResource("1_16eyg")]
+layout_mode = 2
+
+[node name="tile_background21" parent="Control/GridContainer" instance=ExtResource("1_16eyg")]
+layout_mode = 2
+
+[node name="tile_background22" parent="Control/GridContainer" instance=ExtResource("1_16eyg")]
+layout_mode = 2
+
+[node name="tile_background23" parent="Control/GridContainer" instance=ExtResource("1_16eyg")]
+layout_mode = 2
+
+[node name="tile_background24" parent="Control/GridContainer" instance=ExtResource("1_16eyg")]
+layout_mode = 2
+
+[node name="tile_background25" parent="Control/GridContainer" instance=ExtResource("1_16eyg")]
+layout_mode = 2
+
+[node name="tile_background26" parent="Control/GridContainer" instance=ExtResource("1_16eyg")]
+layout_mode = 2
+
+[node name="tile_background27" parent="Control/GridContainer" instance=ExtResource("1_16eyg")]
+layout_mode = 2
+
+[node name="tile_background28" parent="Control/GridContainer" instance=ExtResource("1_16eyg")]
+layout_mode = 2
+
+[node name="tile_background29" parent="Control/GridContainer" instance=ExtResource("1_16eyg")]
+layout_mode = 2
+
+[node name="tile_background30" parent="Control/GridContainer" instance=ExtResource("1_16eyg")]
+layout_mode = 2
+
+[node name="tile_background31" parent="Control/GridContainer" instance=ExtResource("1_16eyg")]
+layout_mode = 2
+
+[node name="tile_background32" parent="Control/GridContainer" instance=ExtResource("1_16eyg")]
+layout_mode = 2
+
+[node name="tile_background33" parent="Control/GridContainer" instance=ExtResource("1_16eyg")]
+layout_mode = 2
+
+[node name="tile_background34" parent="Control/GridContainer" instance=ExtResource("1_16eyg")]
+layout_mode = 2
+
+[node name="tile_background35" parent="Control/GridContainer" instance=ExtResource("1_16eyg")]
+layout_mode = 2
+
+[node name="tile_background36" parent="Control/GridContainer" instance=ExtResource("1_16eyg")]
+layout_mode = 2
+
+[node name="tile_background37" parent="Control/GridContainer" instance=ExtResource("1_16eyg")]
+layout_mode = 2
+
+[node name="tile_background38" parent="Control/GridContainer" instance=ExtResource("1_16eyg")]
+layout_mode = 2
+
+[node name="tile_background39" parent="Control/GridContainer" instance=ExtResource("1_16eyg")]
+layout_mode = 2
+
+[node name="tile_background40" parent="Control/GridContainer" instance=ExtResource("1_16eyg")]
+layout_mode = 2
+
+[node name="tile_background41" parent="Control/GridContainer" instance=ExtResource("1_16eyg")]
+layout_mode = 2
+
+[node name="tile_background42" parent="Control/GridContainer" instance=ExtResource("1_16eyg")]
+layout_mode = 2
+
+[node name="tile_background43" parent="Control/GridContainer" instance=ExtResource("1_16eyg")]
+layout_mode = 2
+
+[node name="tile_background44" parent="Control/GridContainer" instance=ExtResource("1_16eyg")]
+layout_mode = 2
+
+[node name="tile_background45" parent="Control/GridContainer" instance=ExtResource("1_16eyg")]
+layout_mode = 2
+
+[node name="tile_background46" parent="Control/GridContainer" instance=ExtResource("1_16eyg")]
+layout_mode = 2
+
+[node name="tile_background47" parent="Control/GridContainer" instance=ExtResource("1_16eyg")]
+layout_mode = 2
+
+[node name="tile_background48" parent="Control/GridContainer" instance=ExtResource("1_16eyg")]
+layout_mode = 2
+
+[node name="tile_background49" parent="Control/GridContainer" instance=ExtResource("1_16eyg")]
+layout_mode = 2
+
+[node name="tile_background50" parent="Control/GridContainer" instance=ExtResource("1_16eyg")]
+layout_mode = 2
+
+[node name="tile_background51" parent="Control/GridContainer" instance=ExtResource("1_16eyg")]
+layout_mode = 2
+
+[node name="tile_background52" parent="Control/GridContainer" instance=ExtResource("1_16eyg")]
+layout_mode = 2
+
+[node name="tile_background53" parent="Control/GridContainer" instance=ExtResource("1_16eyg")]
+layout_mode = 2
+
+[node name="tile_background54" parent="Control/GridContainer" instance=ExtResource("1_16eyg")]
+layout_mode = 2
+
+[node name="tile_background55" parent="Control/GridContainer" instance=ExtResource("1_16eyg")]
+layout_mode = 2
+
+[node name="tile_background56" parent="Control/GridContainer" instance=ExtResource("1_16eyg")]
+layout_mode = 2
+
+[node name="tile_background57" parent="Control/GridContainer" instance=ExtResource("1_16eyg")]
+layout_mode = 2
+
+[node name="tile_background58" parent="Control/GridContainer" instance=ExtResource("1_16eyg")]
+layout_mode = 2
+
+[node name="tile_background59" parent="Control/GridContainer" instance=ExtResource("1_16eyg")]
+layout_mode = 2
+
+[node name="tile_background60" parent="Control/GridContainer" instance=ExtResource("1_16eyg")]
+layout_mode = 2
+
+[node name="tile_background61" parent="Control/GridContainer" instance=ExtResource("1_16eyg")]
+layout_mode = 2
+
+[node name="tile_background62" parent="Control/GridContainer" instance=ExtResource("1_16eyg")]
+layout_mode = 2
+
+[node name="tile_background63" parent="Control/GridContainer" instance=ExtResource("1_16eyg")]
+layout_mode = 2
+
+[node name="tile_background64" parent="Control/GridContainer" instance=ExtResource("1_16eyg")]
+layout_mode = 2

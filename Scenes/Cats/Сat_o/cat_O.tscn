@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://dfl8qsacj4yvt"]
+
+[ext_resource type="Script" path="res://Scenes/Cats/Сat_o/cat_O.gd" id="1_q65ix"]
+[ext_resource type="Texture2D" uid="uid://dxfifx8dgewtn" path="res://Sprites/Cats/Cat_O.png" id="2_46vyx"]
+[ext_resource type="Script" path="res://Scenes/Cats/Сat_o/skeleton_cat.gd" id="3_m2d28"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fdcig"]
+size = Vector2(160, 160)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_josus"]
+size = Vector2(100, 100)
+
+[node name="Cat_O" type="CharacterBody2D"]
+collision_mask = 0
+input_pickable = true
+script = ExtResource("1_q65ix")
+
+[node name="Sprite_Cat_O" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_46vyx")
+
+[node name="Collision_touch" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
+shape = SubResource("RectangleShape2D_fdcig")
+debug_color = Color(0.652468, 0.507776, 0.299182, 0.42)
+
+[node name="Skeleton_cat" type="CharacterBody2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("3_m2d28")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Skeleton_cat"]
+shape = SubResource("RectangleShape2D_josus")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

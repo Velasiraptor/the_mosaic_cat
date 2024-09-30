@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://q1ij6djenla5"]
+
+[ext_resource type="Texture2D" uid="uid://bs7xlag0otm84" path="res://Sprites/Tiles_backgrounds/Tile_back_1.png" id="1_uflb2"]
+[ext_resource type="Script" path="res://Scenes/Tile/tile_background.gd" id="2_1evnf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ahar"]
+size = Vector2(74, 74)
+
+[node name="tile_background" type="TextureRect"]
+custom_minimum_size = Vector2(88, 88)
+texture = ExtResource("1_uflb2")
+script = ExtResource("2_1evnf")
+
+[node name="Area_tile" type="Area2D" parent="."]
+visible = false
+collision_layer = 2
+collision_mask = 4
+
+[node name="Collision_tile" type="CollisionShape2D" parent="Area_tile"]
+unique_name_in_owner = true
+position = Vector2(44, 44)
+shape = SubResource("RectangleShape2D_1ahar")
+debug_color = Color(0.0235294, 0.423529, 0.0823529, 0.419608)
+
+[connection signal="body_entered" from="Area_tile" to="." method="_on_area_tile_body_entered"]
+[connection signal="body_exited" from="Area_tile" to="." method="_on_area_tile_body_exited"]

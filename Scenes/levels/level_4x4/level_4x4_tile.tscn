@@ -1,0 +1,92 @@
+[gd_scene load_steps=4 format=3 uid="uid://bifgr83jy5dk"]
+
+[ext_resource type="PackedScene" uid="uid://q1ij6djenla5" path="res://Scenes/Tile/tile_background.tscn" id="2_qfu54"]
+[ext_resource type="PackedScene" uid="uid://dfl8qsacj4yvt" path="res://Scenes/Cats/Сat_o/cat_O.tscn" id="3_myq2q"]
+[ext_resource type="PackedScene" uid="uid://cnoa61fj4cwwk" path="res://Scenes/Cats/Cat_L/cat_L.tscn" id="4_12sys"]
+
+[node name="Level_4x4_tile" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="GridContainer" type="GridContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -176.0
+offset_top = -176.0
+offset_right = 176.0
+offset_bottom = 176.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 4
+
+[node name="tile_background" parent="Control/GridContainer" instance=ExtResource("2_qfu54")]
+layout_mode = 2
+
+[node name="tile_background2" parent="Control/GridContainer" instance=ExtResource("2_qfu54")]
+layout_mode = 2
+
+[node name="tile_background3" parent="Control/GridContainer" instance=ExtResource("2_qfu54")]
+layout_mode = 2
+
+[node name="tile_background4" parent="Control/GridContainer" instance=ExtResource("2_qfu54")]
+layout_mode = 2
+
+[node name="tile_background5" parent="Control/GridContainer" instance=ExtResource("2_qfu54")]
+layout_mode = 2
+
+[node name="tile_background6" parent="Control/GridContainer" instance=ExtResource("2_qfu54")]
+layout_mode = 2
+
+[node name="tile_background7" parent="Control/GridContainer" instance=ExtResource("2_qfu54")]
+layout_mode = 2
+
+[node name="tile_background8" parent="Control/GridContainer" instance=ExtResource("2_qfu54")]
+layout_mode = 2
+
+[node name="tile_background9" parent="Control/GridContainer" instance=ExtResource("2_qfu54")]
+layout_mode = 2
+
+[node name="tile_background10" parent="Control/GridContainer" instance=ExtResource("2_qfu54")]
+layout_mode = 2
+
+[node name="tile_background11" parent="Control/GridContainer" instance=ExtResource("2_qfu54")]
+layout_mode = 2
+
+[node name="tile_background12" parent="Control/GridContainer" instance=ExtResource("2_qfu54")]
+layout_mode = 2
+
+[node name="tile_background13" parent="Control/GridContainer" instance=ExtResource("2_qfu54")]
+layout_mode = 2
+
+[node name="tile_background14" parent="Control/GridContainer" instance=ExtResource("2_qfu54")]
+layout_mode = 2
+
+[node name="tile_background15" parent="Control/GridContainer" instance=ExtResource("2_qfu54")]
+layout_mode = 2
+
+[node name="tile_background16" parent="Control/GridContainer" instance=ExtResource("2_qfu54")]
+layout_mode = 2
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Cat_O" parent="." instance=ExtResource("3_myq2q")]
+position = Vector2(-762, 408)
+
+[node name="Cat_L" parent="." instance=ExtResource("4_12sys")]
+position = Vector2(-773, 85)
+collision_mask = 2

@@ -1,0 +1,370 @@
+[gd_scene load_steps=2 format=3 uid="uid://eugrtkidm7yc"]
+
+[ext_resource type="PackedScene" uid="uid://q1ij6djenla5" path="res://Scenes/Tile/tile_background.tscn" id="1_dwh7b"]
+
+[node name="Level_14x8_tile" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -176.0
+offset_top = -176.0
+offset_right = 176.0
+offset_bottom = 176.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 14
+
+[node name="tile_background" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background2" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background3" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background4" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background5" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background6" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background7" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background8" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background9" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background10" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background11" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background12" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background13" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background14" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background15" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background16" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background17" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background18" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background19" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background20" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background21" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background22" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background23" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background24" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background25" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background26" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background27" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background28" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background29" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background30" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background31" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background32" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background33" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background34" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background35" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background36" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background37" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background38" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background39" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background40" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background41" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background42" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background43" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background44" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background45" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background46" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background47" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background48" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background49" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background50" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background51" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background52" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background53" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background54" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background55" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background56" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background57" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background58" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background59" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background60" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background61" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background62" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background63" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background64" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background65" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background66" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background67" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background68" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background69" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background70" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background71" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background72" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background73" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background74" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background75" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background76" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background77" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background78" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background79" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background80" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background81" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background82" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background83" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background84" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background85" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background86" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background87" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background88" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background89" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background90" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background91" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background92" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background93" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background94" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background95" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background96" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background97" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background98" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background99" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background100" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background101" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background102" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background103" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background104" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background105" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background106" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background107" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background108" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background109" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background110" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background111" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
+
+[node name="tile_background112" parent="Control/GridContainer" instance=ExtResource("1_dwh7b")]
+layout_mode = 2
