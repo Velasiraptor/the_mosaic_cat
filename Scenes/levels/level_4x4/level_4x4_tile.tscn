@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bifgr83jy5dk"]
+[gd_scene load_steps=3 format=3 uid="uid://bifgr83jy5dk"]
 
+[ext_resource type="PackedScene" uid="uid://cwufwpe34ve16" path="res://Scenes/Cat_spawner/cat_spawner.tscn" id="2_343iw"]
 [ext_resource type="PackedScene" uid="uid://q1ij6djenla5" path="res://Scenes/Tile/tile_background.tscn" id="2_qfu54"]
-[ext_resource type="PackedScene" uid="uid://dfl8qsacj4yvt" path="res://Scenes/Cats/Сat_o/cat_O.tscn" id="3_myq2q"]
-[ext_resource type="PackedScene" uid="uid://cnoa61fj4cwwk" path="res://Scenes/Cats/Cat_L/cat_L.tscn" id="4_12sys"]
 
 [node name="Level_4x4_tile" type="Node2D"]
 
@@ -84,9 +83,5 @@ layout_mode = 2
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="Cat_O" parent="." instance=ExtResource("3_myq2q")]
-position = Vector2(-762, 408)
-
-[node name="Cat_L" parent="." instance=ExtResource("4_12sys")]
-position = Vector2(-773, 85)
-collision_mask = 2
+[node name="Cat_spawner" parent="." instance=ExtResource("2_343iw")]
+position = Vector2(-684, -240)

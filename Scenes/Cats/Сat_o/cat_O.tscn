@@ -10,7 +10,7 @@ size = Vector2(160, 160)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_josus"]
 size = Vector2(100, 100)
 
-[node name="Cat_O" type="CharacterBody2D"]
+[node name="Cat_O" type="CharacterBody2D" groups=["Spawner"]]
 collision_mask = 0
 input_pickable = true
 script = ExtResource("1_q65ix")

@@ -15,16 +15,14 @@ var start_position := Vector2()
 var dragging = false  # Флаг перетаскивания
 var drag_offset = Vector2()  # Смещение между объектом и мышью
 
-
 signal dragsignal  # Сигнал для начала/остановки перетаскивания
 
 func _ready():
 	# Подключаем сигнал с использованием Callable
 	connect("dragsignal", Callable(self, "_set_drag_pc"))
-	start_position = global_position
 	rotation_degrees = 0
-	
-	
+	#start_position = global_position
+
 
 func _process(delta):
 	if dragging and active:
@@ -43,6 +41,8 @@ func _on_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			emit_signal("dragsignal")  # Начало перетаскивания
+			if position == get_parent().position:
+				get_tree().call_group("Spawner", "count_cat_minus") # Вычитаем надпись у спаунера
 			collision_touch.scale = Vector2(4, 4)
 			sprite_cat_o.z_index = 1
 		elif event.button_index == MOUSE_BUTTON_LEFT and !event.pressed:
@@ -52,13 +52,12 @@ func _on_input_event(viewport, event, shape_idx):
 				sprite_cat_o.z_index = 0
 				if count_tile_in_cat != 0:
 					self.position = start_position # Возвращение к стартовой позиции
+					get_tree().call_group("Spawner", "count_cat_plus") # Прибавляем надпись у спаунера
 					rotation_degrees = 0
 					await  get_tree().create_timer(0.2).timeout
 					count_tile_in_cat = full_tiles 
 				elif count_tile_in_cat == 0:
-					var mousepos = get_viewport().get_mouse_position()
-					var snapped_position = snap_to_grid(mousepos - drag_offset)
-					self.position = snapped_position
+					self.global_position = snap_to_grid(self.global_position)
 
 
 func cat_completed_minus():
@@ -76,4 +75,6 @@ func snap_to_grid(position: Vector2) -> Vector2:
 func rotate_cat_button():
 	if Input.is_action_just_pressed("rotate_cat"):
 		rotation_degrees += 90
-	
+
+func get_start_position(): #Принимаем позицию спаунера
+	start_position = get_parent().position
