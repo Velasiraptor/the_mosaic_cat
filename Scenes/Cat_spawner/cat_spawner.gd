@@ -35,15 +35,18 @@ func get_cat(texture_cat, scene_cat, max_count: int):
 	for i in max_count:
 		data_cat[i].get_start_position()
 
-func check_pickable_cats(): # ЗДЕСЬ ОШИБКА!!
-	if count != 0:
-		for i in count:
-			if i == 0:
-				data_cat[i].input_pickable = true
-			elif data_cat[i].global_position != position:  # ИМЕННО ЗДЕСЬ ОШИБКА!! Он берет его 2 раза
-				data_cat[i].input_pickable = true
-			elif data_cat[i].global_position == position:
-				data_cat[i].input_pickable = false
+func check_pickable_cats(): # ЗДЕСЬ ОШИБКА ИЗ-ЗА ТОГО, ЧТО COUNT МЕНЬШЕ ЧЕМ ВСЕГО КОТОВ!!
+	for i in max_count: 
+		if data_cat[i].global_position != position:
+			data_cat[i].input_pickable = true
+		else:
+			data_cat[i].input_pickable = false
+	for i in max_count:
+		if data_cat[i].global_position == position:
+			data_cat[i].input_pickable = true
+			break
+		
+
 
 
 func count_cat_minus(): # Убавляем кол-во котов
@@ -53,10 +56,11 @@ func count_cat_minus(): # Убавляем кол-во котов
 		data_cat.remove_at(0)
 		count -= 1 
 		label_count.text = str(count)
-		check_pickable_cats()
-		
+
 func count_cat_plus(): # Прибавляем кол-во котов
 	if count != max_count: 
+		var cat_index_end = data_cat[-1]
+		data_cat.push_front(cat_index_end)
+		data_cat.remove_at(max_count)
 		count += 1
 		label_count.text = str(count)
-		check_pickable_cats()

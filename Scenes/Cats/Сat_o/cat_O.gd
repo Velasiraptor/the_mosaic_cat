@@ -53,11 +53,13 @@ func _on_input_event(viewport, event, shape_idx):
 				if count_tile_in_cat != 0:
 					self.position = start_position # Возвращение к стартовой позиции
 					get_tree().call_group("Spawner", "count_cat_plus") # Прибавляем надпись у спаунера
+					get_tree().call_group("Spawner", "check_pickable_cats")
 					rotation_degrees = 0
 					await  get_tree().create_timer(0.2).timeout
 					count_tile_in_cat = full_tiles 
 				elif count_tile_in_cat == 0:
 					self.global_position = snap_to_grid(self.global_position)
+					get_tree().call_group("Spawner", "check_pickable_cats")
 
 
 func cat_completed_minus():
