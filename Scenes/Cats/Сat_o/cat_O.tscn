@@ -54,7 +54,7 @@ animations = [{
 "texture": ExtResource("3_kkaq3")
 }],
 "loop": true,
-"name": &"Cat_O_move",
+"name": &"Cat_O_move_Classic",
 "speed": 8.0
 }]
 
@@ -64,7 +64,7 @@ size = Vector2(160, 160)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_josus"]
 size = Vector2(100, 100)
 
-[node name="Cat_O" type="CharacterBody2D" groups=["Spawner"]]
+[node name="Cat_O" type="CharacterBody2D"]
 collision_mask = 0
 input_pickable = true
 script = ExtResource("1_q65ix")
@@ -79,7 +79,7 @@ unique_name_in_owner = true
 position = Vector2(-4, 53)
 scale = Vector2(0.9, 0.9)
 sprite_frames = SubResource("SpriteFrames_nnhjx")
-animation = &"Cat_O_move"
+animation = &"Cat_O_move_Classic"
 
 [node name="ColorRect" type="ColorRect" parent="Cat_O_animation"]
 show_behind_parent = true
