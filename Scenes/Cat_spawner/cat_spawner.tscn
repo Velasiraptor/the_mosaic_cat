@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cwufwpe34ve16"]
 
 [ext_resource type="Script" path="res://Scenes/Cat_spawner/cat_spawner.gd" id="1_5j1pp"]
-[ext_resource type="Texture2D" uid="uid://dxfifx8dgewtn" path="res://Sprites/Cats/Cat_O.png" id="2_3dlth"]
+[ext_resource type="Texture2D" uid="uid://dxfifx8dgewtn" path="res://Sprites/Cats/Cat_O/Cat_O.png" id="2_3dlth"]
 
 [node name="Cat_spawner" type="Node2D" groups=["Spawner"]]
 script = ExtResource("1_5j1pp")

@@ -9,6 +9,8 @@ extends CharacterBody2D
 @onready var sprite_cat_o = %Sprite_Cat_O
 @onready var collision_touch = %Collision_touch
 
+@onready var cat_o_animation = %Cat_O_animation
+
 
 var start_position := Vector2()
 
@@ -22,6 +24,9 @@ func _ready():
 	connect("dragsignal", Callable(self, "_set_drag_pc"))
 	rotation_degrees = 0
 	#start_position = global_position
+	sprite_cat_o.visible = true
+	cat_o_animation.visible = false
+	cat_o_animation.stop()
 
 
 func _process(delta):
@@ -41,15 +46,29 @@ func _on_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			emit_signal("dragsignal")  # Начало перетаскивания
+			
+			#анимация
+			sprite_cat_o.visible = false
+			cat_o_animation.visible = true
+			cat_o_animation.play()
+			
 			if position == get_parent().position:
 				get_tree().call_group("Spawner", "count_cat_minus") # Вычитаем надпись у спаунера
 			collision_touch.scale = Vector2(4, 4)
 			sprite_cat_o.z_index = 1
+			cat_o_animation.z_index = 1
 		elif event.button_index == MOUSE_BUTTON_LEFT and !event.pressed:
 			if dragging:
 				emit_signal("dragsignal")  # Окончание перетаскивания
+				
+				#анимация
+				sprite_cat_o.visible = true
+				cat_o_animation.visible = false
+				cat_o_animation.stop()
+				
 				collision_touch.scale = Vector2(1, 1)
 				sprite_cat_o.z_index = 0
+				cat_o_animation.z_index = 0
 				if count_tile_in_cat != 0:
 					self.position = start_position # Возвращение к стартовой позиции
 					get_tree().call_group("Spawner", "count_cat_plus") # Прибавляем надпись у спаунера
@@ -77,6 +96,10 @@ func snap_to_grid(position: Vector2) -> Vector2:
 func rotate_cat_button():
 	if Input.is_action_just_pressed("rotate_cat"):
 		rotation_degrees += 90
+		sprite_cat_o.visible = true
+		cat_o_animation.visible = false
+		cat_o_animation.stop()
+		
 
 func get_start_position(): #Принимаем позицию спаунера
 	start_position = get_parent().position
