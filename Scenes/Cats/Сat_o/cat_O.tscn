@@ -89,6 +89,7 @@ offset_top = -146.667
 offset_right = 92.6667
 offset_bottom = 29.3333
 color = Color(0.0705882, 0.0705882, 0.0705882, 0.129412)
+metadata/_edit_use_anchors_ = true
 
 [node name="Collision_touch" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true
@@ -96,11 +97,12 @@ shape = SubResource("RectangleShape2D_fdcig")
 debug_color = Color(0.652468, 0.507776, 0.299182, 0.42)
 
 [node name="Skeleton_cat" type="CharacterBody2D" parent="."]
+unique_name_in_owner = true
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("3_m2d28")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Skeleton_cat"]
+[node name="CollisionShape2D_skeleton" type="CollisionShape2D" parent="Skeleton_cat"]
 shape = SubResource("RectangleShape2D_josus")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]

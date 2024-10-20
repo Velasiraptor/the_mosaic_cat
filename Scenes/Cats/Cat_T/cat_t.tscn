@@ -1,0 +1,120 @@
+[gd_scene load_steps=13 format=3 uid="uid://ccwidcn74jcf0"]
+
+[ext_resource type="Texture2D" uid="uid://qtoja1y3gioq" path="res://Sprites/Cats/Cat_T/Cat_T.png" id="1_evnvg"]
+[ext_resource type="Script" path="res://Scenes/Cats/Cat_T/cat_t.gd" id="1_obdpc"]
+[ext_resource type="Texture2D" uid="uid://b6o4mjm4r3w7e" path="res://Sprites/Cats/Cat_T/Cat_T_0.png" id="3_hg7qq"]
+[ext_resource type="Texture2D" uid="uid://bnll6l730mbxi" path="res://Sprites/Cats/Cat_T/Cat_T_1_5.png" id="4_jbyam"]
+[ext_resource type="Texture2D" uid="uid://ccwwrkn4gkflo" path="res://Sprites/Cats/Cat_T/Cat_T_2_4.png" id="5_wxvi4"]
+[ext_resource type="Script" path="res://Scenes/Cats/Сat_o/skeleton_cat.gd" id="6_0de5v"]
+[ext_resource type="Texture2D" uid="uid://dsv1hf8a6rni4" path="res://Sprites/Cats/Cat_T/Cat_T_3.png" id="6_r0qjt"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gkhyp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_hg7qq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_jbyam")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_wxvi4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_r0qjt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_wxvi4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_jbyam")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_jbyam")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_jbyam")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_jbyam")
+}],
+"loop": true,
+"name": &"Cat_T_move_Classic",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t68lm"]
+size = Vector2(261, 92)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_le2b7"]
+size = Vector2(92.5, 92)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nprqf"]
+size = Vector2(152, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3xic2"]
+size = Vector2(75, 9.5)
+
+[node name="Cat_T" type="CharacterBody2D"]
+script = ExtResource("1_obdpc")
+
+[node name="Sprite_Cat_T" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(44, 0)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_evnvg")
+
+[node name="Cat_T_animation" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(40, 17)
+scale = Vector2(0.9, 0.9)
+sprite_frames = SubResource("SpriteFrames_gkhyp")
+animation = &"Cat_T_move_Classic"
+
+[node name="ColorRect" type="ColorRect" parent="Cat_T_animation"]
+show_behind_parent = true
+custom_minimum_size = Vector2(96.8, 96.8)
+offset_left = -45.5556
+offset_top = -117.778
+offset_right = 51.2444
+offset_bottom = -20.9778
+color = Color(0.0705882, 0.0705882, 0.0705882, 0.129412)
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect2" type="ColorRect" parent="Cat_T_animation"]
+show_behind_parent = true
+custom_minimum_size = Vector2(290.4, 96.8)
+offset_left = -140.223
+offset_top = -18.8891
+offset_right = 150.177
+offset_bottom = 77.9109
+color = Color(0.0705882, 0.0705882, 0.0705882, 0.129412)
+metadata/_edit_use_anchors_ = true
+
+[node name="Collision_touch" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(44.5, 43)
+shape = SubResource("RectangleShape2D_t68lm")
+debug_color = Color(0.652468, 0.507776, 0.299182, 0.42)
+
+[node name="Collision_touch2" type="CollisionShape2D" parent="."]
+position = Vector2(43.75, -43)
+shape = SubResource("RectangleShape2D_le2b7")
+debug_color = Color(0.652468, 0.507776, 0.299182, 0.42)
+
+[node name="Skeleton_cat" type="CharacterBody2D" parent="."]
+position = Vector2(44, 0)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("6_0de5v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Skeleton_cat"]
+position = Vector2(0, 45.5)
+shape = SubResource("RectangleShape2D_nprqf")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Skeleton_cat"]
+position = Vector2(-0.250002, 7.5)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_3xic2")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ceaqjmqr5fp4v"]
 
-[ext_resource type="Script" path="res://Scenes/Cat_spawner/cat_spawner_cat_l.gd" id="1_87ssj"]
+[ext_resource type="Script" path="res://Scenes/Cat_spawner/Cat_L/cat_spawner_cat_L.gd" id="1_87ssj"]
 [ext_resource type="Texture2D" uid="uid://dextpm3l0g7w5" path="res://Sprites/Cats/Cat_L/Cat_L.png" id="2_tuqxt"]
 
 [node name="Cat_spawner_cat_L" type="Node2D" groups=["Spawner_Cat_L"]]
@@ -15,10 +15,10 @@ texture = ExtResource("2_tuqxt")
 
 [node name="Label_count" type="Label" parent="."]
 unique_name_in_owner = true
-offset_left = -18.0
-offset_top = 130.0
-offset_right = 22.0
-offset_bottom = 218.0
+offset_left = -51.0
+offset_top = 41.0
+offset_right = -11.0
+offset_bottom = 129.0
 theme_override_font_sizes/font_size = 64
 horizontal_alignment = 1
 vertical_alignment = 1

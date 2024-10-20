@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://l0j3vooxlpn0"]
+
+[ext_resource type="Texture2D" uid="uid://c3tid1hreexg0" path="res://Sprites/Cats/Cat_S/Cat_S.png" id="1_33nro"]
+[ext_resource type="Script" path="res://Scenes/Cat_spawner/Cat_S/cat_spawner_cat_s.gd" id="1_b2si7"]
+
+[node name="Cat_spawner_cat_S" type="Node2D" groups=["Spawner_Cat_S"]]
+script = ExtResource("1_b2si7")
+
+[node name="Sprite_cat" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+modulate = Color(0, 0, 0, 1)
+position = Vector2(44, 0)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_33nro")
+
+[node name="Label_count" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = 18.0
+offset_top = 90.0
+offset_right = 58.0
+offset_bottom = 178.0
+theme_override_font_sizes/font_size = 64
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Cats" type="Node2D" parent="."]
+unique_name_in_owner = true

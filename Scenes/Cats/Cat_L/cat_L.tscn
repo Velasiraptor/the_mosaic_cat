@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://c4g1typh3hasr"]
 
-[ext_resource type="Script" path="res://Scenes/Cats/Cat_L/cat_l.gd" id="1_2vq1f"]
+[ext_resource type="Script" path="res://Scenes/Cats/Cat_L/cat_L.gd" id="1_2vq1f"]
 [ext_resource type="Texture2D" uid="uid://dextpm3l0g7w5" path="res://Sprites/Cats/Cat_L/Cat_L.png" id="2_01d7n"]
 [ext_resource type="Script" path="res://Scenes/Cats/Сat_o/skeleton_cat.gd" id="2_22ast"]
 [ext_resource type="Texture2D" uid="uid://centjkw53oed1" path="res://Sprites/Cats/Cat_L/Cat_L_0_3.png" id="3_wfljc"]
@@ -33,11 +33,11 @@ size = Vector2(95, 89)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xg0d7"]
 size = Vector2(78, 258)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mo0mm"]
-size = Vector2(94, 10)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7sb8j"]
+size = Vector2(41, 9)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fn53n"]
-size = Vector2(10, 179)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dfn4i"]
+size = Vector2(4, 142)
 
 [node name="Cat_L" type="CharacterBody2D"]
 script = ExtResource("1_2vq1f")
@@ -50,7 +50,7 @@ texture = ExtResource("2_01d7n")
 
 [node name="Cat_L_animation" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(-4, 53)
+position = Vector2(-4, 62)
 scale = Vector2(0.9, 0.9)
 sprite_frames = SubResource("SpriteFrames_cikuh")
 animation = &"Cat_L_move_Classic"
@@ -60,9 +60,9 @@ frame_progress = 0.454229
 show_behind_parent = true
 custom_minimum_size = Vector2(88, 88)
 offset_left = -83.3333
-offset_top = -146.667
+offset_top = -157.778
 offset_right = 12.6667
-offset_bottom = -58.667
+offset_bottom = -69.7781
 color = Color(0.0705882, 0.0705882, 0.0705882, 0.129412)
 metadata/_edit_use_anchors_ = true
 
@@ -70,9 +70,9 @@ metadata/_edit_use_anchors_ = true
 show_behind_parent = true
 custom_minimum_size = Vector2(176, 88)
 offset_left = 101.111
-offset_top = -146.667
+offset_top = -157.778
 offset_right = 365.111
-offset_bottom = -58.667
+offset_bottom = -69.7782
 rotation = 1.5708
 color = Color(0.0705882, 0.0705882, 0.0705882, 0.129412)
 metadata/_edit_use_anchors_ = true
@@ -94,11 +94,11 @@ collision_mask = 2
 script = ExtResource("2_22ast")
 
 [node name="Collision_SH" type="CollisionShape2D" parent="Skeleton_cat"]
-position = Vector2(-1, -47)
-shape = SubResource("RectangleShape2D_mo0mm")
+position = Vector2(7.5, -47.5)
+shape = SubResource("RectangleShape2D_7sb8j")
 
 [node name="Collision_LL" type="CollisionShape2D" parent="Skeleton_cat"]
-position = Vector2(47, 37.5)
-shape = SubResource("RectangleShape2D_fn53n")
+position = Vector2(48, 50)
+shape = SubResource("RectangleShape2D_dfn4i")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]

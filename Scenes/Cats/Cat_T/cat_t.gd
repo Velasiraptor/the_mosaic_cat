@@ -6,10 +6,10 @@ extends CharacterBody2D
 @export var grid_size = 88
 
 
-@onready var sprite_cat_l = %Sprite_Cat_L
+@onready var sprite_cat_t = %Sprite_Cat_T
 @onready var collision_touch = %Collision_touch
 
-@onready var cat_l_animation = %Cat_L_animation
+@onready var cat_t_animation = %Cat_T_animation
 
 
 var start_position := Vector2()
@@ -24,9 +24,9 @@ func _ready():
 	connect("dragsignal", Callable(self, "_set_drag_pc"))
 	rotation_degrees = 0
 	#start_position = global_position
-	sprite_cat_l.visible = true
-	cat_l_animation.visible = false
-	cat_l_animation.stop()
+	sprite_cat_t.visible = true
+	cat_t_animation.visible = false
+	cat_t_animation.stop()
 
 
 func _process(delta):
@@ -50,37 +50,37 @@ func _on_input_event(viewport, event, shape_idx):
 			dragging = true
 			
 			#анимация
-			sprite_cat_l.visible = false
-			cat_l_animation.visible = true
-			cat_l_animation.play()
+			sprite_cat_t.visible = false
+			cat_t_animation.visible = true
+			cat_t_animation.play()
 			
 			if abs(position.x - get_parent().position.x) <= 88 and abs(position.y - get_parent().position.y) <= 88:
-				get_tree().call_group("Spawner_Cat_L", "count_cat_minus") # Вычитаем надпись у спаунера
+				get_tree().call_group("Spawner_Cat_T", "count_cat_minus") # Вычитаем надпись у спаунера
 			collision_touch.scale = Vector2(4, 4)
-			sprite_cat_l.z_index = 1
-			cat_l_animation.z_index = 1
+			sprite_cat_t.z_index = 1
+			cat_t_animation.z_index = 1
 		elif !event.pressed and dragging:
 			emit_signal("dragsignal")  # Окончание перетаскивания
 			dragging = false
 			
 			#анимация
-			sprite_cat_l.visible = true
-			cat_l_animation.visible = false
-			cat_l_animation.stop()
+			sprite_cat_t.visible = true
+			cat_t_animation.visible = false
+			cat_t_animation.stop()
 			
 			collision_touch.scale = Vector2(1, 1)
-			sprite_cat_l.z_index = 0
-			cat_l_animation.z_index = 0
+			sprite_cat_t.z_index = 0
+			cat_t_animation.z_index = 0
 			if count_tile_in_cat != 0:
 				self.position = start_position # Возвращение к стартовой позиции
-				get_tree().call_group("Spawner_Cat_L", "count_cat_plus") # Прибавляем надпись у спаунера
-				get_tree().call_group("Spawner_Cat_L", "check_pickable_cats")
+				get_tree().call_group("Spawner_Cat_T", "count_cat_plus") # Прибавляем надпись у спаунера
+				get_tree().call_group("Spawner_Cat_T", "check_pickable_cats")
 				rotation_degrees = 0
-				await  get_tree().create_timer(0.1).timeout
+				await  get_tree().create_timer(0.2).timeout
 				count_tile_in_cat = full_tiles 
 			elif count_tile_in_cat == 0:
 				self.global_position = snap_to_grid(self.global_position)
-				get_tree().call_group("Spawner_Cat_L", "check_pickable_cats")
+				get_tree().call_group("Spawner_Cat_T", "check_pickable_cats")
 
 
 func cat_completed_minus():
@@ -98,15 +98,9 @@ func snap_to_grid(position: Vector2) -> Vector2:
 func rotate_cat_button():
 	if Input.is_action_just_pressed("rotate_cat"):
 		rotation_degrees += 90
-		
-		var mousepos = get_viewport().get_mouse_position()
-		self.global_position = get_global_mouse_position()
-		drag_offset = mousepos - self.position  # Рассчитываем смещение при начале перетаскивания
-		
-		
-		sprite_cat_l.visible = true
-		cat_l_animation.visible = false
-		cat_l_animation.stop()
+		sprite_cat_t.visible = true
+		cat_t_animation.visible = false
+		cat_t_animation.stop()
 		
 
 func get_start_position(): #Принимаем позицию спаунера

@@ -1,0 +1,72 @@
+[gd_scene load_steps=9 format=3 uid="uid://bb11ua6fqlwxu"]
+
+[ext_resource type="Script" path="res://Scenes/Cats/Cat_ONE/cat_one.gd" id="1_72l7s"]
+[ext_resource type="Texture2D" uid="uid://bs33sy33jeqxj" path="res://Sprites/Cats/Cat_ONE/Cat_One.png" id="1_myklk"]
+[ext_resource type="Texture2D" uid="uid://g3ssogc3tssp" path="res://Sprites/Cats/Cat_ONE/Cat_ONE_0.png" id="2_wm5rj"]
+[ext_resource type="Texture2D" uid="uid://dfrhs1n8l1ejx" path="res://Sprites/Cats/Cat_ONE/Cat_ONE_1.png" id="3_eyl5b"]
+[ext_resource type="Script" path="res://Scenes/Cats/Сat_o/skeleton_cat.gd" id="6_m256g"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_do31e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_wm5rj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_eyl5b")
+}],
+"loop": true,
+"name": &"Cat_ONE_move_Classic",
+"speed": 3.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ghmd"]
+size = Vector2(88, 88)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gpcn0"]
+size = Vector2(5, 5)
+
+[node name="Cat_ONE" type="CharacterBody2D"]
+script = ExtResource("1_72l7s")
+
+[node name="Sprite_Cat_ONE" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(44, -44)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_myklk")
+
+[node name="Cat_ONE_animation" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(44, -46)
+scale = Vector2(0.9, 0.9)
+sprite_frames = SubResource("SpriteFrames_do31e")
+animation = &"Cat_ONE_move_Classic"
+frame_progress = 0.0601988
+
+[node name="ColorRect" type="ColorRect" parent="Cat_ONE_animation"]
+show_behind_parent = true
+custom_minimum_size = Vector2(96.8, 96.8)
+offset_left = -48.4444
+offset_top = -46.2222
+offset_right = 48.3556
+offset_bottom = 50.5779
+color = Color(0.0705882, 0.0705882, 0.0705882, 0.129412)
+metadata/_edit_use_anchors_ = true
+
+[node name="Collision_touch" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(44, -44)
+shape = SubResource("RectangleShape2D_3ghmd")
+debug_color = Color(0.652468, 0.507776, 0.299182, 0.42)
+
+[node name="Skeleton_cat" type="CharacterBody2D" parent="."]
+position = Vector2(44, -44)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("6_m256g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Skeleton_cat"]
+position = Vector2(-4, -4)
+shape = SubResource("RectangleShape2D_gpcn0")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
