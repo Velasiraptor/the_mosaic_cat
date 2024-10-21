@@ -1,16 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://bifgr83jy5dk"]
+[gd_scene load_steps=4 format=3 uid="uid://bifgr83jy5dk"]
 
-[ext_resource type="PackedScene" uid="uid://cwufwpe34ve16" path="res://Scenes/Cat_spawner/Cat_o/cat_spawner_cat_o.tscn" id="2_343iw"]
+[ext_resource type="Script" path="res://Scenes/levels/level_4x4/level_4x_4_tile.gd" id="1_mso84"]
 [ext_resource type="PackedScene" uid="uid://q1ij6djenla5" path="res://Scenes/Tile/tile_background.tscn" id="2_qfu54"]
-[ext_resource type="PackedScene" uid="uid://ceaqjmqr5fp4v" path="res://Scenes/Cat_spawner/Cat_L/cat_spawner_cat_L.tscn" id="3_wgo6t"]
-[ext_resource type="PackedScene" uid="uid://lynuq3humkow" path="res://Scenes/Cat_spawner/Cat_Z/cat_spawner_cat_z.tscn" id="4_4fyyj"]
-[ext_resource type="PackedScene" uid="uid://l0j3vooxlpn0" path="res://Scenes/Cat_spawner/Cat_S/cat_spawner_cat_s.tscn" id="5_jfril"]
-[ext_resource type="PackedScene" uid="uid://cckdunq4vb5ib" path="res://Scenes/Cat_spawner/Cat_J/cat_spawner_cat_j.tscn" id="6_rdjua"]
-[ext_resource type="PackedScene" uid="uid://cjj0xt6de1wcx" path="res://Scenes/Cat_spawner/Cat_I/cat_spawner_cat_i.tscn" id="7_0epd2"]
-[ext_resource type="PackedScene" uid="uid://dd2bxp3hmuia0" path="res://Scenes/Cat_spawner/Cat_T/cat_spawner_cat_t.tscn" id="8_qde6t"]
-[ext_resource type="PackedScene" uid="uid://1p3a81nsv7tg" path="res://Scenes/Cat_spawner/Cat_ONE/cat_spawner_cat_one.tscn" id="9_iwpty"]
+[ext_resource type="Texture2D" uid="uid://c3iosvvivwx2y" path="res://icon.svg" id="3_kt3ao"]
 
 [node name="Level_4x4_tile" type="Node2D"]
+script = ExtResource("1_mso84")
 
 [node name="Backgrounds" type="CanvasLayer" parent="."]
 layer = -100
@@ -103,26 +98,60 @@ layout_mode = 2
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="Cat_spawner_cat_o" parent="." instance=ExtResource("2_343iw")]
-position = Vector2(-794, -396)
+[node name="Container_spawn_1" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-768, -371)
 
-[node name="Cat_spawner_cat_L" parent="." instance=ExtResource("3_wgo6t")]
-position = Vector2(-794, -121)
+[node name="Container_spawn_2" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-768, -40)
 
-[node name="Cat_spawner_cat_Z" parent="." instance=ExtResource("4_4fyyj")]
-position = Vector2(-794, 187)
+[node name="Container_spawn_3" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-768, 324)
 
-[node name="Cat_spawner_cat_S" parent="." instance=ExtResource("5_jfril")]
-position = Vector2(-458, -393)
+[node name="Container_spawn_4" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(784, -371)
 
-[node name="Cat_spawner_cat_J" parent="." instance=ExtResource("6_rdjua")]
-position = Vector2(781, -410)
+[node name="Container_spawn_5" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(784, -40)
 
-[node name="Cat_spawner_cat_I" parent="." instance=ExtResource("7_0epd2")]
-position = Vector2(732, -6)
+[node name="Container_spawn_6" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(784, 324)
 
-[node name="Cat_spawner_cat_T" parent="." instance=ExtResource("8_qde6t")]
-position = Vector2(725, 352)
+[node name="Button_RESTART" type="Button" parent="."]
+custom_minimum_size = Vector2(100, 100)
+offset_left = -169.0
+offset_top = 329.0
+offset_right = -69.0
+offset_bottom = 429.0
+text = "RESTART"
 
-[node name="Cat_spawner_cat_ONE" parent="." instance=ExtResource("9_iwpty")]
-position = Vector2(526, 322)
+[node name="Button_ROTATE" type="TouchScreenButton" parent="."]
+modulate = Color(0.427451, 0.756863, 0, 0)
+position = Vector2(7, 286)
+scale = Vector2(2.25, 1.3)
+texture_normal = ExtResource("3_kt3ao")
+action = "rotate_cat"
+
+[node name="Button_ROTATE2" type="TouchScreenButton" parent="Button_ROTATE"]
+modulate = Color(0.427451, 0.756863, 0, 0)
+position = Vector2(98.2222, -613.077)
+scale = Vector2(1.34375, 5.97957)
+texture_normal = ExtResource("3_kt3ao")
+action = "rotate_cat"
+
+[node name="Button_ROTATE3" type="TouchScreenButton" parent="Button_ROTATE"]
+modulate = Color(0.427451, 0.756863, 0, 0)
+position = Vector2(-269.777, -613.077)
+scale = Vector2(1.34375, 5.97957)
+texture_normal = ExtResource("3_kt3ao")
+action = "rotate_cat"
+
+[node name="Cats" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[connection signal="pressed" from="Button_RESTART" to="." method="_on_button_pressed"]

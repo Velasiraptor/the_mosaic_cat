@@ -27,6 +27,7 @@ func _ready():
 	sprite_cat_one.visible = true
 	cat_one_animation.visible = false
 	cat_one_animation.stop()
+	collision_touch.scale = Vector2(2, 2)
 
 
 func _process(delta):
@@ -75,6 +76,7 @@ func _on_input_event(viewport, event, shape_idx):
 				self.position = start_position # Возвращение к стартовой позиции
 				get_tree().call_group("Spawner_Cat_ONE", "count_cat_plus") # Прибавляем надпись у спаунера
 				get_tree().call_group("Spawner_Cat_ONE", "check_pickable_cats")
+				collision_touch.scale = Vector2(2, 2)
 				sprite_cat_one.rotation_degrees = 0
 				cat_one_animation.rotation_degrees = 0
 				await  get_tree().create_timer(0.2).timeout

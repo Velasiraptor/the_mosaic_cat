@@ -14,7 +14,7 @@ var count := 0
 var data_cat := []
 
 func _ready():
-	get_cat(texture_cat, scene_cat, max_count)
+	get_cat(max_count)
 	check_pickable_cats()
 
 func _process(delta):
@@ -25,8 +25,7 @@ func _process(delta):
 	
 
 # Принимает текстуру Кота, который будет создан, сцену и кол-во
-func get_cat(texture_cat, scene_cat, max_count: int): 
-	sprite_cat.texture = texture_cat
+func get_cat(max_count: int): 
 	count = max_count
 	label_count.text = str(max_count)
 	for i in max_count:
