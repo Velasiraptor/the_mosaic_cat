@@ -1,8 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://bifgr83jy5dk"]
+[gd_scene load_steps=7 format=3 uid="uid://bifgr83jy5dk"]
 
 [ext_resource type="Script" path="res://Scenes/levels/level_4x4/level_4x_4_tile.gd" id="1_mso84"]
 [ext_resource type="PackedScene" uid="uid://q1ij6djenla5" path="res://Scenes/Tile/tile_background.tscn" id="2_qfu54"]
 [ext_resource type="Texture2D" uid="uid://c3iosvvivwx2y" path="res://icon.svg" id="3_kt3ao"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qyju3"]
+load_path = "res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_go44y"]
+load_path = "res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3dl7w"]
+load_path = "res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"
 
 [node name="Level_4x4_tile" type="Node2D"]
 script = ExtResource("1_mso84")
@@ -132,23 +141,37 @@ text = "RESTART"
 
 [node name="Button_ROTATE" type="TouchScreenButton" parent="."]
 modulate = Color(0.427451, 0.756863, 0, 0)
-position = Vector2(7, 286)
-scale = Vector2(2.25, 1.3)
+position = Vector2(7, 210)
+scale = Vector2(3.27344, 2.92188)
 texture_normal = ExtResource("3_kt3ao")
 action = "rotate_cat"
 
 [node name="Button_ROTATE2" type="TouchScreenButton" parent="Button_ROTATE"]
 modulate = Color(0.427451, 0.756863, 0, 0)
-position = Vector2(98.2222, -613.077)
-scale = Vector2(1.34375, 5.97957)
-texture_normal = ExtResource("3_kt3ao")
+position = Vector2(58.043, -286.46)
+scale = Vector2(1.1074, 3.45722)
+texture_normal = SubResource("CompressedTexture2D_qyju3")
 action = "rotate_cat"
 
 [node name="Button_ROTATE3" type="TouchScreenButton" parent="Button_ROTATE"]
 modulate = Color(0.427451, 0.756863, 0, 0)
-position = Vector2(-269.777, -613.077)
-scale = Vector2(1.34375, 5.97957)
-texture_normal = ExtResource("3_kt3ao")
+position = Vector2(-192.764, -286.802)
+scale = Vector2(0.98568, 3.43055)
+texture_normal = SubResource("CompressedTexture2D_go44y")
+action = "rotate_cat"
+
+[node name="Button_ROTATE4" type="TouchScreenButton" parent="Button_ROTATE"]
+modulate = Color(0.427451, 0.756863, 0, 0)
+position = Vector2(-491.227, -295.016)
+scale = Vector2(1.64439, 3.43055)
+texture_normal = SubResource("CompressedTexture2D_3dl7w")
+action = "rotate_cat"
+
+[node name="Button_ROTATE5" type="TouchScreenButton" parent="Button_ROTATE"]
+modulate = Color(0.427451, 0.756863, 0, 0)
+position = Vector2(277.69, -290.909)
+scale = Vector2(1.64439, 3.43055)
+texture_normal = SubResource("CompressedTexture2D_3dl7w")
 action = "rotate_cat"
 
 [node name="Cats" type="Node2D" parent="."]

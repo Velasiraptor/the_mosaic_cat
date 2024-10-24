@@ -39,7 +39,7 @@ func _set_drag_pc():
 	dragging = !dragging
 	if dragging:
 		var mousepos = get_viewport().get_mouse_position()
-		self.global_position = get_global_mouse_position() - Vector2(44, 0)
+		self.global_position = get_global_mouse_position() - Vector2(44, 0) #+ Vector2(0, -264) #для телефона
 		drag_offset = mousepos - self.position  # Рассчитываем смещение при начале перетаскивания
 
 
@@ -54,9 +54,9 @@ func _on_input_event(viewport, event, shape_idx):
 			cat_t_animation.visible = true
 			cat_t_animation.play()
 			
-			if abs(position.x - get_parent().position.x) <= 88 and abs(position.y - get_parent().position.y) <= 88:
+			if abs(position.x - get_parent().position.x) <= 270 and abs(position.y - get_parent().position.y) <= 270:
 				get_tree().call_group("Spawner_Cat_T", "count_cat_minus") # Вычитаем надпись у спаунера
-			collision_touch.scale = Vector2(4, 4)
+			collision_touch.scale = Vector2(8, 8)
 			sprite_cat_t.z_index = 1
 			cat_t_animation.z_index = 1
 		elif !event.pressed and dragging:
