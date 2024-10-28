@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ccwidcn74jcf0"]
+[gd_scene load_steps=15 format=3 uid="uid://ccwidcn74jcf0"]
 
 [ext_resource type="Texture2D" uid="uid://qtoja1y3gioq" path="res://Sprites/Cats/Cat_T/Cat_T.png" id="1_evnvg"]
 [ext_resource type="Script" path="res://Scenes/Cats/Cat_T/cat_t.gd" id="1_obdpc"]
@@ -44,13 +44,19 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t68lm"]
-size = Vector2(261, 92)
+size = Vector2(254, 78)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_le2b7"]
-size = Vector2(92.5, 92)
+size = Vector2(77, 87)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nprqf"]
-size = Vector2(152, 9)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q0qx4"]
+size = Vector2(46, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_clhdv"]
+size = Vector2(60, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h6dw8"]
+size = Vector2(47, 9)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3xic2"]
 size = Vector2(75, 9.5)
@@ -93,12 +99,12 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Collision_touch" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(44.5, 43)
+position = Vector2(45, 42)
 shape = SubResource("RectangleShape2D_t68lm")
 debug_color = Color(0.652468, 0.507776, 0.299182, 0.42)
 
 [node name="Collision_touch2" type="CollisionShape2D" parent="."]
-position = Vector2(43.75, -43)
+position = Vector2(41.5, -40.5)
 shape = SubResource("RectangleShape2D_le2b7")
 debug_color = Color(0.652468, 0.507776, 0.299182, 0.42)
 
@@ -109,8 +115,16 @@ collision_mask = 2
 script = ExtResource("6_0de5v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Skeleton_cat"]
+position = Vector2(-53, 47.5)
+shape = SubResource("RectangleShape2D_q0qx4")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Skeleton_cat"]
 position = Vector2(0, 45.5)
-shape = SubResource("RectangleShape2D_nprqf")
+shape = SubResource("RectangleShape2D_clhdv")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Skeleton_cat"]
+position = Vector2(52.5, 43.5)
+shape = SubResource("RectangleShape2D_h6dw8")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Skeleton_cat"]
 position = Vector2(-0.250002, 7.5)

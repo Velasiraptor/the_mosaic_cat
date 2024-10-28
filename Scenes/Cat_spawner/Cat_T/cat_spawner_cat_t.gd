@@ -22,7 +22,6 @@ func _process(delta):
 		sprite_cat.modulate = "000000"
 	else:
 		sprite_cat.modulate = "ffffff"
-	
 
 # Принимает текстуру Кота, который будет создан, сцену и кол-во
 func get_cat(max_count: int): 
@@ -55,6 +54,7 @@ func count_cat_minus(): # Убавляем кол-во котов
 		data_cat.remove_at(0)
 		count -= 1 
 		label_count.text = str(count)
+
 
 func count_cat_plus(): # Прибавляем кол-во котов
 	if count != max_count: 

@@ -40,7 +40,7 @@ func _set_drag_pc():
 	dragging = !dragging
 	if dragging:
 		var mousepos = get_viewport().get_mouse_position()
-		self.global_position = get_global_mouse_position() + Vector2(-44, 44) # + Vector2(0, -176) #для телефона
+		self.global_position = get_global_mouse_position() + Vector2(-44, 44) + Vector2(0, -176) #для телефона
 		drag_offset = mousepos - self.position  # Рассчитываем смещение при начале перетаскивания
 
 
@@ -55,7 +55,7 @@ func _on_input_event(viewport, event, shape_idx):
 			cat_one_animation.visible = true
 			cat_one_animation.play()
 			
-			if abs(position.x - get_parent().position.x) <= 180 and abs(position.y - get_parent().position.y) <= 180:
+			if abs(position.x - get_parent().position.x) <= 400 and abs(position.y - get_parent().position.y) <= 400:
 				get_tree().call_group("Spawner_Cat_ONE", "count_cat_minus") # Вычитаем надпись у спаунера
 			collision_touch.scale = Vector2(6, 6)
 			sprite_cat_one.z_index = 1
@@ -79,11 +79,21 @@ func _on_input_event(viewport, event, shape_idx):
 				collision_touch.scale = Vector2(2, 2)
 				sprite_cat_one.rotation_degrees = 0
 				cat_one_animation.rotation_degrees = 0
-				await  get_tree().create_timer(0.2).timeout
+				await  get_tree().create_timer(0.05).timeout
 				count_tile_in_cat = full_tiles 
 			elif count_tile_in_cat == 0:
 				self.global_position = snap_to_grid(self.global_position)
 				get_tree().call_group("Spawner_Cat_ONE", "check_pickable_cats")
+				await get_tree().create_timer(0.2).timeout
+				if count_tile_in_cat != 0 and not dragging:
+					self.position = start_position # Возвращение к стартовой позиции
+					get_tree().call_group("Spawner_Cat_ONE", "count_cat_plus") # Прибавляем надпись у спаунера
+					get_tree().call_group("Spawner_Cat_ONE", "check_pickable_cats")
+					rotation_degrees = 0
+					collision_touch.scale = Vector2(2, 2)
+					await get_tree().create_timer(0.05).timeout
+					count_tile_in_cat = full_tiles 
+
 
 
 func cat_completed_minus():

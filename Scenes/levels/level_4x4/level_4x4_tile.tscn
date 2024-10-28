@@ -40,7 +40,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 
-[node name="GridContainer" type="GridContainer" parent="Control"]
+[node name="Playing_field" type="GridContainer" parent="Control"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -57,52 +57,52 @@ theme_override_constants/h_separation = 0
 theme_override_constants/v_separation = 0
 columns = 4
 
-[node name="tile_background" parent="Control/GridContainer" instance=ExtResource("2_qfu54")]
+[node name="tile_background" parent="Control/Playing_field" instance=ExtResource("2_qfu54")]
 layout_mode = 2
 
-[node name="tile_background2" parent="Control/GridContainer" instance=ExtResource("2_qfu54")]
+[node name="tile_background2" parent="Control/Playing_field" instance=ExtResource("2_qfu54")]
 layout_mode = 2
 
-[node name="tile_background3" parent="Control/GridContainer" instance=ExtResource("2_qfu54")]
+[node name="tile_background3" parent="Control/Playing_field" instance=ExtResource("2_qfu54")]
 layout_mode = 2
 
-[node name="tile_background4" parent="Control/GridContainer" instance=ExtResource("2_qfu54")]
+[node name="tile_background4" parent="Control/Playing_field" instance=ExtResource("2_qfu54")]
 layout_mode = 2
 
-[node name="tile_background5" parent="Control/GridContainer" instance=ExtResource("2_qfu54")]
+[node name="tile_background5" parent="Control/Playing_field" instance=ExtResource("2_qfu54")]
 layout_mode = 2
 
-[node name="tile_background6" parent="Control/GridContainer" instance=ExtResource("2_qfu54")]
+[node name="tile_background6" parent="Control/Playing_field" instance=ExtResource("2_qfu54")]
 layout_mode = 2
 
-[node name="tile_background7" parent="Control/GridContainer" instance=ExtResource("2_qfu54")]
+[node name="tile_background7" parent="Control/Playing_field" instance=ExtResource("2_qfu54")]
 layout_mode = 2
 
-[node name="tile_background8" parent="Control/GridContainer" instance=ExtResource("2_qfu54")]
+[node name="tile_background8" parent="Control/Playing_field" instance=ExtResource("2_qfu54")]
 layout_mode = 2
 
-[node name="tile_background9" parent="Control/GridContainer" instance=ExtResource("2_qfu54")]
+[node name="tile_background9" parent="Control/Playing_field" instance=ExtResource("2_qfu54")]
 layout_mode = 2
 
-[node name="tile_background10" parent="Control/GridContainer" instance=ExtResource("2_qfu54")]
+[node name="tile_background10" parent="Control/Playing_field" instance=ExtResource("2_qfu54")]
 layout_mode = 2
 
-[node name="tile_background11" parent="Control/GridContainer" instance=ExtResource("2_qfu54")]
+[node name="tile_background11" parent="Control/Playing_field" instance=ExtResource("2_qfu54")]
 layout_mode = 2
 
-[node name="tile_background12" parent="Control/GridContainer" instance=ExtResource("2_qfu54")]
+[node name="tile_background12" parent="Control/Playing_field" instance=ExtResource("2_qfu54")]
 layout_mode = 2
 
-[node name="tile_background13" parent="Control/GridContainer" instance=ExtResource("2_qfu54")]
+[node name="tile_background13" parent="Control/Playing_field" instance=ExtResource("2_qfu54")]
 layout_mode = 2
 
-[node name="tile_background14" parent="Control/GridContainer" instance=ExtResource("2_qfu54")]
+[node name="tile_background14" parent="Control/Playing_field" instance=ExtResource("2_qfu54")]
 layout_mode = 2
 
-[node name="tile_background15" parent="Control/GridContainer" instance=ExtResource("2_qfu54")]
+[node name="tile_background15" parent="Control/Playing_field" instance=ExtResource("2_qfu54")]
 layout_mode = 2
 
-[node name="tile_background16" parent="Control/GridContainer" instance=ExtResource("2_qfu54")]
+[node name="tile_background16" parent="Control/Playing_field" instance=ExtResource("2_qfu54")]
 layout_mode = 2
 
 [node name="Camera2D" type="Camera2D" parent="."]

@@ -49,69 +49,9 @@ func cat_good_combo_1():
 		cats_combo_1.append(new_cat)
 	randomize()
 	cats_combo_1.shuffle()
-	start_combo_1(cats_combo_1)
+	start_combo(cats_combo_1, 2, randi_range(1, 3),randi_range(1, 3), 2, randi_range(1, 3), \
+	randi_range(1, 3), randi_range(1, 3), randi_range(1, 3))
 
-
-# комбо 1
-func start_combo_1(actual_combo):
-	for i in 6:
-		var actual_spawner = ""
-		if i == 0:
-			actual_spawner = container_spawn_1
-		elif i == 1:
-			actual_spawner = container_spawn_2
-		elif i == 2:
-			actual_spawner = container_spawn_3
-		elif i == 3:
-			actual_spawner = container_spawn_4
-		elif i == 4:
-			actual_spawner = container_spawn_5
-		elif i == 5:
-			actual_spawner = container_spawn_6
-
-		if actual_combo[i] == "Cat_I":
-			var scene_new = preload("res://Scenes/Cat_spawner/Cat_I/cat_spawner_cat_i.tscn").instantiate()
-			scene_new.max_count = 2
-			cats.add_child(scene_new)
-			if actual_spawner.global_position.y > 0:
-				scene_new.global_position = actual_spawner.global_position + Vector2(-44, 0)
-			else:
-				scene_new.global_position = actual_spawner.global_position + Vector2(-44, 44)
-		elif actual_combo[i] == "Cat_J":
-			var scene_new = preload("res://Scenes/Cat_spawner/Cat_J/cat_spawner_cat_j.tscn").instantiate()
-			scene_new.max_count = randi_range(1, 3)
-			cats.add_child(scene_new)
-			scene_new.global_position = actual_spawner.global_position
-		elif actual_combo[i] == "Cat_L":
-			var scene_new = preload("res://Scenes/Cat_spawner/Cat_L/cat_spawner_cat_L.tscn").instantiate()
-			scene_new.max_count = randi_range(1, 3)
-			cats.add_child(scene_new)
-			scene_new.global_position = actual_spawner.global_position
-		elif actual_combo[i] == "Cat_o":
-			var scene_new = preload("res://Scenes/Cat_spawner/Cat_o/cat_spawner_cat_o.tscn").instantiate()
-			scene_new.max_count = 2
-			cats.add_child(scene_new)
-			scene_new.global_position = actual_spawner.global_position
-		elif actual_combo[i] == "Cat_ONE":
-			var scene_new = preload("res://Scenes/Cat_spawner/Cat_ONE/cat_spawner_cat_one.tscn").instantiate()
-			scene_new.max_count = randi_range(1, 3)
-			cats.add_child(scene_new)
-			scene_new.global_position = actual_spawner.global_position + Vector2(-44, 44)
-		elif actual_combo[i] == "Cat_S":
-			var scene_new = preload("res://Scenes/Cat_spawner/Cat_S/cat_spawner_cat_s.tscn").instantiate()
-			scene_new.max_count = randi_range(1, 3)
-			cats.add_child(scene_new)
-			scene_new.global_position = actual_spawner.global_position + Vector2(-44, 0)
-		elif actual_combo[i] == "Cat_T":
-			var scene_new = preload("res://Scenes/Cat_spawner/Cat_T/cat_spawner_cat_t.tscn").instantiate()
-			scene_new.max_count = randi_range(1, 3)
-			cats.add_child(scene_new)
-			scene_new.global_position = actual_spawner.global_position + Vector2(-44, 0)
-		elif actual_combo[i] == "Cat_Z":
-			var scene_new = preload("res://Scenes/Cat_spawner/Cat_Z/cat_spawner_cat_z.tscn").instantiate()
-			scene_new.max_count = randi_range(1, 3)
-			cats.add_child(scene_new)
-			scene_new.global_position = actual_spawner.global_position + Vector2(-44, 0)
 
 
 # комбо 2
@@ -128,67 +68,8 @@ func cat_good_combo_2():
 		cats_combo_2.append(new_cat)
 	randomize()
 	cats_combo_2.shuffle()
-	start_combo_2(cats_combo_2)
-
-func start_combo_2(actual_combo):
-	for i in 6:
-		var actual_spawner = ""
-		if i == 0:
-			actual_spawner = container_spawn_1
-		elif i == 1:
-			actual_spawner = container_spawn_2
-		elif i == 2:
-			actual_spawner = container_spawn_3
-		elif i == 3:
-			actual_spawner = container_spawn_4
-		elif i == 4:
-			actual_spawner = container_spawn_5
-		elif i == 5:
-			actual_spawner = container_spawn_6
-
-		if actual_combo[i] == "Cat_I":
-			var scene_new = preload("res://Scenes/Cat_spawner/Cat_I/cat_spawner_cat_i.tscn").instantiate()
-			scene_new.max_count = randi_range(1, 3)
-			cats.add_child(scene_new)
-			if actual_spawner.global_position.y > 0:
-				scene_new.global_position = actual_spawner.global_position + Vector2(-44, 0)
-			else:
-				scene_new.global_position = actual_spawner.global_position + Vector2(-44, 44)
-		elif actual_combo[i] == "Cat_J":
-			var scene_new = preload("res://Scenes/Cat_spawner/Cat_J/cat_spawner_cat_j.tscn").instantiate()
-			scene_new.max_count = 2
-			cats.add_child(scene_new)
-			scene_new.global_position = actual_spawner.global_position
-		elif actual_combo[i] == "Cat_L":
-			var scene_new = preload("res://Scenes/Cat_spawner/Cat_L/cat_spawner_cat_L.tscn").instantiate()
-			scene_new.max_count = 2
-			cats.add_child(scene_new)
-			scene_new.global_position = actual_spawner.global_position
-		elif actual_combo[i] == "Cat_o":
-			var scene_new = preload("res://Scenes/Cat_spawner/Cat_o/cat_spawner_cat_o.tscn").instantiate()
-			scene_new.max_count = randi_range(1, 3)
-			cats.add_child(scene_new)
-			scene_new.global_position = actual_spawner.global_position
-		elif actual_combo[i] == "Cat_ONE":
-			var scene_new = preload("res://Scenes/Cat_spawner/Cat_ONE/cat_spawner_cat_one.tscn").instantiate()
-			scene_new.max_count = randi_range(1, 3)
-			cats.add_child(scene_new)
-			scene_new.global_position = actual_spawner.global_position + Vector2(-44, 44)
-		elif actual_combo[i] == "Cat_S":
-			var scene_new = preload("res://Scenes/Cat_spawner/Cat_S/cat_spawner_cat_s.tscn").instantiate()
-			scene_new.max_count = randi_range(1, 3)
-			cats.add_child(scene_new)
-			scene_new.global_position = actual_spawner.global_position + Vector2(-44, 0)
-		elif actual_combo[i] == "Cat_T":
-			var scene_new = preload("res://Scenes/Cat_spawner/Cat_T/cat_spawner_cat_t.tscn").instantiate()
-			scene_new.max_count = randi_range(1, 3)
-			cats.add_child(scene_new)
-			scene_new.global_position = actual_spawner.global_position + Vector2(-44, 0)
-		elif actual_combo[i] == "Cat_Z":
-			var scene_new = preload("res://Scenes/Cat_spawner/Cat_Z/cat_spawner_cat_z.tscn").instantiate()
-			scene_new.max_count = randi_range(1, 3)
-			cats.add_child(scene_new)
-			scene_new.global_position = actual_spawner.global_position + Vector2(-44, 0)
+	start_combo(cats_combo_2, randi_range(1, 3), 2, 2, randi_range(1, 3), randi_range(1, 3), \
+	randi_range(1, 3), randi_range(1, 3), randi_range(1, 3))
 
 
 # комбо 3
@@ -205,67 +86,8 @@ func cat_good_combo_3():
 		cats_combo_3.append(new_cat)
 	randomize()
 	cats_combo_3.shuffle()
-	start_combo_3(cats_combo_3)
-
-func start_combo_3(actual_combo):
-	for i in 6:
-		var actual_spawner = ""
-		if i == 0:
-			actual_spawner = container_spawn_1
-		elif i == 1:
-			actual_spawner = container_spawn_2
-		elif i == 2:
-			actual_spawner = container_spawn_3
-		elif i == 3:
-			actual_spawner = container_spawn_4
-		elif i == 4:
-			actual_spawner = container_spawn_5
-		elif i == 5:
-			actual_spawner = container_spawn_6
-
-		if actual_combo[i] == "Cat_I":
-			var scene_new = preload("res://Scenes/Cat_spawner/Cat_I/cat_spawner_cat_i.tscn").instantiate()
-			scene_new.max_count = 1
-			cats.add_child(scene_new)
-			if actual_spawner.global_position.y > 0:
-				scene_new.global_position = actual_spawner.global_position + Vector2(-44, 0)
-			else:
-				scene_new.global_position = actual_spawner.global_position + Vector2(-44, 44)
-		elif actual_combo[i] == "Cat_J":
-			var scene_new = preload("res://Scenes/Cat_spawner/Cat_J/cat_spawner_cat_j.tscn").instantiate()
-			scene_new.max_count = randi_range(1, 3)
-			cats.add_child(scene_new)
-			scene_new.global_position = actual_spawner.global_position
-		elif actual_combo[i] == "Cat_L":
-			var scene_new = preload("res://Scenes/Cat_spawner/Cat_L/cat_spawner_cat_L.tscn").instantiate()
-			scene_new.max_count = 1
-			cats.add_child(scene_new)
-			scene_new.global_position = actual_spawner.global_position
-		elif actual_combo[i] == "Cat_o":
-			var scene_new = preload("res://Scenes/Cat_spawner/Cat_o/cat_spawner_cat_o.tscn").instantiate()
-			scene_new.max_count = randi_range(1, 3)
-			cats.add_child(scene_new)
-			scene_new.global_position = actual_spawner.global_position
-		elif actual_combo[i] == "Cat_ONE":
-			var scene_new = preload("res://Scenes/Cat_spawner/Cat_ONE/cat_spawner_cat_one.tscn").instantiate()
-			scene_new.max_count = randi_range(1, 3)
-			cats.add_child(scene_new)
-			scene_new.global_position = actual_spawner.global_position + Vector2(-44, 44)
-		elif actual_combo[i] == "Cat_S":
-			var scene_new = preload("res://Scenes/Cat_spawner/Cat_S/cat_spawner_cat_s.tscn").instantiate()
-			scene_new.max_count = randi_range(1, 3)
-			cats.add_child(scene_new)
-			scene_new.global_position = actual_spawner.global_position + Vector2(-44, 0)
-		elif actual_combo[i] == "Cat_T":
-			var scene_new = preload("res://Scenes/Cat_spawner/Cat_T/cat_spawner_cat_t.tscn").instantiate()
-			scene_new.max_count = 2
-			cats.add_child(scene_new)
-			scene_new.global_position = actual_spawner.global_position + Vector2(-44, 0)
-		elif actual_combo[i] == "Cat_Z":
-			var scene_new = preload("res://Scenes/Cat_spawner/Cat_Z/cat_spawner_cat_z.tscn").instantiate()
-			scene_new.max_count = randi_range(1, 3)
-			cats.add_child(scene_new)
-			scene_new.global_position = actual_spawner.global_position + Vector2(-44, 0)
+	start_combo(cats_combo_3, 1, randi_range(1, 3), 1, randi_range(1, 3), randi_range(1, 3), \
+	randi_range(1, 3), 2, randi_range(1, 3))
 
 
 # комбо 4
@@ -282,67 +104,9 @@ func cat_good_combo_4():
 		cats_combo_4.append(new_cat)
 	randomize()
 	cats_combo_4.shuffle()
-	start_combo_4(cats_combo_4)
+	start_combo(cats_combo_4, 1, 1, 1, 1, randi_range(1, 3), randi_range(1, 3), randi_range(1, 3), \
+	randi_range(1, 3))
 
-func start_combo_4(actual_combo):
-	for i in 6:
-		var actual_spawner = ""
-		if i == 0:
-			actual_spawner = container_spawn_1
-		elif i == 1:
-			actual_spawner = container_spawn_2
-		elif i == 2:
-			actual_spawner = container_spawn_3
-		elif i == 3:
-			actual_spawner = container_spawn_4
-		elif i == 4:
-			actual_spawner = container_spawn_5
-		elif i == 5:
-			actual_spawner = container_spawn_6
-
-		if actual_combo[i] == "Cat_I":
-			var scene_new = preload("res://Scenes/Cat_spawner/Cat_I/cat_spawner_cat_i.tscn").instantiate()
-			scene_new.max_count = 1
-			cats.add_child(scene_new)
-			if actual_spawner.global_position.y > 0:
-				scene_new.global_position = actual_spawner.global_position + Vector2(-44, 0)
-			else:
-				scene_new.global_position = actual_spawner.global_position + Vector2(-44, 44)
-		elif actual_combo[i] == "Cat_J":
-			var scene_new = preload("res://Scenes/Cat_spawner/Cat_J/cat_spawner_cat_j.tscn").instantiate()
-			scene_new.max_count = 1
-			cats.add_child(scene_new)
-			scene_new.global_position = actual_spawner.global_position
-		elif actual_combo[i] == "Cat_L":
-			var scene_new = preload("res://Scenes/Cat_spawner/Cat_L/cat_spawner_cat_L.tscn").instantiate()
-			scene_new.max_count = 1
-			cats.add_child(scene_new)
-			scene_new.global_position = actual_spawner.global_position
-		elif actual_combo[i] == "Cat_o":
-			var scene_new = preload("res://Scenes/Cat_spawner/Cat_o/cat_spawner_cat_o.tscn").instantiate()
-			scene_new.max_count = 1
-			cats.add_child(scene_new)
-			scene_new.global_position = actual_spawner.global_position
-		elif actual_combo[i] == "Cat_ONE":
-			var scene_new = preload("res://Scenes/Cat_spawner/Cat_ONE/cat_spawner_cat_one.tscn").instantiate()
-			scene_new.max_count = randi_range(1, 3)
-			cats.add_child(scene_new)
-			scene_new.global_position = actual_spawner.global_position + Vector2(-44, 44)
-		elif actual_combo[i] == "Cat_S":
-			var scene_new = preload("res://Scenes/Cat_spawner/Cat_S/cat_spawner_cat_s.tscn").instantiate()
-			scene_new.max_count = randi_range(1, 3)
-			cats.add_child(scene_new)
-			scene_new.global_position = actual_spawner.global_position + Vector2(-44, 0)
-		elif actual_combo[i] == "Cat_T":
-			var scene_new = preload("res://Scenes/Cat_spawner/Cat_T/cat_spawner_cat_t.tscn").instantiate()
-			scene_new.max_count = 2
-			cats.add_child(scene_new)
-			scene_new.global_position = actual_spawner.global_position + Vector2(-44, 0)
-		elif actual_combo[i] == "Cat_Z":
-			var scene_new = preload("res://Scenes/Cat_spawner/Cat_Z/cat_spawner_cat_z.tscn").instantiate()
-			scene_new.max_count = randi_range(1, 3)
-			cats.add_child(scene_new)
-			scene_new.global_position = actual_spawner.global_position + Vector2(-44, 0)
 
 # комбо 5
 func cat_good_combo_5():
@@ -358,67 +122,9 @@ func cat_good_combo_5():
 		cats_combo_5.append(new_cat)
 	randomize()
 	cats_combo_5.shuffle()
-	start_combo_5(cats_combo_5)
+	start_combo(cats_combo_5, 1, 1, 1, randi_range(1, 3), randi_range(1, 3), randi_range(1, 3), \
+	randi_range(1, 3), 1)
 
-func start_combo_5(actual_combo):
-	for i in 6:
-		var actual_spawner = ""
-		if i == 0:
-			actual_spawner = container_spawn_1
-		elif i == 1:
-			actual_spawner = container_spawn_2
-		elif i == 2:
-			actual_spawner = container_spawn_3
-		elif i == 3:
-			actual_spawner = container_spawn_4
-		elif i == 4:
-			actual_spawner = container_spawn_5
-		elif i == 5:
-			actual_spawner = container_spawn_6
-
-		if actual_combo[i] == "Cat_I":
-			var scene_new = preload("res://Scenes/Cat_spawner/Cat_I/cat_spawner_cat_i.tscn").instantiate()
-			scene_new.max_count = 1
-			cats.add_child(scene_new)
-			if actual_spawner.global_position.y > 0:
-				scene_new.global_position = actual_spawner.global_position + Vector2(-44, 0)
-			else:
-				scene_new.global_position = actual_spawner.global_position + Vector2(-44, 44)
-		elif actual_combo[i] == "Cat_J":
-			var scene_new = preload("res://Scenes/Cat_spawner/Cat_J/cat_spawner_cat_j.tscn").instantiate()
-			scene_new.max_count = 1
-			cats.add_child(scene_new)
-			scene_new.global_position = actual_spawner.global_position
-		elif actual_combo[i] == "Cat_L":
-			var scene_new = preload("res://Scenes/Cat_spawner/Cat_L/cat_spawner_cat_L.tscn").instantiate()
-			scene_new.max_count = 1
-			cats.add_child(scene_new)
-			scene_new.global_position = actual_spawner.global_position
-		elif actual_combo[i] == "Cat_o":
-			var scene_new = preload("res://Scenes/Cat_spawner/Cat_o/cat_spawner_cat_o.tscn").instantiate()
-			scene_new.max_count = randi_range(1, 3)
-			cats.add_child(scene_new)
-			scene_new.global_position = actual_spawner.global_position
-		elif actual_combo[i] == "Cat_ONE":
-			var scene_new = preload("res://Scenes/Cat_spawner/Cat_ONE/cat_spawner_cat_one.tscn").instantiate()
-			scene_new.max_count = randi_range(1, 3)
-			cats.add_child(scene_new)
-			scene_new.global_position = actual_spawner.global_position + Vector2(-44, 44)
-		elif actual_combo[i] == "Cat_S":
-			var scene_new = preload("res://Scenes/Cat_spawner/Cat_S/cat_spawner_cat_s.tscn").instantiate()
-			scene_new.max_count = randi_range(1, 3)
-			cats.add_child(scene_new)
-			scene_new.global_position = actual_spawner.global_position + Vector2(-44, 0)
-		elif actual_combo[i] == "Cat_T":
-			var scene_new = preload("res://Scenes/Cat_spawner/Cat_T/cat_spawner_cat_t.tscn").instantiate()
-			scene_new.max_count = randi_range(1, 3)
-			cats.add_child(scene_new)
-			scene_new.global_position = actual_spawner.global_position + Vector2(-44, 0)
-		elif actual_combo[i] == "Cat_Z":
-			var scene_new = preload("res://Scenes/Cat_spawner/Cat_Z/cat_spawner_cat_z.tscn").instantiate()
-			scene_new.max_count = 1
-			cats.add_child(scene_new)
-			scene_new.global_position = actual_spawner.global_position + Vector2(-44, 0)
 
 
 # комбо 6
@@ -435,67 +141,8 @@ func cat_good_combo_6():
 		cats_combo_6.append(new_cat)
 	randomize()
 	cats_combo_6.shuffle()
-	start_combo_6(cats_combo_6)
-
-func start_combo_6(actual_combo):
-	for i in 6:
-		var actual_spawner = ""
-		if i == 0:
-			actual_spawner = container_spawn_1
-		elif i == 1:
-			actual_spawner = container_spawn_2
-		elif i == 2:
-			actual_spawner = container_spawn_3
-		elif i == 3:
-			actual_spawner = container_spawn_4
-		elif i == 4:
-			actual_spawner = container_spawn_5
-		elif i == 5:
-			actual_spawner = container_spawn_6
-
-		if actual_combo[i] == "Cat_I":
-			var scene_new = preload("res://Scenes/Cat_spawner/Cat_I/cat_spawner_cat_i.tscn").instantiate()
-			scene_new.max_count = randi_range(1, 3)
-			cats.add_child(scene_new)
-			if actual_spawner.global_position.y > 0:
-				scene_new.global_position = actual_spawner.global_position + Vector2(-44, 0)
-			else:
-				scene_new.global_position = actual_spawner.global_position + Vector2(-44, 44)
-		elif actual_combo[i] == "Cat_J":
-			var scene_new = preload("res://Scenes/Cat_spawner/Cat_J/cat_spawner_cat_j.tscn").instantiate()
-			scene_new.max_count = randi_range(1, 3)
-			cats.add_child(scene_new)
-			scene_new.global_position = actual_spawner.global_position
-		elif actual_combo[i] == "Cat_L":
-			var scene_new = preload("res://Scenes/Cat_spawner/Cat_L/cat_spawner_cat_L.tscn").instantiate()
-			scene_new.max_count = 2
-			cats.add_child(scene_new)
-			scene_new.global_position = actual_spawner.global_position
-		elif actual_combo[i] == "Cat_o":
-			var scene_new = preload("res://Scenes/Cat_spawner/Cat_o/cat_spawner_cat_o.tscn").instantiate()
-			scene_new.max_count = 1
-			cats.add_child(scene_new)
-			scene_new.global_position = actual_spawner.global_position
-		elif actual_combo[i] == "Cat_ONE":
-			var scene_new = preload("res://Scenes/Cat_spawner/Cat_ONE/cat_spawner_cat_one.tscn").instantiate()
-			scene_new.max_count = 4
-			cats.add_child(scene_new)
-			scene_new.global_position = actual_spawner.global_position + Vector2(-44, 44)
-		elif actual_combo[i] == "Cat_S":
-			var scene_new = preload("res://Scenes/Cat_spawner/Cat_S/cat_spawner_cat_s.tscn").instantiate()
-			scene_new.max_count = randi_range(1, 3)
-			cats.add_child(scene_new)
-			scene_new.global_position = actual_spawner.global_position + Vector2(-44, 0)
-		elif actual_combo[i] == "Cat_T":
-			var scene_new = preload("res://Scenes/Cat_spawner/Cat_T/cat_spawner_cat_t.tscn").instantiate()
-			scene_new.max_count = randi_range(1, 3)
-			cats.add_child(scene_new)
-			scene_new.global_position = actual_spawner.global_position + Vector2(-44, 0)
-		elif actual_combo[i] == "Cat_Z":
-			var scene_new = preload("res://Scenes/Cat_spawner/Cat_Z/cat_spawner_cat_z.tscn").instantiate()
-			scene_new.max_count = randi_range(1, 3)
-			cats.add_child(scene_new)
-			scene_new.global_position = actual_spawner.global_position + Vector2(-44, 0)
+	start_combo(cats_combo_6, randi_range(1, 3), randi_range(1, 3), 2, 1, 4, randi_range(1, 3), \
+	randi_range(1, 3), randi_range(1, 3))
 
 
 # комбо 7
@@ -512,9 +159,13 @@ func cat_good_combo_7():
 		cats_combo_7.append(new_cat)
 	randomize()
 	cats_combo_7.shuffle()
-	start_combo_7(cats_combo_7)
+	start_combo(cats_combo_7, randi_range(1, 3), 1, randi_range(1, 3), randi_range(1, 3), \
+	randi_range(1, 3), 1, 2, randi_range(1, 3))
 
-func start_combo_7(actual_combo):
+
+
+#Функция на кол-во котов в комбо
+func start_combo(actual_combo, I_count, J_count, L_count, O_count, ONE_count, S_count, T_count, Z_count):
 	for i in 6:
 		var actual_spawner = ""
 		if i == 0:
@@ -532,7 +183,7 @@ func start_combo_7(actual_combo):
 
 		if actual_combo[i] == "Cat_I":
 			var scene_new = preload("res://Scenes/Cat_spawner/Cat_I/cat_spawner_cat_i.tscn").instantiate()
-			scene_new.max_count = randi_range(1, 3)
+			scene_new.max_count = I_count
 			cats.add_child(scene_new)
 			if actual_spawner.global_position.y > 0:
 				scene_new.global_position = actual_spawner.global_position + Vector2(-44, 0)
@@ -540,41 +191,39 @@ func start_combo_7(actual_combo):
 				scene_new.global_position = actual_spawner.global_position + Vector2(-44, 44)
 		elif actual_combo[i] == "Cat_J":
 			var scene_new = preload("res://Scenes/Cat_spawner/Cat_J/cat_spawner_cat_j.tscn").instantiate()
-			scene_new.max_count = 1
+			scene_new.max_count = J_count
 			cats.add_child(scene_new)
 			scene_new.global_position = actual_spawner.global_position
 		elif actual_combo[i] == "Cat_L":
 			var scene_new = preload("res://Scenes/Cat_spawner/Cat_L/cat_spawner_cat_L.tscn").instantiate()
-			scene_new.max_count = randi_range(1, 3)
+			scene_new.max_count = L_count
 			cats.add_child(scene_new)
 			scene_new.global_position = actual_spawner.global_position
 		elif actual_combo[i] == "Cat_o":
 			var scene_new = preload("res://Scenes/Cat_spawner/Cat_o/cat_spawner_cat_o.tscn").instantiate()
-			scene_new.max_count = randi_range(1, 3)
+			scene_new.max_count = O_count
 			cats.add_child(scene_new)
 			scene_new.global_position = actual_spawner.global_position
 		elif actual_combo[i] == "Cat_ONE":
 			var scene_new = preload("res://Scenes/Cat_spawner/Cat_ONE/cat_spawner_cat_one.tscn").instantiate()
-			scene_new.max_count = randi_range(1, 3)
+			scene_new.max_count = ONE_count
 			cats.add_child(scene_new)
 			scene_new.global_position = actual_spawner.global_position + Vector2(-44, 44)
 		elif actual_combo[i] == "Cat_S":
 			var scene_new = preload("res://Scenes/Cat_spawner/Cat_S/cat_spawner_cat_s.tscn").instantiate()
-			scene_new.max_count = 1
+			scene_new.max_count = S_count
 			cats.add_child(scene_new)
 			scene_new.global_position = actual_spawner.global_position + Vector2(-44, 0)
 		elif actual_combo[i] == "Cat_T":
 			var scene_new = preload("res://Scenes/Cat_spawner/Cat_T/cat_spawner_cat_t.tscn").instantiate()
-			scene_new.max_count = 2
+			scene_new.max_count = T_count
 			cats.add_child(scene_new)
 			scene_new.global_position = actual_spawner.global_position + Vector2(-44, 0)
 		elif actual_combo[i] == "Cat_Z":
 			var scene_new = preload("res://Scenes/Cat_spawner/Cat_Z/cat_spawner_cat_z.tscn").instantiate()
-			scene_new.max_count = randi_range(1, 3)
+			scene_new.max_count = Z_count
 			cats.add_child(scene_new)
 			scene_new.global_position = actual_spawner.global_position + Vector2(-44, 0)
-
-
 
 func _on_button_pressed():
 	for i in cats.get_children():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c4g1typh3hasr"]
+[gd_scene load_steps=13 format=3 uid="uid://c4g1typh3hasr"]
 
 [ext_resource type="Script" path="res://Scenes/Cats/Cat_L/cat_L.gd" id="1_2vq1f"]
 [ext_resource type="Texture2D" uid="uid://dextpm3l0g7w5" path="res://Sprites/Cats/Cat_L/Cat_L.png" id="2_01d7n"]
@@ -28,16 +28,19 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ej8us"]
-size = Vector2(95, 89)
+size = Vector2(95, 82)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xg0d7"]
-size = Vector2(78, 258)
+size = Vector2(77, 258)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7sb8j"]
-size = Vector2(41, 9)
+size = Vector2(45, 9)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dfn4i"]
-size = Vector2(4, 142)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m3acm"]
+size = Vector2(4, 75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3cvp5"]
+size = Vector2(4, 68)
 
 [node name="Cat_L" type="CharacterBody2D"]
 script = ExtResource("1_2vq1f")
@@ -78,13 +81,13 @@ color = Color(0.0705882, 0.0705882, 0.0705882, 0.129412)
 metadata/_edit_use_anchors_ = true
 
 [node name="Collision_touch2" type="CollisionShape2D" parent="."]
-position = Vector2(-37.5, -39.5)
+position = Vector2(-37.5, -43)
 shape = SubResource("RectangleShape2D_ej8us")
 debug_color = Color(0.652468, 0.507776, 0.299182, 0.42)
 
 [node name="Collision_touch" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(47, 45)
+position = Vector2(47.5, 45)
 shape = SubResource("RectangleShape2D_xg0d7")
 debug_color = Color(0.652468, 0.507776, 0.299182, 0.42)
 
@@ -94,11 +97,15 @@ collision_mask = 2
 script = ExtResource("2_22ast")
 
 [node name="Collision_SH" type="CollisionShape2D" parent="Skeleton_cat"]
-position = Vector2(7.5, -47.5)
+position = Vector2(5.5, -47.5)
 shape = SubResource("RectangleShape2D_7sb8j")
 
 [node name="Collision_LL" type="CollisionShape2D" parent="Skeleton_cat"]
-position = Vector2(48, 50)
-shape = SubResource("RectangleShape2D_dfn4i")
+position = Vector2(47, 16.5)
+shape = SubResource("RectangleShape2D_m3acm")
+
+[node name="Collision_LL2" type="CollisionShape2D" parent="Skeleton_cat"]
+position = Vector2(49, 87)
+shape = SubResource("RectangleShape2D_3cvp5")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]

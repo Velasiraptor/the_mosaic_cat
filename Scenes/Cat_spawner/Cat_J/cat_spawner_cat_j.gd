@@ -56,6 +56,7 @@ func count_cat_minus(): # Убавляем кол-во котов
 		count -= 1 
 		label_count.text = str(count)
 
+
 func count_cat_plus(): # Прибавляем кол-во котов
 	if count != max_count: 
 		var cat_index_end = data_cat[-1]

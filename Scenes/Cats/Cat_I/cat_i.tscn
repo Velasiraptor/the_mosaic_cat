@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b7optxv042qe"]
+[gd_scene load_steps=14 format=3 uid="uid://b7optxv042qe"]
 
 [ext_resource type="Texture2D" uid="uid://bflaykw5ld1q8" path="res://Sprites/Cats/Cat_I/Cat_I.png" id="1_61fyr"]
 [ext_resource type="Script" path="res://Scenes/Cats/Cat_I/cat_i.gd" id="1_uaxcf"]
@@ -47,10 +47,19 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dutlu"]
-size = Vector2(87, 350)
+size = Vector2(82, 344)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_efsm8"]
+size = Vector2(10, 76)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sl0qs"]
+size = Vector2(10, 75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qglbh"]
+size = Vector2(10, 70)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a0yce"]
-size = Vector2(10, 251)
+size = Vector2(10, 32)
 
 [node name="Cat_I" type="CharacterBody2D"]
 script = ExtResource("1_uaxcf")
@@ -83,7 +92,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Collision_touch" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(42.5, -1)
+position = Vector2(43, -1)
 shape = SubResource("RectangleShape2D_dutlu")
 debug_color = Color(0.652468, 0.507776, 0.299182, 0.42)
 
@@ -95,7 +104,22 @@ script = ExtResource("2_uc38e")
 
 [node name="Collision_skeleton" type="CollisionShape2D" parent="Skeleton_cat"]
 unique_name_in_owner = true
-position = Vector2(0, 9.5)
+position = Vector2(0, -78)
+shape = SubResource("RectangleShape2D_efsm8")
+
+[node name="Collision_skeleton2" type="CollisionShape2D" parent="Skeleton_cat"]
+unique_name_in_owner = true
+position = Vector2(-2, -2.5)
+shape = SubResource("RectangleShape2D_sl0qs")
+
+[node name="Collision_skeleton3" type="CollisionShape2D" parent="Skeleton_cat"]
+unique_name_in_owner = true
+position = Vector2(2, 69)
+shape = SubResource("RectangleShape2D_qglbh")
+
+[node name="Collision_skeleton4" type="CollisionShape2D" parent="Skeleton_cat"]
+unique_name_in_owner = true
+position = Vector2(0, 119)
 shape = SubResource("RectangleShape2D_a0yce")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]

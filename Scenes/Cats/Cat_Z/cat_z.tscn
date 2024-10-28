@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ck00iw4huvbp1"]
+[gd_scene load_steps=14 format=3 uid="uid://ck00iw4huvbp1"]
 
 [ext_resource type="Script" path="res://Scenes/Cats/Cat_Z/cat_z.gd" id="1_enm1i"]
 [ext_resource type="Texture2D" uid="uid://cq1ylv6eynm73" path="res://Sprites/Cats/Cat_Z/Cat_Z.png" id="2_ej6i4"]
@@ -43,11 +43,14 @@ animations = [{
 "speed": 8.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_68lyk"]
-size = Vector2(95, 89)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yuf26"]
+size = Vector2(91, 81)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_m4yli"]
-size = Vector2(78, 180)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ben6y"]
+size = Vector2(76, 171)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m6ht3"]
+size = Vector2(90, 84)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0rb1f"]
 size = Vector2(87, 10)
@@ -103,19 +106,19 @@ color = Color(0.0705882, 0.0705882, 0.0705882, 0.129412)
 metadata/_edit_use_anchors_ = true
 
 [node name="Collision_touch2" type="CollisionShape2D" parent="."]
-position = Vector2(-40.5, -45.5)
-shape = SubResource("RectangleShape2D_68lyk")
+position = Vector2(-38.5, -44.5)
+shape = SubResource("RectangleShape2D_yuf26")
 debug_color = Color(0.652468, 0.507776, 0.299182, 0.42)
 
 [node name="Collision_touch" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(44, 0)
-shape = SubResource("RectangleShape2D_m4yli")
+position = Vector2(44, 0.5)
+shape = SubResource("RectangleShape2D_ben6y")
 debug_color = Color(0.652468, 0.507776, 0.299182, 0.42)
 
 [node name="Collision_touch3" type="CollisionShape2D" parent="."]
-position = Vector2(128.5, 45.5)
-shape = SubResource("RectangleShape2D_68lyk")
+position = Vector2(126, 44)
+shape = SubResource("RectangleShape2D_m6ht3")
 debug_color = Color(0.652468, 0.507776, 0.299182, 0.42)
 
 [node name="Skeleton_cat" type="CharacterBody2D" parent="."]
@@ -125,7 +128,7 @@ collision_mask = 2
 script = ExtResource("5_b0djr")
 
 [node name="Collision_SH" type="CollisionShape2D" parent="Skeleton_cat"]
-position = Vector2(-44.5, -1)
+position = Vector2(-44.5, 1)
 shape = SubResource("RectangleShape2D_0rb1f")
 
 [node name="Collision_LL" type="CollisionShape2D" parent="Skeleton_cat"]
@@ -133,7 +136,7 @@ position = Vector2(0, 42.5)
 shape = SubResource("RectangleShape2D_uwoss")
 
 [node name="Collision_SH2" type="CollisionShape2D" parent="Skeleton_cat"]
-position = Vector2(48, 86)
+position = Vector2(48, 84)
 shape = SubResource("RectangleShape2D_0rb1f")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]

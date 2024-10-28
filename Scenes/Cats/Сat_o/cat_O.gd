@@ -23,6 +23,7 @@ func _ready():
 	# Подключаем сигнал с использованием Callable
 	connect("dragsignal", Callable(self, "_set_drag_pc"))
 	rotation_degrees = 0
+	collision_touch.scale = Vector2(1.2, 1.2)
 	#start_position = global_position
 	sprite_cat_o.visible = true
 	cat_o_animation.visible = false
@@ -32,7 +33,7 @@ func _ready():
 func _process(delta):
 	if dragging and active:
 		var mousepos = get_viewport().get_mouse_position()
-		self.position = mousepos - drag_offset #+ Vector2(0, -264) # Учитываем смещение #для телефона
+		self.position = mousepos - drag_offset + Vector2(0, -264) # Учитываем смещение #для телефона
 		rotate_cat_button()
 
 func _set_drag_pc():
@@ -53,7 +54,7 @@ func _on_input_event(viewport, event, shape_idx):
 			cat_o_animation.visible = true
 			cat_o_animation.play()
 			
-			if abs(position.x - get_parent().position.x) <= 270 and abs(position.y - get_parent().position.y) <= 270:
+			if abs(position.x - get_parent().position.x) <= 400 and abs(position.y - get_parent().position.y) <= 400:
 				get_tree().call_group("Spawner_Cat_O", "count_cat_minus") # Вычитаем надпись у спаунера
 			collision_touch.scale = Vector2(8, 8)
 			sprite_cat_o.z_index = 1
@@ -75,11 +76,22 @@ func _on_input_event(viewport, event, shape_idx):
 				get_tree().call_group("Spawner_Cat_O", "count_cat_plus") # Прибавляем надпись у спаунера
 				get_tree().call_group("Spawner_Cat_O", "check_pickable_cats")
 				rotation_degrees = 0
-				await  get_tree().create_timer(0.2).timeout
+				collision_touch.scale = Vector2(1.2, 1.2)
+				await  get_tree().create_timer(0.05).timeout
 				count_tile_in_cat = full_tiles 
 			elif count_tile_in_cat == 0:
 				self.global_position = snap_to_grid(self.global_position)
 				get_tree().call_group("Spawner_Cat_O", "check_pickable_cats")
+				await get_tree().create_timer(0.2).timeout
+				if count_tile_in_cat != 0 and not dragging:
+					self.position = start_position # Возвращение к стартовой позиции
+					get_tree().call_group("Spawner_Cat_O", "count_cat_plus") # Прибавляем надпись у спаунера
+					get_tree().call_group("Spawner_Cat_O", "check_pickable_cats")
+					rotation_degrees = 0
+					collision_touch.scale = Vector2(1.2, 1.2)
+					await get_tree().create_timer(0.05).timeout
+					count_tile_in_cat = full_tiles 
+
 
 
 func cat_completed_minus():
