@@ -82,7 +82,7 @@ func _on_input_event(viewport, event, shape_idx):
 			elif count_tile_in_cat == 0:
 				self.global_position = snap_to_grid(self.global_position)
 				get_tree().call_group("Spawner_Cat_O", "check_pickable_cats")
-				await get_tree().create_timer(0.2).timeout
+				await get_tree().create_timer(0.05).timeout #ПРОВЕРКА ЕСЛИ КОТ НЕПРАВИЛЬНО ВСТАЛ
 				if count_tile_in_cat != 0 and not dragging:
 					self.position = start_position # Возвращение к стартовой позиции
 					get_tree().call_group("Spawner_Cat_O", "count_cat_plus") # Прибавляем надпись у спаунера
