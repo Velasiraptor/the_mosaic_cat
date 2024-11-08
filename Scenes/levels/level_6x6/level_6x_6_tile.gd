@@ -7,6 +7,9 @@ extends Node2D
 @onready var container_spawn_4 = %Container_spawn_4
 @onready var container_spawn_5 = %Container_spawn_5
 @onready var container_spawn_6 = %Container_spawn_6
+@onready var container_spawn_7 = %Container_spawn_7
+@onready var container_spawn_8 = %Container_spawn_8
+
 
 
 @onready var cats = %Cats
@@ -38,10 +41,10 @@ func random_combo():
 
 # КОМБО 1
 func cat_good_combo_1():
-	var cats_combo_1 = ["Cat_I", "Cat_o"]
-	var cats_not_combo_1 = ["Cat_J", "Cat_L", "Cat_ONE", "Cat_S", "Cat_T", "Cat_Z"]
+	var cats_combo_1 = ["Cat_I", "Cat_o", "Cat_J", "Cat_Z", "Cat_ONE"]
+	var cats_not_combo_1 = ["Cat_L", "Cat_S", "Cat_T"]
 	
-	var count_max_spawner = 4
+	var count_max_spawner = 3
 	
 	for i in count_max_spawner:
 		var new_cat = cats_not_combo_1.pick_random()
@@ -50,17 +53,17 @@ func cat_good_combo_1():
 		cats_combo_1.append(new_cat)
 	randomize()
 	cats_combo_1.shuffle()
-	start_combo(cats_combo_1, 2, randi_range(1, 3),randi_range(1, 3), 2, randi_range(1, 3), \
-	randi_range(1, 3), randi_range(1, 3), randi_range(1, 3))
+	start_combo(cats_combo_1, 2, 1, randi_range(1, 3), 2, 4, \
+	randi_range(1, 3), randi_range(1, 3), 3)
 
 
 
 # комбо 2
 func cat_good_combo_2():
-	var cats_combo_2 = ["Cat_L", "Cat_J"]
-	var cats_not_combo_2 = ["Cat_I", "Cat_o", "Cat_ONE", "Cat_S", "Cat_T", "Cat_Z"]
+	var cats_combo_2 = ["Cat_L", "Cat_J", "Cat_I", "Cat_o", "Cat_ONE", "Cat_S"]
+	var cats_not_combo_2 = ["Cat_T", "Cat_Z"]
 	
-	var count_max_spawner = 4
+	var count_max_spawner = 2
 	
 	for i in count_max_spawner:
 		var new_cat = cats_not_combo_2.pick_random()
@@ -69,14 +72,14 @@ func cat_good_combo_2():
 		cats_combo_2.append(new_cat)
 	randomize()
 	cats_combo_2.shuffle()
-	start_combo(cats_combo_2, randi_range(1, 3), 2, 2, randi_range(1, 3), randi_range(1, 3), \
-	randi_range(1, 3), randi_range(1, 3), randi_range(1, 3))
+	start_combo(cats_combo_2, 2, 2, 1, 2, 4, \
+	1, randi_range(1, 3), randi_range(1, 3))
 
 
 # комбо 3
 func cat_good_combo_3():
-	var cats_combo_3 = ["Cat_T", "Cat_L", "Cat_I"]
-	var cats_not_combo_3 = ["Cat_J", "Cat_o", "Cat_ONE", "Cat_S", "Cat_Z"]
+	var cats_combo_3 = ["Cat_T", "Cat_I", "Cat_J", "Cat_o", "Cat_S"]
+	var cats_not_combo_3 = ["Cat_ONE", "Cat_Z", "Cat_L"]
 	
 	var count_max_spawner = 3
 	
@@ -87,16 +90,16 @@ func cat_good_combo_3():
 		cats_combo_3.append(new_cat)
 	randomize()
 	cats_combo_3.shuffle()
-	start_combo(cats_combo_3, 1, randi_range(1, 3), 1, randi_range(1, 3), randi_range(1, 3), \
-	randi_range(1, 3), 2, randi_range(1, 3))
+	start_combo(cats_combo_3, 2, 1, randi_range(1, 3), \
+	1, randi_range(1, 3), 3, 2, randi_range(1, 3))
 
 
 # комбо 4
 func cat_good_combo_4():
-	var cats_combo_4 = ["Cat_L", "Cat_J", "Cat_o", "Cat_I"]
-	var cats_not_combo_4 = ["Cat_T", "Cat_ONE", "Cat_S", "Cat_Z"]
+	var cats_combo_4 = ["Cat_L", "Cat_J", "Cat_o", "Cat_I", "Cat_T", "Cat_S", "Cat_Z"]
+	var cats_not_combo_4 = ["Cat_ONE"]
 	
-	var count_max_spawner = 2
+	var count_max_spawner = 1
 	
 	for i in count_max_spawner:
 		var new_cat = cats_not_combo_4.pick_random()
@@ -105,16 +108,16 @@ func cat_good_combo_4():
 		cats_combo_4.append(new_cat)
 	randomize()
 	cats_combo_4.shuffle()
-	start_combo(cats_combo_4, 1, 1, 1, 1, randi_range(1, 3), randi_range(1, 3), randi_range(1, 3), \
-	randi_range(1, 3))
+	start_combo(cats_combo_4, 1, 1, 2, \
+	1, randi_range(1, 3), 1, 2, 1)
 
 
 # комбо 5
 func cat_good_combo_5():
-	var cats_combo_5 = ["Cat_L", "Cat_J", "Cat_Z", "Cat_I"]
-	var cats_not_combo_5 = ["Cat_T", "Cat_ONE", "Cat_S", "Cat_o"]
+	var cats_combo_5 = ["Cat_J", "Cat_I", "Cat_o"]
+	var cats_not_combo_5 = ["Cat_T", "Cat_ONE", "Cat_S", "Cat_L", "Cat_Z"]
 	
-	var count_max_spawner = 2
+	var count_max_spawner = 5
 	
 	for i in count_max_spawner:
 		var new_cat = cats_not_combo_5.pick_random()
@@ -123,15 +126,15 @@ func cat_good_combo_5():
 		cats_combo_5.append(new_cat)
 	randomize()
 	cats_combo_5.shuffle()
-	start_combo(cats_combo_5, 1, 1, 1, randi_range(1, 3), randi_range(1, 3), randi_range(1, 3), \
-	randi_range(1, 3), 1)
+	start_combo(cats_combo_5, 3, randi_range(2, 3), randi_range(1, 2), 4, \
+	randi_range(1, 2), randi_range(1, 2), randi_range(1, 2), randi_range(1, 2))
 
 
 
 # комбо 6
 func cat_good_combo_6():
-	var cats_combo_6 = ["Cat_ONE", "Cat_L", "Cat_o"]
-	var cats_not_combo_6 = ["Cat_I", "Cat_J", "Cat_S", "Cat_T", "Cat_Z"]
+	var cats_combo_6 = ["Cat_ONE", "Cat_L", "Cat_o", "Cat_Z", "Cat_S"]
+	var cats_not_combo_6 = ["Cat_I", "Cat_J", "Cat_T"]
 	
 	var count_max_spawner = 3
 	
@@ -142,14 +145,14 @@ func cat_good_combo_6():
 		cats_combo_6.append(new_cat)
 	randomize()
 	cats_combo_6.shuffle()
-	start_combo(cats_combo_6, randi_range(1, 3), randi_range(1, 3), 2, 1, 4, randi_range(1, 3), \
-	randi_range(1, 3), randi_range(1, 3))
+	start_combo(cats_combo_6, 3, 2, randi_range(1, 3), \
+	4, randi_range(1, 3), randi_range(1, 3), randi_range(1, 3), randi_range(1, 3))
 
 
 # комбо 7
 func cat_good_combo_7():
-	var cats_combo_7 = ["Cat_T", "Cat_S", "Cat_J"]
-	var cats_not_combo_7 = ["Cat_I", "Cat_L", "Cat_o", "Cat_Z", "Cat_ONE"]
+	var cats_combo_7 = ["Cat_T", "Cat_S", "Cat_J", "Cat_L", "Cat_o"]
+	var cats_not_combo_7 = ["Cat_I", "Cat_Z", "Cat_ONE"]
 	
 	var count_max_spawner = 3
 	
@@ -160,14 +163,14 @@ func cat_good_combo_7():
 		cats_combo_7.append(new_cat)
 	randomize()
 	cats_combo_7.shuffle()
-	start_combo(cats_combo_7, randi_range(1, 3), 1, randi_range(1, 3), randi_range(1, 3), \
-	randi_range(1, 3), 1, 2, randi_range(1, 3))
+	start_combo(cats_combo_7, randi_range(1, 3), 1, 1, \
+	1, randi_range(1, 3), 2, 4, randi_range(1, 3))
 
 
 
 #Функция на кол-во котов в комбо
 func start_combo(actual_combo, I_count, J_count, L_count, O_count, ONE_count, S_count, T_count, Z_count):
-	for i in 6:
+	for i in 8:
 		var actual_spawner = ""
 		if i == 0:
 			actual_spawner = container_spawn_1
@@ -181,6 +184,10 @@ func start_combo(actual_combo, I_count, J_count, L_count, O_count, ONE_count, S_
 			actual_spawner = container_spawn_5
 		elif i == 5:
 			actual_spawner = container_spawn_6
+		elif i == 6:
+			actual_spawner = container_spawn_7
+		elif i == 7:
+			actual_spawner = container_spawn_8
 
 		if actual_combo[i] == "Cat_I":
 			var scene_new = preload("res://Scenes/Cat_spawner/Cat_I/cat_spawner_cat_i.tscn").instantiate()

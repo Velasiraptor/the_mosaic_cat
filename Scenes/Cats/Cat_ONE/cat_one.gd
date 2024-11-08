@@ -30,11 +30,13 @@ func _ready():
 	collision_touch.scale = Vector2(2, 2)
 
 
-func _process(delta):
+func _physics_process(delta):
 	if dragging and active:
 		var mousepos = get_viewport().get_mouse_position()
 		self.position = mousepos - drag_offset  # Учитываем смещение
 		rotate_cat_button()
+	if Input.is_action_just_released("click") and dragging:
+		not_dragging()
 
 func _set_drag_pc():
 	dragging = !dragging
@@ -61,40 +63,41 @@ func _on_input_event(viewport, event, shape_idx):
 			sprite_cat_one.z_index = 1
 			cat_one_animation.z_index = 1
 		elif !event.pressed and dragging:
-			emit_signal("dragsignal")  # Окончание перетаскивания
-			dragging = false
-			
-			#анимация
-			sprite_cat_one.visible = true
-			cat_one_animation.visible = false
-			cat_one_animation.stop()
-			
-			collision_touch.scale = Vector2(1, 1)
-			sprite_cat_one.z_index = 0
-			cat_one_animation.z_index = 0
-			if count_tile_in_cat != 0:
-				self.position = start_position # Возвращение к стартовой позиции
-				get_tree().call_group("Spawner_Cat_ONE", "count_cat_plus") # Прибавляем надпись у спаунера
-				get_tree().call_group("Spawner_Cat_ONE", "check_pickable_cats")
-				collision_touch.scale = Vector2(2, 2)
-				sprite_cat_one.rotation_degrees = 0
-				cat_one_animation.rotation_degrees = 0
-				await  get_tree().create_timer(0.05).timeout
-				count_tile_in_cat = full_tiles 
-			elif count_tile_in_cat == 0:
-				self.global_position = snap_to_grid(self.global_position)
-				get_tree().call_group("Spawner_Cat_ONE", "check_pickable_cats")
-				await get_tree().create_timer(0.05).timeout #ПРОВЕРКА ЕСЛИ КОТ НЕПРАВИЛЬНО ВСТАЛ
-				if count_tile_in_cat != 0 and not dragging:
-					self.position = start_position # Возвращение к стартовой позиции
-					get_tree().call_group("Spawner_Cat_ONE", "count_cat_plus") # Прибавляем надпись у спаунера
-					get_tree().call_group("Spawner_Cat_ONE", "check_pickable_cats")
-					rotation_degrees = 0
-					collision_touch.scale = Vector2(2, 2)
-					await get_tree().create_timer(0.05).timeout
-					count_tile_in_cat = full_tiles 
+			not_dragging()
 
-
+func not_dragging():
+	emit_signal("dragsignal")  # Окончание перетаскивания
+	dragging = false
+	
+	#анимация
+	sprite_cat_one.visible = true
+	cat_one_animation.visible = false
+	cat_one_animation.stop()
+	
+	collision_touch.scale = Vector2(1, 1)
+	sprite_cat_one.z_index = 0
+	cat_one_animation.z_index = 0
+	if count_tile_in_cat != 0:
+		self.position = start_position # Возвращение к стартовой позиции
+		get_tree().call_group("Spawner_Cat_ONE", "count_cat_plus") # Прибавляем надпись у спаунера
+		get_tree().call_group("Spawner_Cat_ONE", "check_pickable_cats")
+		collision_touch.scale = Vector2(2, 2)
+		sprite_cat_one.rotation_degrees = 0
+		cat_one_animation.rotation_degrees = 0
+		await  get_tree().create_timer(0.05).timeout
+		count_tile_in_cat = full_tiles
+	elif count_tile_in_cat == 0:
+		self.global_position = snap_to_grid(self.global_position)
+		get_tree().call_group("Spawner_Cat_ONE", "check_pickable_cats")
+		await get_tree().create_timer(0.05).timeout #ПРОВЕРКА ЕСЛИ КОТ НЕПРАВИЛЬНО ВСТАЛ
+		if count_tile_in_cat != 0 and not dragging:
+			self.position = start_position # Возвращение к стартовой позиции
+			get_tree().call_group("Spawner_Cat_ONE", "count_cat_plus") # Прибавляем надпись у спаунера
+			get_tree().call_group("Spawner_Cat_ONE", "check_pickable_cats")
+			rotation_degrees = 0
+			collision_touch.scale = Vector2(2, 2)
+			await get_tree().create_timer(0.05).timeout
+			count_tile_in_cat = full_tiles 
 
 func cat_completed_minus():
 	count_tile_in_cat -= 1

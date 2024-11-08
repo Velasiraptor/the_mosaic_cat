@@ -47,13 +47,15 @@ script = ExtResource("1_2vq1f")
 
 [node name="Sprite_Cat_L" type="Sprite2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(0, 44)
+position = Vector2(-44, 0)
+rotation = 1.5708
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_01d7n")
 
 [node name="Cat_L_animation" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(-4, 62)
+position = Vector2(-60, -3)
+rotation = 1.5708
 scale = Vector2(0.9, 0.9)
 sprite_frames = SubResource("SpriteFrames_cikuh")
 animation = &"Cat_L_move_Classic"
@@ -72,6 +74,11 @@ metadata/_edit_use_anchors_ = true
 [node name="ColorRect2" type="ColorRect" parent="Cat_L_animation"]
 show_behind_parent = true
 custom_minimum_size = Vector2(176, 88)
+anchors_preset = -1
+anchor_left = -0.000488987
+anchor_top = -0.000683077
+anchor_right = 0.14048
+anchor_bottom = -0.000682467
 offset_left = 101.111
 offset_top = -157.778
 offset_right = 365.111
@@ -81,17 +88,20 @@ color = Color(0.0705882, 0.0705882, 0.0705882, 0.129412)
 metadata/_edit_use_anchors_ = true
 
 [node name="Collision_touch2" type="CollisionShape2D" parent="."]
-position = Vector2(-37.5, -43)
+position = Vector2(43, -37.5)
+rotation = 1.5708
 shape = SubResource("RectangleShape2D_ej8us")
 debug_color = Color(0.652468, 0.507776, 0.299182, 0.42)
 
 [node name="Collision_touch" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(47.5, 45)
+position = Vector2(-45, 47.5)
+rotation = 1.5708
 shape = SubResource("RectangleShape2D_xg0d7")
 debug_color = Color(0.652468, 0.507776, 0.299182, 0.42)
 
 [node name="Skeleton_cat" type="CharacterBody2D" parent="."]
+rotation = 1.5708
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("2_22ast")

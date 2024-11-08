@@ -9,16 +9,19 @@ script = ExtResource("1_12ohx")
 [node name="Sprite_cat" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 modulate = Color(0, 0, 0, 1)
-position = Vector2(44, 0)
+position = Vector2(0, -44)
+rotation = 1.5708
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_yln6m")
 
 [node name="Label_count" type="Label" parent="."]
 unique_name_in_owner = true
-offset_left = -48.0
-offset_top = -49.0
-offset_right = -8.0
-offset_bottom = 39.0
+modulate = Color(0.898275, 2.59906e-06, 1.2514e-06, 1)
+z_index = 2
+offset_left = -21.0
+offset_top = -94.0
+offset_right = 19.0
+offset_bottom = -6.0
 theme_override_font_sizes/font_size = 64
 horizontal_alignment = 1
 vertical_alignment = 1

@@ -1,26 +1,15 @@
-[gd_scene load_steps=11 format=3 uid="uid://bifgr83jy5dk"]
+[gd_scene load_steps=8 format=3 uid="uid://bifgr83jy5dk"]
 
 [ext_resource type="Script" path="res://Scenes/levels/level_4x4/level_4x_4_tile.gd" id="1_mso84"]
-[ext_resource type="Texture2D" uid="uid://bgxcpxmgyaqk1" path="res://Sprites/Backgrounds/Relax_purple.png" id="2_i3yxc"]
+[ext_resource type="Texture2D" uid="uid://bgxcpxmgyaqk1" path="res://Sprites/Backgrounds/Relax_purple.png" id="2_cno32"]
 [ext_resource type="PackedScene" uid="uid://q1ij6djenla5" path="res://Scenes/Tile/tile_background.tscn" id="2_qfu54"]
 [ext_resource type="Shader" path="res://Shaders/Blur.gdshader" id="3_2xq36"]
 [ext_resource type="Texture2D" uid="uid://c3iosvvivwx2y" path="res://icon.svg" id="3_kt3ao"]
+[ext_resource type="Texture2D" uid="uid://bawukujtgkq5l" path="res://Sprites/Сarpets/Carpet_blue.png" id="6_3bnh5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_htivx"]
 shader = ExtResource("3_2xq36")
 shader_parameter/lod = 0.8
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qyju3"]
-load_path = "res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_b7mks"]
-load_path = "res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_go44y"]
-load_path = "res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3dl7w"]
-load_path = "res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"
 
 [node name="Level_4x4_tile" type="Node2D"]
 script = ExtResource("1_mso84")
@@ -35,7 +24,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_i3yxc")
+texture = ExtResource("2_cno32")
 
 [node name="Texture" type="TextureRect" parent="Backgrounds"]
 material = SubResource("ShaderMaterial_htivx")
@@ -129,25 +118,49 @@ layout_mode = 2
 unique_name_in_owner = true
 position = Vector2(-768, -371)
 
+[node name="CarpetBlue" type="Sprite2D" parent="Container_spawn_1"]
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("6_3bnh5")
+
 [node name="Container_spawn_2" type="Marker2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(-768, -40)
+
+[node name="CarpetBlue" type="Sprite2D" parent="Container_spawn_2"]
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("6_3bnh5")
 
 [node name="Container_spawn_3" type="Marker2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(-768, 324)
 
+[node name="CarpetBlue" type="Sprite2D" parent="Container_spawn_3"]
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("6_3bnh5")
+
 [node name="Container_spawn_4" type="Marker2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(784, -371)
+
+[node name="CarpetBlue" type="Sprite2D" parent="Container_spawn_4"]
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("6_3bnh5")
 
 [node name="Container_spawn_5" type="Marker2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(784, -40)
 
+[node name="CarpetBlue" type="Sprite2D" parent="Container_spawn_5"]
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("6_3bnh5")
+
 [node name="Container_spawn_6" type="Marker2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(784, 324)
+
+[node name="CarpetBlue" type="Sprite2D" parent="Container_spawn_6"]
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("6_3bnh5")
 
 [node name="Button_RESTART" type="Button" parent="."]
 custom_minimum_size = Vector2(100, 100)
@@ -159,47 +172,51 @@ text = "RESTART"
 
 [node name="Button_ROTATE" type="TouchScreenButton" parent="."]
 modulate = Color(0.427451, 0.756863, 0, 0)
-position = Vector2(7, 210)
-scale = Vector2(3.27344, 2.92188)
+position = Vector2(-1669, -774)
+scale = Vector2(5.86719, 12.3906)
 texture_normal = ExtResource("3_kt3ao")
 action = "rotate_cat"
 
 [node name="Button_ROTATE2" type="TouchScreenButton" parent="Button_ROTATE"]
 modulate = Color(0.427451, 0.756863, 0, 0)
-position = Vector2(58.043, -286.46)
-scale = Vector2(1.1074, 3.45722)
-texture_normal = SubResource("CompressedTexture2D_qyju3")
-action = "rotate_cat"
-
-[node name="Button_ROTATE6" type="TouchScreenButton" parent="Button_ROTATE"]
-modulate = Color(0.427451, 0.756863, 0, 0)
-position = Vector2(-139.914, -286.46)
-scale = Vector2(2.16945, 1.14171)
-texture_normal = SubResource("CompressedTexture2D_b7mks")
+position = Vector2(442.972, -0.968469)
+texture_normal = ExtResource("3_kt3ao")
 action = "rotate_cat"
 
 [node name="Button_ROTATE3" type="TouchScreenButton" parent="Button_ROTATE"]
 modulate = Color(0.427451, 0.756863, 0, 0)
-position = Vector2(-192.764, -286.802)
-scale = Vector2(0.98568, 3.43055)
-texture_normal = SubResource("CompressedTexture2D_go44y")
+position = Vector2(182.541, 1.2913)
+scale = Vector2(0.536618, 1)
+texture_normal = ExtResource("3_kt3ao")
 action = "rotate_cat"
 
 [node name="Button_ROTATE4" type="TouchScreenButton" parent="Button_ROTATE"]
 modulate = Color(0.427451, 0.756863, 0, 0)
-position = Vector2(-491.227, -295.016)
-scale = Vector2(1.64439, 3.43055)
-texture_normal = SubResource("CompressedTexture2D_3dl7w")
+position = Vector2(320.256, -4.84237)
+scale = Vector2(0.536618, 1)
+texture_normal = ExtResource("3_kt3ao")
 action = "rotate_cat"
 
 [node name="Button_ROTATE5" type="TouchScreenButton" parent="Button_ROTATE"]
 modulate = Color(0.427451, 0.756863, 0, 0)
-position = Vector2(277.69, -290.909)
-scale = Vector2(1.64439, 3.43055)
-texture_normal = SubResource("CompressedTexture2D_3dl7w")
+position = Vector2(282.759, 79.0921)
+scale = Vector2(0.648468, 0.306431)
+texture_normal = ExtResource("3_kt3ao")
+action = "rotate_cat"
+
+[node name="Button_ROTATE6" type="TouchScreenButton" parent="Button_ROTATE"]
+modulate = Color(0.427451, 0.756863, 0, 0)
+position = Vector2(211.856, 9.0391)
+scale = Vector2(1.11718, 0.288777)
+texture_normal = ExtResource("3_kt3ao")
 action = "rotate_cat"
 
 [node name="Cats" type="Node2D" parent="."]
 unique_name_in_owner = true
 
 [connection signal="pressed" from="Button_RESTART" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button_ROTATE/Button_ROTATE2" to="." method="_on_button_rotate_pressed"]
+[connection signal="pressed" from="Button_ROTATE/Button_ROTATE3" to="." method="_on_button_rotate_pressed"]
+[connection signal="pressed" from="Button_ROTATE/Button_ROTATE4" to="." method="_on_button_rotate_pressed"]
+[connection signal="pressed" from="Button_ROTATE/Button_ROTATE5" to="." method="_on_button_rotate_pressed"]
+[connection signal="pressed" from="Button_ROTATE/Button_ROTATE6" to="." method="_on_button_rotate_pressed"]

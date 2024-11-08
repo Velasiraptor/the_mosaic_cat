@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chm6071yqpdfj"
-path="res://.godot/imported/Rectangle_for_cats.png-0fe90445af27273ac22eb1eaed34f879.ctex"
+uid="uid://bawukujtgkq5l"
+path="res://.godot/imported/Carpet_blue.png-3d32636b90ebb74861aee9570c6f796a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Cats/Rectangle_for_cats.png"
-dest_files=["res://.godot/imported/Rectangle_for_cats.png-0fe90445af27273ac22eb1eaed34f879.ctex"]
+source_file="res://Sprites/Сarpets/Carpet_blue.png"
+dest_files=["res://.godot/imported/Carpet_blue.png-3d32636b90ebb74861aee9570c6f796a.ctex"]
 
 [params]
 
