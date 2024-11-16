@@ -52,6 +52,8 @@ func _on_input_event(viewport, event, shape_idx):
 			emit_signal("dragsignal")  # Начало перетаскивания
 			dragging = true
 			
+			Global.check_rotate_cat = true
+			
 			#анимация
 			sprite_cat_one.visible = false
 			cat_one_animation.visible = true
@@ -68,6 +70,8 @@ func _on_input_event(viewport, event, shape_idx):
 func not_dragging():
 	emit_signal("dragsignal")  # Окончание перетаскивания
 	dragging = false
+	
+	Global.check_rotate_cat = false
 	
 	#анимация
 	sprite_cat_one.visible = true
@@ -98,6 +102,7 @@ func not_dragging():
 			collision_touch.scale = Vector2(2, 2)
 			await get_tree().create_timer(0.05).timeout
 			count_tile_in_cat = full_tiles 
+	get_tree().call_group("Level", "finish_game")
 
 func cat_completed_minus():
 	count_tile_in_cat -= 1

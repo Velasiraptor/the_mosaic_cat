@@ -14,6 +14,14 @@ extends Node2D
 
 @onready var cats = %Cats
 
+@onready var button_rotate = %Button_ROTATE
+
+@onready var playing_field = %Playing_field
+
+
+var full_tile := 36 # кол-во игровых клеток
+@onready var timer_check_finish = %Timer_check_finish
+
 
 var cats_start = ["Cat_I", "Cat_J", "Cat_L", "Cat_o", "Cat_ONE", "Cat_S", "Cat_T", "Cat_Z"]
 
@@ -21,6 +29,46 @@ var cats_start = ["Cat_I", "Cat_J", "Cat_L", "Cat_o", "Cat_ONE", "Cat_S", "Cat_T
 
 func _ready():
 	random_combo()
+
+func _physics_process(delta):
+	scale_button_rotate()
+
+func finish_game():
+	timer_check_finish.start()
+	var victory_count_tile = full_tile
+	for i in playing_field.get_children():
+		if i.modulate != Color(1, 1, 1, 1):
+			victory_count_tile -= 1
+	if victory_count_tile == 0:
+		var next_lvl = Global.all_levels
+		next_lvl = next_lvl.pick_random()
+		while next_lvl == Global.last_lvl:
+			next_lvl = Global.all_levels
+			next_lvl = next_lvl.pick_random()
+		Global.last_lvl = next_lvl
+		get_parent().add_child(next_lvl.instantiate())
+		queue_free()
+
+func _on_timer_check_finish_timeout():
+	var victory_count_tile = full_tile
+	for i in playing_field.get_children():
+		if i.modulate != Color(1, 1, 1, 1):
+			victory_count_tile -= 1
+	if victory_count_tile == 0:
+		var next_lvl = Global.all_levels
+		next_lvl = next_lvl.pick_random()
+		while next_lvl == Global.last_lvl:
+			next_lvl = Global.all_levels
+			next_lvl = next_lvl.pick_random()
+		Global.last_lvl = next_lvl
+		get_parent().add_child(next_lvl.instantiate())
+		queue_free()
+
+func scale_button_rotate():
+	if Global.check_rotate_cat == false:
+		button_rotate.scale.x = 6
+	else:
+		button_rotate.scale.x = 30
 
 func random_combo():
 	var random_number = randi_range(1, 7)

@@ -33,7 +33,7 @@ func _ready():
 func _physics_process(delta):
 	if dragging and active:
 		var mousepos = get_viewport().get_mouse_position()
-		self.position = mousepos - drag_offset + Vector2(0, -264) # Учитываем смещение #для телефона
+		self.position = mousepos - drag_offset + Vector2(0, -220) # Учитываем смещение #для телефона
 		rotate_cat_button()
 	if Input.is_action_just_released("click") and dragging:
 		not_dragging()
@@ -51,6 +51,8 @@ func _on_input_event(viewport, event, shape_idx):
 			emit_signal("dragsignal")  # Начало перетаскивания
 			dragging = true
 			
+			Global.check_rotate_cat = true
+			
 			#анимация
 			sprite_cat_o.visible = false
 			cat_o_animation.visible = true
@@ -67,6 +69,8 @@ func _on_input_event(viewport, event, shape_idx):
 func not_dragging():
 	emit_signal("dragsignal")  # Окончание перетаскивания
 	dragging = false
+	
+	Global.check_rotate_cat = false
 	
 	#анимация
 	sprite_cat_o.visible = true
@@ -96,6 +100,7 @@ func not_dragging():
 			collision_touch.scale = Vector2(1.2, 1.2)
 			await get_tree().create_timer(0.05).timeout
 			count_tile_in_cat = full_tiles 
+	get_tree().call_group("Level", "finish_game")
 
 func cat_completed_minus():
 	count_tile_in_cat -= 1

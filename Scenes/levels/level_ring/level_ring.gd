@@ -7,30 +7,29 @@ extends Node2D
 @onready var container_spawn_4 = %Container_spawn_4
 @onready var container_spawn_5 = %Container_spawn_5
 @onready var container_spawn_6 = %Container_spawn_6
+@onready var container_spawn_7 = %Container_spawn_7
+@onready var container_spawn_8 = %Container_spawn_8
 
-
-@onready var cats = %Cats
+@onready var level_zone = %Level_zone
 
 @onready var button_rotate = %Button_ROTATE
 
 @onready var playing_field = %Playing_field
 
+@onready var cats = %Cats
 
-var full_tile := 16 # кол-во игровых клеток
+
+var full_tile := 32 # кол-во игровых клеток
 @onready var timer_check_finish = %Timer_check_finish
 
-
-
 var cats_start = ["Cat_I", "Cat_J", "Cat_L", "Cat_o", "Cat_ONE", "Cat_S", "Cat_T", "Cat_Z"]
-
-func _ready():
-	random_combo()
-
-
 
 func _physics_process(delta):
 	scale_button_rotate()
 
+func _ready():
+	random_combo()
+	
 
 func finish_game():
 	timer_check_finish.start()
@@ -63,12 +62,12 @@ func _on_timer_check_finish_timeout():
 		get_parent().add_child(next_lvl.instantiate())
 		queue_free()
 
-
 func scale_button_rotate():
 	if Global.check_rotate_cat == false:
 		button_rotate.scale.x = 6
 	else:
 		button_rotate.scale.x = 30
+
 
 func random_combo():
 	var random_number = randi_range(1, 7)
@@ -89,136 +88,80 @@ func random_combo():
 
 # КОМБО 1
 func cat_good_combo_1():
-	var cats_combo_1 = ["Cat_I", "Cat_o"]
-	var cats_not_combo_1 = ["Cat_J", "Cat_L", "Cat_ONE", "Cat_S", "Cat_T", "Cat_Z"]
+	var cats_combo_1 = ["Cat_I", "Cat_o", "Cat_J", "Cat_Z", "Cat_ONE", "Cat_L", "Cat_S", "Cat_T"]
 	
-	var count_max_spawner = 4
-	
-	for i in count_max_spawner:
-		var new_cat = cats_not_combo_1.pick_random()
-		while new_cat in cats_combo_1:
-			new_cat = cats_not_combo_1.pick_random()
-		cats_combo_1.append(new_cat)
 	randomize()
 	cats_combo_1.shuffle()
-	start_combo(cats_combo_1, 2, randi_range(1, 3),randi_range(1, 3), 2, randi_range(1, 3), \
-	randi_range(1, 3), randi_range(1, 3), randi_range(1, 3))
+	start_combo(cats_combo_1, randi_range(1, 3), 1, 1, 1, 4, \
+	1, randi_range(1, 3), 1)
 
 
 
 # комбо 2
 func cat_good_combo_2():
-	var cats_combo_2 = ["Cat_L", "Cat_J"]
-	var cats_not_combo_2 = ["Cat_I", "Cat_o", "Cat_ONE", "Cat_S", "Cat_T", "Cat_Z"]
+	var cats_combo_2 = ["Cat_I", "Cat_o", "Cat_J", "Cat_Z", "Cat_ONE", "Cat_L", "Cat_S", "Cat_T"]
 	
-	var count_max_spawner = 4
-	
-	for i in count_max_spawner:
-		var new_cat = cats_not_combo_2.pick_random()
-		while new_cat in cats_combo_2:
-			new_cat = cats_not_combo_2.pick_random()
-		cats_combo_2.append(new_cat)
 	randomize()
 	cats_combo_2.shuffle()
-	start_combo(cats_combo_2, randi_range(1, 3), 2, 2, randi_range(1, 3), randi_range(1, 3), \
-	randi_range(1, 3), randi_range(1, 3), randi_range(1, 3))
+	start_combo(cats_combo_2, 2, 1, randi_range(1, 3), 1, 8, \
+	1, randi_range(1, 3), 1)
 
 
 # комбо 3
 func cat_good_combo_3():
-	var cats_combo_3 = ["Cat_T", "Cat_L", "Cat_I"]
-	var cats_not_combo_3 = ["Cat_J", "Cat_o", "Cat_ONE", "Cat_S", "Cat_Z"]
+	var cats_combo_3 = ["Cat_I", "Cat_o", "Cat_J", "Cat_Z", "Cat_ONE", "Cat_L", "Cat_S", "Cat_T"]
 	
-	var count_max_spawner = 3
-	
-	for i in count_max_spawner:
-		var new_cat = cats_not_combo_3.pick_random()
-		while new_cat in cats_combo_3:
-			new_cat = cats_not_combo_3.pick_random()
-		cats_combo_3.append(new_cat)
 	randomize()
 	cats_combo_3.shuffle()
-	start_combo(cats_combo_3, 1, randi_range(1, 3), 1, randi_range(1, 3), randi_range(1, 3), \
-	randi_range(1, 3), 2, randi_range(1, 3))
+	start_combo(cats_combo_3, randi_range(1, 3), 2, 2, randi_range(1, 3), 4, \
+	1, 1, 1)
 
 
 # комбо 4
 func cat_good_combo_4():
-	var cats_combo_4 = ["Cat_L", "Cat_J", "Cat_o", "Cat_I"]
-	var cats_not_combo_4 = ["Cat_T", "Cat_ONE", "Cat_S", "Cat_Z"]
+	var cats_combo_4 = ["Cat_I", "Cat_o", "Cat_J", "Cat_Z", "Cat_ONE", "Cat_L", "Cat_S", "Cat_T"]
 	
-	var count_max_spawner = 2
-	
-	for i in count_max_spawner:
-		var new_cat = cats_not_combo_4.pick_random()
-		while new_cat in cats_combo_4:
-			new_cat = cats_not_combo_4.pick_random()
-		cats_combo_4.append(new_cat)
 	randomize()
 	cats_combo_4.shuffle()
-	start_combo(cats_combo_4, 1, 1, 1, 1, randi_range(1, 3), randi_range(1, 3), randi_range(1, 3), \
-	randi_range(1, 3))
+	start_combo(cats_combo_4, randi_range(1, 3), 2, 2, randi_range(1, 3), randi_range(2, 4), \
+	2, randi_range(1, 3), 2)
 
 
 # комбо 5
 func cat_good_combo_5():
-	var cats_combo_5 = ["Cat_L", "Cat_J", "Cat_Z", "Cat_I"]
-	var cats_not_combo_5 = ["Cat_T", "Cat_ONE", "Cat_S", "Cat_o"]
+	var cats_combo_5 = ["Cat_I", "Cat_o", "Cat_J", "Cat_Z", "Cat_ONE", "Cat_L", "Cat_S", "Cat_T"]
 	
-	var count_max_spawner = 2
-	
-	for i in count_max_spawner:
-		var new_cat = cats_not_combo_5.pick_random()
-		while new_cat in cats_combo_5:
-			new_cat = cats_not_combo_5.pick_random()
-		cats_combo_5.append(new_cat)
 	randomize()
 	cats_combo_5.shuffle()
-	start_combo(cats_combo_5, 1, 1, 1, randi_range(1, 3), randi_range(1, 3), randi_range(1, 3), \
-	randi_range(1, 3), 1)
+	start_combo(cats_combo_5, randi_range(1, 3), randi_range(1, 3), 1, 3, 8, \
+	1, 1, randi_range(1, 3))
 
 
 
 # комбо 6
 func cat_good_combo_6():
-	var cats_combo_6 = ["Cat_ONE", "Cat_L", "Cat_o"]
-	var cats_not_combo_6 = ["Cat_I", "Cat_J", "Cat_S", "Cat_T", "Cat_Z"]
+	var cats_combo_6 = ["Cat_I", "Cat_o", "Cat_J", "Cat_Z", "Cat_ONE", "Cat_L", "Cat_S", "Cat_T"]
 	
-	var count_max_spawner = 3
-	
-	for i in count_max_spawner:
-		var new_cat = cats_not_combo_6.pick_random()
-		while new_cat in cats_combo_6:
-			new_cat = cats_not_combo_6.pick_random()
-		cats_combo_6.append(new_cat)
 	randomize()
 	cats_combo_6.shuffle()
-	start_combo(cats_combo_6, randi_range(1, 3), randi_range(1, 3), 2, 1, 4, randi_range(1, 3), \
-	randi_range(1, 3), randi_range(1, 3))
+	start_combo(cats_combo_6, 1, randi_range(1, 3), 1, randi_range(1, 3), 4, \
+	randi_range(1, 3), 3, 2)
 
 
 # комбо 7
 func cat_good_combo_7():
-	var cats_combo_7 = ["Cat_T", "Cat_S", "Cat_J"]
-	var cats_not_combo_7 = ["Cat_I", "Cat_L", "Cat_o", "Cat_Z", "Cat_ONE"]
+	var cats_combo_7 = ["Cat_I", "Cat_o", "Cat_J", "Cat_Z", "Cat_ONE", "Cat_L", "Cat_S", "Cat_T"]
 	
-	var count_max_spawner = 3
-	
-	for i in count_max_spawner:
-		var new_cat = cats_not_combo_7.pick_random()
-		while new_cat in cats_combo_7:
-			new_cat = cats_not_combo_7.pick_random()
-		cats_combo_7.append(new_cat)
 	randomize()
 	cats_combo_7.shuffle()
-	start_combo(cats_combo_7, randi_range(1, 3), 1, randi_range(1, 3), randi_range(1, 3), \
-	randi_range(1, 3), 1, 2, randi_range(1, 3))
+	start_combo(cats_combo_7, 1, randi_range(1, 3), 1, 2, 4, \
+	randi_range(1, 3), 1, 2)
 
 
 
 #Функция на кол-во котов в комбо
 func start_combo(actual_combo, I_count, J_count, L_count, O_count, ONE_count, S_count, T_count, Z_count):
-	for i in 6:
+	for i in 8:
 		var actual_spawner = ""
 		if i == 0:
 			actual_spawner = container_spawn_1
@@ -232,6 +175,10 @@ func start_combo(actual_combo, I_count, J_count, L_count, O_count, ONE_count, S_
 			actual_spawner = container_spawn_5
 		elif i == 5:
 			actual_spawner = container_spawn_6
+		elif i == 6:
+			actual_spawner = container_spawn_7
+		elif i == 7:
+			actual_spawner = container_spawn_8
 
 		if actual_combo[i] == "Cat_I":
 			var scene_new = preload("res://Scenes/Cat_spawner/Cat_I/cat_spawner_cat_i.tscn").instantiate()
@@ -276,7 +223,10 @@ func start_combo(actual_combo, I_count, J_count, L_count, O_count, ONE_count, S_
 			cats.add_child(scene_new)
 			scene_new.global_position = actual_spawner.global_position + Vector2(-44, 0)
 
-func _on_button_pressed():
+
+
+
+func _on_button_restart_pressed():
 	for i in cats.get_children():
 		cats.remove_child(i)
 	random_combo()

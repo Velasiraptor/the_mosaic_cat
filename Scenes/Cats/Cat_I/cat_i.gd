@@ -46,7 +46,7 @@ func _set_drag_pc():
 	dragging = !dragging
 	if dragging:
 		var mousepos = get_viewport().get_mouse_position()
-		self.global_position = get_global_mouse_position() - Vector2(44, 0) + Vector2(0, -154) #для телефона
+		self.global_position = get_global_mouse_position() - Vector2(44, 0) + Vector2(0, -176) #для телефона
 		drag_offset = mousepos - self.position  # Рассчитываем смещение при начале перетаскивания
 
 func _on_input_event(viewport, event, shape_idx):
@@ -56,6 +56,8 @@ func _on_input_event(viewport, event, shape_idx):
 			dragging = true
 			
 			self.global_position = get_global_mouse_position()
+			
+			Global.check_rotate_cat = true
 			
 			#анимация
 			sprite_cat_i.visible = false
@@ -73,6 +75,8 @@ func _on_input_event(viewport, event, shape_idx):
 func not_dragging():
 	emit_signal("dragsignal")  # Окончание перетаскивания
 	dragging = false
+	
+	Global.check_rotate_cat = false
 	
 	#анимация
 	sprite_cat_i.visible = true
@@ -102,6 +106,7 @@ func not_dragging():
 			collision_touch.scale = Vector2(1.8, 1)
 			await get_tree().create_timer(0.05).timeout
 			count_tile_in_cat = full_tiles
+	get_tree().call_group("Level", "finish_game")
 
 
 func cat_completed_minus():

@@ -11,7 +11,7 @@
 shader = ExtResource("3_2xq36")
 shader_parameter/lod = 0.8
 
-[node name="Level_4x4_tile" type="Node2D"]
+[node name="Level_4x4_tile" type="Node2D" groups=["Level"]]
 script = ExtResource("1_mso84")
 
 [node name="Backgrounds" type="CanvasLayer" parent="."]
@@ -43,11 +43,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+offset_top = -88.0
+offset_bottom = -88.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 
 [node name="Playing_field" type="GridContainer" parent="Control"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -170,53 +173,21 @@ offset_right = -69.0
 offset_bottom = 429.0
 text = "RESTART"
 
-[node name="Button_ROTATE" type="TouchScreenButton" parent="."]
-modulate = Color(0.427451, 0.756863, 0, 0)
-position = Vector2(-1669, -774)
-scale = Vector2(5.86719, 12.3906)
-texture_normal = ExtResource("3_kt3ao")
-action = "rotate_cat"
-
-[node name="Button_ROTATE2" type="TouchScreenButton" parent="Button_ROTATE"]
-modulate = Color(0.427451, 0.756863, 0, 0)
-position = Vector2(442.972, -0.968469)
-texture_normal = ExtResource("3_kt3ao")
-action = "rotate_cat"
-
-[node name="Button_ROTATE3" type="TouchScreenButton" parent="Button_ROTATE"]
-modulate = Color(0.427451, 0.756863, 0, 0)
-position = Vector2(182.541, 1.2913)
-scale = Vector2(0.536618, 1)
-texture_normal = ExtResource("3_kt3ao")
-action = "rotate_cat"
-
-[node name="Button_ROTATE4" type="TouchScreenButton" parent="Button_ROTATE"]
-modulate = Color(0.427451, 0.756863, 0, 0)
-position = Vector2(320.256, -4.84237)
-scale = Vector2(0.536618, 1)
-texture_normal = ExtResource("3_kt3ao")
-action = "rotate_cat"
-
-[node name="Button_ROTATE5" type="TouchScreenButton" parent="Button_ROTATE"]
-modulate = Color(0.427451, 0.756863, 0, 0)
-position = Vector2(282.759, 79.0921)
-scale = Vector2(0.648468, 0.306431)
-texture_normal = ExtResource("3_kt3ao")
-action = "rotate_cat"
-
-[node name="Button_ROTATE6" type="TouchScreenButton" parent="Button_ROTATE"]
-modulate = Color(0.427451, 0.756863, 0, 0)
-position = Vector2(211.856, 9.0391)
-scale = Vector2(1.11718, 0.288777)
-texture_normal = ExtResource("3_kt3ao")
-action = "rotate_cat"
-
 [node name="Cats" type="Node2D" parent="."]
 unique_name_in_owner = true
 
+[node name="Button_ROTATE" type="TouchScreenButton" parent="."]
+unique_name_in_owner = true
+modulate = Color(0.427451, 0.756863, 0, 0)
+position = Vector2(-1869, -890)
+scale = Vector2(6, 14)
+texture_normal = ExtResource("3_kt3ao")
+action = "rotate_cat"
+
+[node name="Timer_check_finish" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.5
+one_shot = true
+
 [connection signal="pressed" from="Button_RESTART" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Button_ROTATE/Button_ROTATE2" to="." method="_on_button_rotate_pressed"]
-[connection signal="pressed" from="Button_ROTATE/Button_ROTATE3" to="." method="_on_button_rotate_pressed"]
-[connection signal="pressed" from="Button_ROTATE/Button_ROTATE4" to="." method="_on_button_rotate_pressed"]
-[connection signal="pressed" from="Button_ROTATE/Button_ROTATE5" to="." method="_on_button_rotate_pressed"]
-[connection signal="pressed" from="Button_ROTATE/Button_ROTATE6" to="." method="_on_button_rotate_pressed"]
+[connection signal="timeout" from="Timer_check_finish" to="." method="_on_timer_check_finish_timeout"]
