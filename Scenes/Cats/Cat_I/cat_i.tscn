@@ -82,14 +82,15 @@ scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_xjr5y")
 animation = &"Cat_I_move_Classic"
 
-[node name="ColorRect" type="ColorRect" parent="Cat_I_animation"]
+[node name="Color_tiles" type="ColorRect" parent="Cat_I_animation"]
+unique_name_in_owner = true
 show_behind_parent = true
 custom_minimum_size = Vector2(106.48, 425.92)
 offset_left = -49.3055
 offset_top = -216.111
 offset_right = 57.1745
 offset_bottom = 209.809
-color = Color(0.0705882, 0.0705882, 0.0705882, 0.129412)
+color = Color(0.1233, 0.217194, 0.134824, 0.27)
 metadata/_edit_use_anchors_ = true
 
 [node name="Collision_touch" type="CollisionShape2D" parent="."]

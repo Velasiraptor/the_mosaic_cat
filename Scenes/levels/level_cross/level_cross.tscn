@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bfbgov6otaseo"]
+[gd_scene load_steps=9 format=3 uid="uid://bfbgov6otaseo"]
 
 [ext_resource type="Texture2D" uid="uid://bgxcpxmgyaqk1" path="res://Sprites/Backgrounds/Relax_purple.png" id="1_4krw6"]
 [ext_resource type="Script" path="res://Scenes/levels/level_cross/level_cross.gd" id="1_w8t8c"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c3iosvvivwx2y" path="res://icon.svg" id="3_cxtn1"]
 [ext_resource type="PackedScene" uid="uid://q1ij6djenla5" path="res://Scenes/Tile/tile_background.tscn" id="4_n1mu0"]
 [ext_resource type="Texture2D" uid="uid://bawukujtgkq5l" path="res://Sprites/Сarpets/Carpet_blue.png" id="5_5h8jb"]
+[ext_resource type="Texture2D" uid="uid://defh7tb8vtb2l" path="res://Sprites/Tiles_backgrounds/Rock.png" id="6_bqpar"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_y7tjb"]
 shader = ExtResource("2_s4cxa")
@@ -159,9 +160,11 @@ layout_mode = 2
 [node name="tile_background21" parent="Level_zone/Playing_field" instance=ExtResource("4_n1mu0")]
 layout_mode = 2
 
-[node name="MarginContainer8" type="MarginContainer" parent="Level_zone/Playing_field"]
+[node name="Rock" type="TextureRect" parent="Level_zone/Playing_field"]
 custom_minimum_size = Vector2(88, 88)
 layout_mode = 2
+texture = ExtResource("6_bqpar")
+expand_mode = 1
 
 [node name="tile_background22" parent="Level_zone/Playing_field" instance=ExtResource("4_n1mu0")]
 layout_mode = 2

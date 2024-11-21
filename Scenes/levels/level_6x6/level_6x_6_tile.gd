@@ -40,6 +40,7 @@ func finish_game():
 		if i.modulate != Color(1, 1, 1, 1):
 			victory_count_tile -= 1
 	if victory_count_tile == 0:
+		timer_check_finish.stop()
 		var next_lvl = Global.all_levels
 		next_lvl = next_lvl.pick_random()
 		while next_lvl == Global.last_lvl:

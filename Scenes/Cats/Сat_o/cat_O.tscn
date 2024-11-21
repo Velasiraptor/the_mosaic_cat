@@ -81,7 +81,8 @@ scale = Vector2(0.9, 0.9)
 sprite_frames = SubResource("SpriteFrames_nnhjx")
 animation = &"Cat_O_move_Classic"
 
-[node name="ColorRect" type="ColorRect" parent="Cat_O_animation"]
+[node name="Color_tiles" type="ColorRect" parent="Cat_O_animation"]
+unique_name_in_owner = true
 show_behind_parent = true
 custom_minimum_size = Vector2(176, 176)
 offset_left = -83.3333

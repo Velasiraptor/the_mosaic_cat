@@ -70,7 +70,8 @@ sprite_frames = SubResource("SpriteFrames_ywrr1")
 animation = &"Cat_J_move_Classic"
 frame_progress = 0.135764
 
-[node name="ColorRect" type="ColorRect" parent="Cat_J_animation"]
+[node name="Color_tiles" type="ColorRect" parent="Cat_J_animation"]
+unique_name_in_owner = true
 show_behind_parent = true
 custom_minimum_size = Vector2(88, 88)
 offset_left = 2.22226
@@ -80,13 +81,12 @@ offset_bottom = -74.2225
 color = Color(0.0705882, 0.0705882, 0.0705882, 0.129412)
 metadata/_edit_use_anchors_ = true
 
-[node name="ColorRect2" type="ColorRect" parent="Cat_J_animation"]
-show_behind_parent = true
+[node name="ColorRect2" type="ColorRect" parent="Cat_J_animation/Color_tiles"]
 custom_minimum_size = Vector2(176, 88)
-offset_left = 1.11096
-offset_top = -162.223
-offset_right = 265.111
-offset_bottom = -74.2225
+offset_left = -1.1113
+offset_top = -1.52588e-05
+offset_right = 262.889
+offset_bottom = 88.0005
 rotation = 1.5708
 color = Color(0.0705882, 0.0705882, 0.0705882, 0.129412)
 metadata/_edit_use_anchors_ = true

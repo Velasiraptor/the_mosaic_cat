@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cckdunq4vb5ib"]
+[gd_scene load_steps=5 format=3 uid="uid://cckdunq4vb5ib"]
 
 [ext_resource type="Texture2D" uid="uid://cfxl0smvm5ct3" path="res://Sprites/Cats/Cat_J/Cat_J.png" id="1_eqils"]
 [ext_resource type="Script" path="res://Scenes/Cat_spawner/Cat_J/cat_spawner_cat_j.gd" id="1_q2t4o"]
+[ext_resource type="Texture2D" uid="uid://bvk5r224nkbig" path="res://Sprites/ball_of_thread.png" id="3_n5an6"]
+[ext_resource type="FontFile" uid="uid://cj7peb0hnv2rh" path="res://ChalkboardSE-Regular-02_0.ttf" id="4_qb0v8"]
 
 [node name="Cat_spawner_cat_J" type="Node2D" groups=["Spawner_Cat_J"]]
 script = ExtResource("1_q2t4o")
@@ -14,16 +16,23 @@ rotation = 1.5708
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_eqils")
 
-[node name="Label_count" type="Label" parent="."]
+[node name="Cats" type="Node2D" parent="."]
 unique_name_in_owner = true
-modulate = Color(0.898039, 0, 0, 1)
-offset_left = 18.0
-offset_top = -26.0
-offset_right = 58.0
-offset_bottom = 62.0
+
+[node name="BallOfThread" type="Sprite2D" parent="."]
+position = Vector2(48, 44)
+scale = Vector2(0.32, 0.32)
+texture = ExtResource("3_n5an6")
+
+[node name="Label_count" type="Label" parent="BallOfThread"]
+unique_name_in_owner = true
+modulate = Color(0.00742043, 0.0862424, 0.232336, 1)
+offset_left = -50.0
+offset_top = -168.75
+offset_right = -10.0
+offset_bottom = -76.75
+scale = Vector2(3, 3)
+theme_override_fonts/font = ExtResource("4_qb0v8")
 theme_override_font_sizes/font_size = 64
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="Cats" type="Node2D" parent="."]
-unique_name_in_owner = true

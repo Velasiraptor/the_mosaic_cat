@@ -11,6 +11,7 @@ extends CharacterBody2D
 
 @onready var cat_l_animation = %Cat_L_animation
 
+@onready var color_tiles = %Color_tiles
 
 var start_position := Vector2()
 
@@ -28,7 +29,10 @@ func _ready():
 	sprite_cat_l.visible = true
 	cat_l_animation.visible = false
 	cat_l_animation.stop()
-
+	
+	color_tiles.color = "58170e45"
+	for child in color_tiles.get_children():
+		child.color = "58170e45"
 
 func _physics_process(delta):
 	if dragging and active:
@@ -37,6 +41,16 @@ func _physics_process(delta):
 		rotate_cat_button()
 	if Input.is_action_just_released("click") and dragging:
 		not_dragging()
+	
+	if count_tile_in_cat == 0:#рамка-область
+		color_tiles.color = "1f372245"
+		for child in color_tiles.get_children():
+			child.color = "1f372245"
+	else:
+		color_tiles.color = "58170e45"
+		for child in color_tiles.get_children():
+			child.color = "58170e45"
+
 
 func _set_drag_pc():
 	dragging = !dragging
