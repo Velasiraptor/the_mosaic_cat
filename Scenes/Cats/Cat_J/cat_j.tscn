@@ -56,6 +56,7 @@ script = ExtResource("1_7yjuo")
 
 [node name="Sprite_Cat_J" type="Sprite2D" parent="."]
 unique_name_in_owner = true
+visible = false
 position = Vector2(44, 0)
 rotation = 1.5708
 scale = Vector2(0.5, 0.5)
@@ -70,28 +71,33 @@ sprite_frames = SubResource("SpriteFrames_ywrr1")
 animation = &"Cat_J_move_Classic"
 frame_progress = 0.135764
 
-[node name="Color_tiles" type="ColorRect" parent="Cat_J_animation"]
+[node name="Color_tiles" type="ColorRect" parent="."]
 unique_name_in_owner = true
 show_behind_parent = true
 custom_minimum_size = Vector2(88, 88)
-offset_left = 2.22226
-offset_top = -162.223
-offset_right = 98.2223
-offset_bottom = -74.2225
+offset_left = 171.223
+offset_top = -6.777
+offset_right = 259.223
+offset_bottom = 81.224
+rotation = 1.5708
 color = Color(0.0705882, 0.0705882, 0.0705882, 0.129412)
 metadata/_edit_use_anchors_ = true
 
-[node name="ColorRect2" type="ColorRect" parent="Cat_J_animation/Color_tiles"]
+[node name="ColorRect2" type="ColorRect" parent="Color_tiles"]
 custom_minimum_size = Vector2(176, 88)
-offset_left = -1.1113
-offset_top = -1.52588e-05
-offset_right = 262.889
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0227273
+anchor_right = 0.0227273
+offset_left = -2.0
+offset_right = 262.0
 offset_bottom = 88.0005
 rotation = 1.5708
 color = Color(0.0705882, 0.0705882, 0.0705882, 0.129412)
 metadata/_edit_use_anchors_ = true
 
 [node name="Collision_touch2" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(131.5, 39)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_wxo6n")
@@ -99,6 +105,7 @@ debug_color = Color(0.652468, 0.507776, 0.299182, 0.42)
 
 [node name="Collision_touch" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true
+visible = false
 position = Vector2(44.5, -44)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_t0pgd")

@@ -12,7 +12,7 @@ script = ExtResource("1_dt6xk")
 unique_name_in_owner = true
 modulate = Color(0, 0, 0, 1)
 position = Vector2(44, -44)
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.45, 0.45)
 texture = ExtResource("2_h4gvm")
 
 [node name="Cats" type="Node2D" parent="."]

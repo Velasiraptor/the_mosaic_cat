@@ -61,18 +61,20 @@ sprite_frames = SubResource("SpriteFrames_cikuh")
 animation = &"Cat_L_move_Classic"
 frame_progress = 0.454229
 
-[node name="Color_tiles" type="ColorRect" parent="Cat_L_animation"]
+[node name="Color_tiles" type="ColorRect" parent="."]
 unique_name_in_owner = true
 show_behind_parent = true
 custom_minimum_size = Vector2(88, 88)
-offset_left = -83.3333
-offset_top = -157.778
-offset_right = 12.6667
-offset_bottom = -69.7781
+offset_left = 82.0005
+offset_top = -77.9995
+offset_right = 178.0
+offset_bottom = 10.0005
+rotation = 1.5708
+scale = Vector2(0.9, 0.9)
 color = Color(0.0705882, 0.0705882, 0.0705882, 0.129412)
 metadata/_edit_use_anchors_ = true
 
-[node name="ColorRect2" type="ColorRect" parent="Cat_L_animation/Color_tiles"]
+[node name="ColorRect2" type="ColorRect" parent="Color_tiles"]
 show_behind_parent = true
 custom_minimum_size = Vector2(176, 88)
 layout_mode = 1

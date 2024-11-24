@@ -74,30 +74,41 @@ scale = Vector2(0.9, 0.9)
 sprite_frames = SubResource("SpriteFrames_hu1vs")
 animation = &"Cat_Z_move_Classic"
 
-[node name="Color_tiles" type="ColorRect" parent="Cat_Z_animation"]
+[node name="Color_tiles" type="ColorRect" parent="."]
 unique_name_in_owner = true
 show_behind_parent = true
 custom_minimum_size = Vector2(88, 88)
-offset_left = -130.0
-offset_top = -125.556
-offset_right = -34.0
-offset_bottom = -37.5559
+offset_left = -77.0
+offset_top = -78.0004
+offset_right = 19.0
+offset_bottom = 9.9997
+scale = Vector2(0.9, 0.9)
 color = Color(0.0705882, 0.0705882, 0.0705882, 0.129412)
 metadata/_edit_use_anchors_ = true
 
-[node name="ColorRect3" type="ColorRect" parent="Cat_Z_animation/Color_tiles"]
+[node name="ColorRect3" type="ColorRect" parent="Color_tiles"]
 show_behind_parent = true
 custom_minimum_size = Vector2(88, 88)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0162083
+anchor_top = 0.002517
+anchor_right = 0.0150417
+anchor_bottom = 0.00251128
 offset_left = 185.556
 offset_top = 87.7785
-offset_right = 281.556
+offset_right = 279.556
 offset_bottom = 175.779
 color = Color(0.0705882, 0.0705882, 0.0705882, 0.129412)
 metadata/_edit_use_anchors_ = true
 
-[node name="ColorRect2" type="ColorRect" parent="Cat_Z_animation/Color_tiles"]
+[node name="ColorRect2" type="ColorRect" parent="Color_tiles"]
 show_behind_parent = true
 custom_minimum_size = Vector2(176, 88)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.004625
+anchor_right = -0.004625
 offset_left = 184.444
 offset_right = 360.444
 offset_bottom = 88.0001

@@ -12,6 +12,7 @@ var level_rocket = load("res://Scenes/levels/level_rocket/level_rocket.tscn")
 var level_ring = load("res://Scenes/levels/level_ring/level_ring.tscn")
 var level_butterfly = load("res://Scenes/levels/level_butterfly/level_butterfly.tscn")
 var level_lethal_company = load("res://Scenes/levels/level_lethal_company/level_lethal_company.tscn")
+var level_ghost = load("res://Scenes/levels/level_ghost/level_ghost.tscn")
 
 var all_levels = [
 	#Маленькие уровни
@@ -20,6 +21,7 @@ var all_levels = [
 	level_6x6,
 	level_butterfly,
 	level_lethal_company,
+	level_ghost,
 	#Большие уровни
 	level_blob,
 	level_circle,

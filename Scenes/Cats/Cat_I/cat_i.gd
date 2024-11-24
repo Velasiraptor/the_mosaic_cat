@@ -21,6 +21,9 @@ var start_position := Vector2()
 var dragging = false  # Флаг перетаскивания
 var drag_offset = Vector2()  # Смещение между объектом и мышью
 
+var color_green = "143a1d88"
+var color_red = "58170e83"
+
 signal dragsignal  # Сигнал для начала/остановки перетаскивания
 
 func _ready():
@@ -33,7 +36,8 @@ func _ready():
 	cat_i_animation.visible = false
 	cat_i_animation.stop()
 	
-	color_tiles.color = "58170e45"
+	color_tiles.visible = false
+	color_tiles.color = color_red
 
 
 func _physics_process(delta):
@@ -46,9 +50,9 @@ func _physics_process(delta):
 			not_dragging()
 	
 	if count_tile_in_cat == 0: #рамка-область
-		color_tiles.color = "1f372245"
+		color_tiles.color = color_green
 	else:
-		color_tiles.color = "58170e45"
+		color_tiles.color = color_red
 
 func _set_drag_pc():
 	dragging = !dragging
@@ -66,6 +70,8 @@ func _on_input_event(viewport, event, shape_idx):
 			self.global_position = get_global_mouse_position()
 			
 			Global.check_rotate_cat = true
+			
+			color_tiles.visible = true
 			
 			#анимация
 			sprite_cat_i.visible = false
@@ -85,6 +91,8 @@ func not_dragging():
 	dragging = false
 	
 	Global.check_rotate_cat = false
+	
+	color_tiles.visible = false
 	
 	#анимация
 	sprite_cat_i.visible = true

@@ -32,7 +32,7 @@ script = ExtResource("1_72l7s")
 [node name="Sprite_Cat_ONE" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(44, -44)
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.45, 0.45)
 texture = ExtResource("1_myklk")
 
 [node name="Cat_ONE_animation" type="AnimatedSprite2D" parent="."]
@@ -43,14 +43,15 @@ sprite_frames = SubResource("SpriteFrames_do31e")
 animation = &"Cat_ONE_move_Classic"
 frame_progress = 0.0601988
 
-[node name="Color_tiles" type="ColorRect" parent="Cat_ONE_animation"]
+[node name="Color_tiles" type="ColorRect" parent="."]
 unique_name_in_owner = true
 show_behind_parent = true
 custom_minimum_size = Vector2(96.8, 96.8)
-offset_left = -48.4444
-offset_top = -46.2222
-offset_right = 48.3556
-offset_bottom = 50.5779
+offset_left = 0.40004
+offset_top = -87.6
+offset_right = 97.2
+offset_bottom = 9.20003
+scale = Vector2(0.9, 0.9)
 color = Color(0.0705882, 0.0705882, 0.0705882, 0.129412)
 metadata/_edit_use_anchors_ = true
 

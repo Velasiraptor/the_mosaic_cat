@@ -76,20 +76,22 @@ unique_name_in_owner = true
 
 [node name="Cat_I_animation" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(-4, -72)
+position = Vector2(-4, -52)
 rotation = 1.5708
 scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_xjr5y")
 animation = &"Cat_I_move_Classic"
 
-[node name="Color_tiles" type="ColorRect" parent="Cat_I_animation"]
+[node name="Color_tiles" type="ColorRect" parent="."]
 unique_name_in_owner = true
 show_behind_parent = true
 custom_minimum_size = Vector2(106.48, 425.92)
-offset_left = -49.3055
-offset_top = -216.111
-offset_right = 57.1745
-offset_bottom = 209.809
+offset_left = 168.889
+offset_top = -91.4438
+offset_right = 275.369
+offset_bottom = 334.476
+rotation = 1.5708
+scale = Vector2(0.8, 0.8)
 color = Color(0.1233, 0.217194, 0.134824, 0.27)
 metadata/_edit_use_anchors_ = true
 

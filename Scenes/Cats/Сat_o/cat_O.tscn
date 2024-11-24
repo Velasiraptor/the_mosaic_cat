@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://dfl8qsacj4yvt"]
+[gd_scene load_steps=12 format=3 uid="uid://dfl8qsacj4yvt"]
 
 [ext_resource type="Script" path="res://Scenes/Cats/Сat_o/cat_O.gd" id="1_q65ix"]
 [ext_resource type="Texture2D" uid="uid://dxfifx8dgewtn" path="res://Sprites/Cats/Cat_O/Cat_O.png" id="2_46vyx"]
+[ext_resource type="Texture2D" uid="uid://bgxcpxmgyaqk1" path="res://Sprites/Backgrounds/Relax_purple.png" id="2_mrp0l"]
 [ext_resource type="Texture2D" uid="uid://cl12svb74deey" path="res://Sprites/Cats/Cat_O/Cat_O_0.png" id="3_kkaq3"]
 [ext_resource type="Script" path="res://Scenes/Cats/Сat_o/skeleton_cat.gd" id="3_m2d28"]
 [ext_resource type="Texture2D" uid="uid://c2rk2kfrsvcy1" path="res://Sprites/Cats/Cat_O/Cat_O_1_3.png" id="4_0fxfv"]
@@ -69,6 +70,12 @@ collision_mask = 0
 input_pickable = true
 script = ExtResource("1_q65ix")
 
+[node name="RelaxPurple" type="Sprite2D" parent="."]
+visible = false
+z_index = -1
+position = Vector2(-78, 42)
+texture = ExtResource("2_mrp0l")
+
 [node name="Sprite_Cat_O" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 scale = Vector2(0.5, 0.5)
@@ -81,15 +88,16 @@ scale = Vector2(0.9, 0.9)
 sprite_frames = SubResource("SpriteFrames_nnhjx")
 animation = &"Cat_O_move_Classic"
 
-[node name="Color_tiles" type="ColorRect" parent="Cat_O_animation"]
+[node name="Color_tiles" type="ColorRect" parent="."]
 unique_name_in_owner = true
 show_behind_parent = true
 custom_minimum_size = Vector2(176, 176)
-offset_left = -83.3333
-offset_top = -146.667
-offset_right = 92.6667
-offset_bottom = 29.3333
-color = Color(0.0705882, 0.0705882, 0.0705882, 0.129412)
+offset_left = -79.0
+offset_top = -79.0003
+offset_right = 97.0
+offset_bottom = 96.9997
+scale = Vector2(0.9, 0.9)
+color = Color(0.0766054, 0.225596, 0.112406, 0.535)
 metadata/_edit_use_anchors_ = true
 
 [node name="Collision_touch" type="CollisionShape2D" parent="."]
