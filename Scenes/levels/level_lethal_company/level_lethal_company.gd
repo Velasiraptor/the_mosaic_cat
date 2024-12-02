@@ -242,4 +242,13 @@ func _on_button_restart_pressed():
 	for i in cats.get_children():
 		cats.remove_child(i)
 	random_combo()
-	rotate_level()
+
+func _on_button_skip_pressed():
+	var next_lvl = Global.all_levels
+	next_lvl = next_lvl.pick_random()
+	while next_lvl == Global.last_lvl:
+		next_lvl = Global.all_levels
+		next_lvl = next_lvl.pick_random()
+	Global.last_lvl = next_lvl
+	get_parent().add_child(next_lvl.instantiate())
+	queue_free()

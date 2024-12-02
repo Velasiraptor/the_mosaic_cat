@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://cn5oc0v733jlg"]
+
+[ext_resource type="Texture2D" uid="uid://bgxcpxmgyaqk1" path="res://Sprites/Backgrounds/Relax_purple.png" id="1_bvj6j"]
+[ext_resource type="Script" path="res://Scenes/Background/backgrounds.gd" id="1_h8j07"]
+[ext_resource type="Shader" path="res://Shaders/Blur.gdshader" id="2_dqj1t"]
+[ext_resource type="Texture2D" uid="uid://c3iosvvivwx2y" path="res://icon.svg" id="3_n03qh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1eahc"]
+shader = ExtResource("2_dqj1t")
+shader_parameter/lod = 1.8
+
+[node name="Backgrounds" type="CanvasLayer"]
+layer = -100
+script = ExtResource("1_h8j07")
+
+[node name="Texture_back" type="TextureRect" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(1920, 1080)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_bvj6j")
+metadata/_edit_use_anchors_ = true
+
+[node name="Texture" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_1eahc")
+custom_minimum_size = Vector2(1920, 1080)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_n03qh")

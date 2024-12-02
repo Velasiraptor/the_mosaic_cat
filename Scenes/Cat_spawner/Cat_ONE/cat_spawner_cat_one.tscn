@@ -26,9 +26,9 @@ texture = ExtResource("3_4opjn")
 [node name="Label_count" type="Label" parent="BallOfThread"]
 unique_name_in_owner = true
 modulate = Color(0.00742043, 0.0862424, 0.232336, 1)
-offset_left = -50.0
+offset_left = -103.125
 offset_top = -168.75
-offset_right = -10.0
+offset_right = -30.125
 offset_bottom = -76.75
 scale = Vector2(3, 3)
 theme_override_fonts/font = ExtResource("4_ef6o5")

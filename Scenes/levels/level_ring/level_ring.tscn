@@ -1,40 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://dwmb6wwk7crhi"]
+[gd_scene load_steps=6 format=3 uid="uid://dwmb6wwk7crhi"]
 
 [ext_resource type="Script" path="res://Scenes/levels/level_ring/level_ring.gd" id="1_0ccmv"]
-[ext_resource type="Texture2D" uid="uid://bgxcpxmgyaqk1" path="res://Sprites/Backgrounds/Relax_purple.png" id="2_3iw2q"]
-[ext_resource type="Shader" path="res://Shaders/Blur.gdshader" id="3_rw3bd"]
 [ext_resource type="Texture2D" uid="uid://c3iosvvivwx2y" path="res://icon.svg" id="4_yxvsl"]
 [ext_resource type="PackedScene" uid="uid://q1ij6djenla5" path="res://Scenes/Tile/tile_background.tscn" id="5_cujqg"]
+[ext_resource type="PackedScene" uid="uid://cn5oc0v733jlg" path="res://Scenes/Background/backgrounds.tscn" id="5_vtwny"]
 [ext_resource type="Texture2D" uid="uid://bawukujtgkq5l" path="res://Sprites/Сarpets/Carpet_blue.png" id="6_jh65v"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_2f64f"]
-shader = ExtResource("3_rw3bd")
-shader_parameter/lod = 0.8
 
 [node name="level_ring" type="Node2D" groups=["Level"]]
 script = ExtResource("1_0ccmv")
-
-[node name="Backgrounds" type="CanvasLayer" parent="."]
-layer = -100
-
-[node name="Texture_back" type="TextureRect" parent="Backgrounds"]
-custom_minimum_size = Vector2(1920, 1080)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_3iw2q")
-
-[node name="Texture" type="TextureRect" parent="Backgrounds"]
-material = SubResource("ShaderMaterial_2f64f")
-custom_minimum_size = Vector2(1920, 1080)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("4_yxvsl")
 
 [node name="Level_zone" type="Control" parent="."]
 unique_name_in_owner = true
@@ -358,13 +331,21 @@ position = Vector2(768, 386)
 scale = Vector2(1.6, 1.6)
 texture = ExtResource("6_jh65v")
 
+[node name="Button_SKIP" type="Button" parent="."]
+custom_minimum_size = Vector2(100, 100)
+offset_left = 496.0
+offset_top = 412.0
+offset_right = 612.0
+offset_bottom = 512.0
+text = "ПРОПУСТИТЬ"
+
 [node name="Button_RESTART" type="Button" parent="."]
 custom_minimum_size = Vector2(100, 100)
-offset_left = -169.0
-offset_top = 387.0
-offset_right = -69.0
-offset_bottom = 487.0
-text = "RESTART"
+offset_left = -596.0
+offset_top = 412.0
+offset_right = -478.0
+offset_bottom = 512.0
+text = "ПЕРЕМЕШАТЬ"
 
 [node name="Button_ROTATE" type="TouchScreenButton" parent="."]
 unique_name_in_owner = true
@@ -382,5 +363,8 @@ unique_name_in_owner = true
 wait_time = 0.5
 one_shot = true
 
+[node name="Backgrounds" parent="." instance=ExtResource("5_vtwny")]
+
+[connection signal="pressed" from="Button_SKIP" to="." method="_on_button_skip_pressed"]
 [connection signal="pressed" from="Button_RESTART" to="." method="_on_button_restart_pressed"]
 [connection signal="timeout" from="Timer_check_finish" to="." method="_on_timer_check_finish_timeout"]

@@ -16,6 +16,7 @@ extends Node2D
 @onready var playing_field = %Playing_field
 
 
+
 var full_tile := 16 # кол-во игровых клеток
 @onready var timer_check_finish = %Timer_check_finish
 
@@ -281,3 +282,14 @@ func _on_button_pressed():
 	for i in cats.get_children():
 		cats.remove_child(i)
 	random_combo()
+
+
+func _on_button_skip_pressed():
+	var next_lvl = Global.all_levels
+	next_lvl = next_lvl.pick_random()
+	while next_lvl == Global.last_lvl:
+		next_lvl = Global.all_levels
+		next_lvl = next_lvl.pick_random()
+	Global.last_lvl = next_lvl
+	get_parent().add_child(next_lvl.instantiate())
+	queue_free()

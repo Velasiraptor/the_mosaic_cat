@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://q1ij6djenla5"]
 
-[ext_resource type="Texture2D" uid="uid://bs7xlag0otm84" path="res://Sprites/Tiles_backgrounds/Tile_back_1.png" id="1_uflb2"]
+[ext_resource type="Texture2D" uid="uid://bs7xlag0otm84" path="res://Sprites/Tiles_backgrounds/Tile_back_0.png" id="1_uflb2"]
 [ext_resource type="Script" path="res://Scenes/Tile/tile_background.gd" id="2_1evnf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ahar"]

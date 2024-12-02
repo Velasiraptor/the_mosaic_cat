@@ -60,7 +60,7 @@ func _set_drag_pc():
 	dragging = !dragging
 	if dragging:
 		var mousepos = get_viewport().get_mouse_position()
-		self.global_position = get_global_mouse_position() - Vector2(44, 0) + Vector2(0, -220) #для телефона
+		self.global_position = get_global_mouse_position() - Vector2(44, 0) + Vector2(0, -150) #для телефона
 		drag_offset = mousepos - self.position  # Рассчитываем смещение при начале перетаскивания
 
 

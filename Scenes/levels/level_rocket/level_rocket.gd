@@ -30,7 +30,7 @@ func _physics_process(delta):
 func _ready():
 	random_combo()
 	rotate_level()
-	
+	mirror_level()
 
 func finish_game():
 	timer_check_finish.start()
@@ -69,6 +69,20 @@ func scale_button_rotate():
 		button_rotate.scale.x = 6
 	else:
 		button_rotate.scale.x = 30
+
+func mirror_level():
+	var rndm_number_x = randi_range(0, 2)
+	var rndm_number_y = randi_range(0, 2)
+	
+	if rndm_number_x == 0:
+		level_zone.scale.x = 1
+	else:
+		level_zone.scale.x = -1
+	
+	if rndm_number_y == 0:
+		level_zone.scale.y = 1
+	else:
+		level_zone.scale.y = -1
 
 func rotate_level():
 	var rndm_number = randi_range(0, 4)
@@ -242,4 +256,13 @@ func _on_button_restart_pressed():
 	for i in cats.get_children():
 		cats.remove_child(i)
 	random_combo()
-	rotate_level()
+
+func _on_button_skip_pressed():
+	var next_lvl = Global.all_levels
+	next_lvl = next_lvl.pick_random()
+	while next_lvl == Global.last_lvl:
+		next_lvl = Global.all_levels
+		next_lvl = next_lvl.pick_random()
+	Global.last_lvl = next_lvl
+	get_parent().add_child(next_lvl.instantiate())
+	queue_free()

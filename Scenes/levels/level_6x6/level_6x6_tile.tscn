@@ -1,40 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://bouyh06i61wy"]
+[gd_scene load_steps=6 format=3 uid="uid://bouyh06i61wy"]
 
-[ext_resource type="Texture2D" uid="uid://bgxcpxmgyaqk1" path="res://Sprites/Backgrounds/Relax_purple.png" id="1_6m3pg"]
 [ext_resource type="Script" path="res://Scenes/levels/level_6x6/level_6x_6_tile.gd" id="1_8gov3"]
 [ext_resource type="PackedScene" uid="uid://q1ij6djenla5" path="res://Scenes/Tile/tile_background.tscn" id="1_64vt8"]
-[ext_resource type="Shader" path="res://Shaders/Blur.gdshader" id="2_bvq2m"]
 [ext_resource type="Texture2D" uid="uid://c3iosvvivwx2y" path="res://icon.svg" id="3_pcvv3"]
+[ext_resource type="PackedScene" uid="uid://cn5oc0v733jlg" path="res://Scenes/Background/backgrounds.tscn" id="5_5vue5"]
 [ext_resource type="Texture2D" uid="uid://bawukujtgkq5l" path="res://Sprites/Сarpets/Carpet_blue.png" id="5_t2fe4"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_5jete"]
-shader = ExtResource("2_bvq2m")
-shader_parameter/lod = 0.8
 
 [node name="Level_6x6_tile" type="Node2D" groups=["Level"]]
 script = ExtResource("1_8gov3")
-
-[node name="Backgrounds" type="CanvasLayer" parent="."]
-layer = -100
-
-[node name="Texture_back" type="TextureRect" parent="Backgrounds"]
-custom_minimum_size = Vector2(1920, 1080)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_6m3pg")
-
-[node name="Texture" type="TextureRect" parent="Backgrounds"]
-material = SubResource("ShaderMaterial_5jete")
-custom_minimum_size = Vector2(1920, 1080)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("3_pcvv3")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -241,13 +214,21 @@ position = Vector2(768, 386)
 scale = Vector2(1.6, 1.6)
 texture = ExtResource("5_t2fe4")
 
+[node name="Button_SKIP" type="Button" parent="."]
+custom_minimum_size = Vector2(100, 100)
+offset_left = 496.0
+offset_top = 412.0
+offset_right = 612.0
+offset_bottom = 512.0
+text = "ПРОПУСТИТЬ"
+
 [node name="Button_RESTART" type="Button" parent="."]
 custom_minimum_size = Vector2(100, 100)
-offset_left = -169.0
-offset_top = 329.0
-offset_right = -69.0
-offset_bottom = 429.0
-text = "RESTART"
+offset_left = -596.0
+offset_top = 412.0
+offset_right = -496.0
+offset_bottom = 512.0
+text = "ПЕРЕМЕШАТЬ"
 
 [node name="Cats" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -265,5 +246,8 @@ unique_name_in_owner = true
 wait_time = 0.5
 one_shot = true
 
+[node name="Backgrounds" parent="." instance=ExtResource("5_5vue5")]
+
+[connection signal="pressed" from="Button_SKIP" to="." method="_on_button_skip_pressed"]
 [connection signal="pressed" from="Button_RESTART" to="." method="_on_button_pressed"]
 [connection signal="timeout" from="Timer_check_finish" to="." method="_on_timer_check_finish_timeout"]

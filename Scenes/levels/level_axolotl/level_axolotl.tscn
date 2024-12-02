@@ -1,0 +1,259 @@
+[gd_scene load_steps=7 format=3 uid="uid://cxumqpxbm4lr6"]
+
+[ext_resource type="Script" path="res://Scenes/levels/level_axolotl/level_axolotl.gd" id="1_s3ee2"]
+[ext_resource type="Texture2D" uid="uid://c3iosvvivwx2y" path="res://icon.svg" id="3_thjaa"]
+[ext_resource type="PackedScene" uid="uid://q1ij6djenla5" path="res://Scenes/Tile/tile_background.tscn" id="4_4ll3q"]
+[ext_resource type="Texture2D" uid="uid://defh7tb8vtb2l" path="res://Sprites/Tiles_backgrounds/Rock.png" id="5_bjqi1"]
+[ext_resource type="Texture2D" uid="uid://bawukujtgkq5l" path="res://Sprites/Сarpets/Carpet_blue.png" id="6_b34k2"]
+[ext_resource type="PackedScene" uid="uid://cn5oc0v733jlg" path="res://Scenes/Background/backgrounds.tscn" id="6_ekj3j"]
+
+[node name="level_axolotl" type="Node2D" groups=["Level"]]
+script = ExtResource("1_s3ee2")
+
+[node name="Level_zone" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -88.0
+offset_bottom = -88.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="Playing_field" type="GridContainer" parent="Level_zone"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -176.0
+offset_top = -176.0
+offset_right = 176.0
+offset_bottom = 176.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 6
+
+[node name="tile_background" parent="Level_zone/Playing_field" instance=ExtResource("4_4ll3q")]
+layout_mode = 2
+
+[node name="tile_background2" parent="Level_zone/Playing_field" instance=ExtResource("4_4ll3q")]
+layout_mode = 2
+
+[node name="tile_background3" parent="Level_zone/Playing_field" instance=ExtResource("4_4ll3q")]
+layout_mode = 2
+
+[node name="tile_background4" parent="Level_zone/Playing_field" instance=ExtResource("4_4ll3q")]
+layout_mode = 2
+
+[node name="tile_background5" parent="Level_zone/Playing_field" instance=ExtResource("4_4ll3q")]
+layout_mode = 2
+
+[node name="tile_background6" parent="Level_zone/Playing_field" instance=ExtResource("4_4ll3q")]
+layout_mode = 2
+
+[node name="tile_background7" parent="Level_zone/Playing_field" instance=ExtResource("4_4ll3q")]
+layout_mode = 2
+
+[node name="tile_background8" parent="Level_zone/Playing_field" instance=ExtResource("4_4ll3q")]
+layout_mode = 2
+
+[node name="tile_background9" parent="Level_zone/Playing_field" instance=ExtResource("4_4ll3q")]
+layout_mode = 2
+
+[node name="tile_background10" parent="Level_zone/Playing_field" instance=ExtResource("4_4ll3q")]
+layout_mode = 2
+
+[node name="tile_background11" parent="Level_zone/Playing_field" instance=ExtResource("4_4ll3q")]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Level_zone/Playing_field"]
+custom_minimum_size = Vector2(88, 88)
+layout_mode = 2
+
+[node name="tile_background12" parent="Level_zone/Playing_field" instance=ExtResource("4_4ll3q")]
+layout_mode = 2
+
+[node name="tile_background13" parent="Level_zone/Playing_field" instance=ExtResource("4_4ll3q")]
+layout_mode = 2
+
+[node name="Rock" type="TextureRect" parent="Level_zone/Playing_field"]
+custom_minimum_size = Vector2(88, 88)
+layout_mode = 2
+texture = ExtResource("5_bjqi1")
+expand_mode = 1
+
+[node name="tile_background14" parent="Level_zone/Playing_field" instance=ExtResource("4_4ll3q")]
+layout_mode = 2
+
+[node name="tile_background15" parent="Level_zone/Playing_field" instance=ExtResource("4_4ll3q")]
+layout_mode = 2
+
+[node name="tile_background16" parent="Level_zone/Playing_field" instance=ExtResource("4_4ll3q")]
+layout_mode = 2
+
+[node name="tile_background17" parent="Level_zone/Playing_field" instance=ExtResource("4_4ll3q")]
+layout_mode = 2
+
+[node name="tile_background18" parent="Level_zone/Playing_field" instance=ExtResource("4_4ll3q")]
+layout_mode = 2
+
+[node name="tile_background19" parent="Level_zone/Playing_field" instance=ExtResource("4_4ll3q")]
+layout_mode = 2
+
+[node name="tile_background20" parent="Level_zone/Playing_field" instance=ExtResource("4_4ll3q")]
+layout_mode = 2
+
+[node name="tile_background21" parent="Level_zone/Playing_field" instance=ExtResource("4_4ll3q")]
+layout_mode = 2
+
+[node name="tile_background22" parent="Level_zone/Playing_field" instance=ExtResource("4_4ll3q")]
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="Level_zone/Playing_field"]
+custom_minimum_size = Vector2(88, 88)
+layout_mode = 2
+
+[node name="MarginContainer3" type="MarginContainer" parent="Level_zone/Playing_field"]
+custom_minimum_size = Vector2(88, 88)
+layout_mode = 2
+
+[node name="tile_background23" parent="Level_zone/Playing_field" instance=ExtResource("4_4ll3q")]
+layout_mode = 2
+
+[node name="tile_background24" parent="Level_zone/Playing_field" instance=ExtResource("4_4ll3q")]
+layout_mode = 2
+
+[node name="tile_background25" parent="Level_zone/Playing_field" instance=ExtResource("4_4ll3q")]
+layout_mode = 2
+
+[node name="MarginContainer4" type="MarginContainer" parent="Level_zone/Playing_field"]
+custom_minimum_size = Vector2(88, 88)
+layout_mode = 2
+
+[node name="tile_background26" parent="Level_zone/Playing_field" instance=ExtResource("4_4ll3q")]
+layout_mode = 2
+
+[node name="tile_background27" parent="Level_zone/Playing_field" instance=ExtResource("4_4ll3q")]
+layout_mode = 2
+
+[node name="tile_background28" parent="Level_zone/Playing_field" instance=ExtResource("4_4ll3q")]
+layout_mode = 2
+
+[node name="tile_background29" parent="Level_zone/Playing_field" instance=ExtResource("4_4ll3q")]
+layout_mode = 2
+
+[node name="tile_background30" parent="Level_zone/Playing_field" instance=ExtResource("4_4ll3q")]
+layout_mode = 2
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Container_spawn_1" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-768, -401)
+
+[node name="CarpetBlue" type="Sprite2D" parent="Container_spawn_1"]
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("6_b34k2")
+
+[node name="Container_spawn_2" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-768, -142)
+
+[node name="CarpetBlue" type="Sprite2D" parent="Container_spawn_2"]
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("6_b34k2")
+
+[node name="Container_spawn_3" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-768, 127)
+
+[node name="CarpetBlue" type="Sprite2D" parent="Container_spawn_3"]
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("6_b34k2")
+
+[node name="Container_spawn_4" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-768, 386)
+
+[node name="CarpetBlue" type="Sprite2D" parent="Container_spawn_4"]
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("6_b34k2")
+
+[node name="Container_spawn_5" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(768, -401)
+
+[node name="CarpetBlue" type="Sprite2D" parent="Container_spawn_5"]
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("6_b34k2")
+
+[node name="Container_spawn_6" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(768, -142)
+
+[node name="CarpetBlue" type="Sprite2D" parent="Container_spawn_6"]
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("6_b34k2")
+
+[node name="Container_spawn_7" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(768, 127)
+
+[node name="CarpetBlue" type="Sprite2D" parent="Container_spawn_7"]
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("6_b34k2")
+
+[node name="Container_spawn_8" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(768, 386)
+
+[node name="CarpetBlue" type="Sprite2D" parent="Container_spawn_8"]
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("6_b34k2")
+
+[node name="Button_SKIP" type="Button" parent="."]
+custom_minimum_size = Vector2(100, 100)
+offset_left = 496.0
+offset_top = 412.0
+offset_right = 612.0
+offset_bottom = 512.0
+text = "ПРОПУСТИТЬ"
+
+[node name="Button_RESTART" type="Button" parent="."]
+custom_minimum_size = Vector2(100, 100)
+offset_left = -596.0
+offset_top = 412.0
+offset_right = -496.0
+offset_bottom = 512.0
+text = "ПЕРЕМЕШАТЬ"
+
+[node name="Button_ROTATE" type="TouchScreenButton" parent="."]
+unique_name_in_owner = true
+modulate = Color(0.427451, 0.756863, 0, 0)
+position = Vector2(-1869, -890)
+scale = Vector2(6, 14)
+texture_normal = ExtResource("3_thjaa")
+action = "rotate_cat"
+
+[node name="Cats" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Timer_check_finish" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.5
+one_shot = true
+
+[node name="Backgrounds" parent="." instance=ExtResource("6_ekj3j")]
+
+[connection signal="pressed" from="Button_SKIP" to="." method="_on_button_skip_pressed"]
+[connection signal="pressed" from="Button_RESTART" to="." method="_on_button_restart_pressed"]
+[connection signal="timeout" from="Timer_check_finish" to="." method="_on_timer_check_finish_timeout"]

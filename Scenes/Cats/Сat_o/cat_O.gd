@@ -40,7 +40,7 @@ func _ready():
 func _physics_process(delta):
 	if dragging and active:
 		var mousepos = get_viewport().get_mouse_position()
-		self.position = mousepos - drag_offset + Vector2(0, -220) # Учитываем смещение #для телефона
+		self.position = mousepos - drag_offset + Vector2(0, -160) # Учитываем смещение #для телефона
 		rotate_cat_button()
 	if Input.is_action_just_released("click") and dragging:
 		not_dragging()

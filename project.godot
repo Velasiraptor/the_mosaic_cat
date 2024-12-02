@@ -15,7 +15,6 @@ run/main_scene="res://Scenes/play_game.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/image="res://Sprites/test_background_game.png"
-config/icon="res://icon.svg"
 boot_splash/minimum_display_time=1000
 
 [autoload]
@@ -62,6 +61,5 @@ pointing/emulate_touch_from_mouse=true
 
 [rendering]
 
-renderer/rendering_method="gl_compatibility"
-renderer/rendering_method.mobile="gl_compatibility"
+renderer/rendering_method="mobile"
 textures/vram_compression/import_etc2_astc=true
