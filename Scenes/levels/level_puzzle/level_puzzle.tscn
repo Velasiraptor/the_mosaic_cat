@@ -1,10 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://cr5nau4v4wmxg"]
+[gd_scene load_steps=11 format=3 uid="uid://cr5nau4v4wmxg"]
 
 [ext_resource type="Script" path="res://Scenes/levels/level_puzzle/level_puzzle.gd" id="1_36smy"]
+[ext_resource type="Texture2D" uid="uid://d1eofwab4d5ap" path="res://Sprites/Tiles_backgrounds/Tile_back_2.png" id="3_tkm4y"]
+[ext_resource type="Texture2D" uid="uid://c3qlvidad114p" path="res://Sprites/Tiles_backgrounds/Tile_back_3_TD.png" id="4_s74nc"]
 [ext_resource type="Texture2D" uid="uid://c3iosvvivwx2y" path="res://icon.svg" id="4_uj6qa"]
+[ext_resource type="Texture2D" uid="uid://ujarh7ofbs38" path="res://Sprites/Tiles_backgrounds/Tile_back_3_LR.png" id="5_5o57y"]
 [ext_resource type="PackedScene" uid="uid://cn5oc0v733jlg" path="res://Scenes/Background/backgrounds.tscn" id="5_41ny5"]
 [ext_resource type="PackedScene" uid="uid://q1ij6djenla5" path="res://Scenes/Tile/tile_background.tscn" id="5_m7stk"]
+[ext_resource type="Texture2D" uid="uid://v2aw3toqya8" path="res://Sprites/Tiles_backgrounds/Tile_back_1_LR.png" id="6_escj1"]
 [ext_resource type="Texture2D" uid="uid://bawukujtgkq5l" path="res://Sprites/Сarpets/Carpet_blue.png" id="6_wf6nl"]
+[ext_resource type="Texture2D" uid="uid://cqbkqmmj6iqiy" path="res://Sprites/Tiles_backgrounds/Tile_back_1_TD.png" id="7_2r22n"]
 
 [node name="level_puzzle" type="Node2D" groups=["Level"]]
 script = ExtResource("1_36smy")
@@ -47,9 +52,12 @@ layout_mode = 2
 
 [node name="tile_background" parent="Level_zone/Playing_field" instance=ExtResource("5_m7stk")]
 layout_mode = 2
+texture = ExtResource("3_tkm4y")
+flip_h = true
 
 [node name="tile_background2" parent="Level_zone/Playing_field" instance=ExtResource("5_m7stk")]
 layout_mode = 2
+texture = ExtResource("3_tkm4y")
 
 [node name="MarginContainer2" type="MarginContainer" parent="Level_zone/Playing_field"]
 custom_minimum_size = Vector2(88, 88)
@@ -57,6 +65,7 @@ layout_mode = 2
 
 [node name="tile_background3" parent="Level_zone/Playing_field" instance=ExtResource("5_m7stk")]
 layout_mode = 2
+texture = ExtResource("4_s74nc")
 
 [node name="MarginContainer3" type="MarginContainer" parent="Level_zone/Playing_field"]
 custom_minimum_size = Vector2(88, 88)
@@ -64,21 +73,27 @@ layout_mode = 2
 
 [node name="tile_background4" parent="Level_zone/Playing_field" instance=ExtResource("5_m7stk")]
 layout_mode = 2
+texture = ExtResource("5_5o57y")
+flip_h = true
 
 [node name="tile_background5" parent="Level_zone/Playing_field" instance=ExtResource("5_m7stk")]
 layout_mode = 2
+flip_h = true
 
 [node name="tile_background6" parent="Level_zone/Playing_field" instance=ExtResource("5_m7stk")]
 layout_mode = 2
 
 [node name="tile_background7" parent="Level_zone/Playing_field" instance=ExtResource("5_m7stk")]
 layout_mode = 2
+texture = ExtResource("7_2r22n")
+flip_v = true
 
 [node name="tile_background8" parent="Level_zone/Playing_field" instance=ExtResource("5_m7stk")]
 layout_mode = 2
 
 [node name="tile_background9" parent="Level_zone/Playing_field" instance=ExtResource("5_m7stk")]
 layout_mode = 2
+texture = ExtResource("5_5o57y")
 
 [node name="MarginContainer4" type="MarginContainer" parent="Level_zone/Playing_field"]
 custom_minimum_size = Vector2(88, 88)
@@ -86,6 +101,8 @@ layout_mode = 2
 
 [node name="tile_background10" parent="Level_zone/Playing_field" instance=ExtResource("5_m7stk")]
 layout_mode = 2
+texture = ExtResource("6_escj1")
+flip_h = true
 
 [node name="tile_background11" parent="Level_zone/Playing_field" instance=ExtResource("5_m7stk")]
 layout_mode = 2
@@ -95,6 +112,7 @@ layout_mode = 2
 
 [node name="tile_background13" parent="Level_zone/Playing_field" instance=ExtResource("5_m7stk")]
 layout_mode = 2
+texture = ExtResource("6_escj1")
 
 [node name="MarginContainer5" type="MarginContainer" parent="Level_zone/Playing_field"]
 custom_minimum_size = Vector2(88, 88)
@@ -106,6 +124,8 @@ layout_mode = 2
 
 [node name="tile_background14" parent="Level_zone/Playing_field" instance=ExtResource("5_m7stk")]
 layout_mode = 2
+texture = ExtResource("6_escj1")
+flip_h = true
 
 [node name="tile_background15" parent="Level_zone/Playing_field" instance=ExtResource("5_m7stk")]
 layout_mode = 2
@@ -118,27 +138,37 @@ layout_mode = 2
 
 [node name="tile_background18" parent="Level_zone/Playing_field" instance=ExtResource("5_m7stk")]
 layout_mode = 2
+texture = ExtResource("3_tkm4y")
 
 [node name="tile_background19" parent="Level_zone/Playing_field" instance=ExtResource("5_m7stk")]
 layout_mode = 2
+texture = ExtResource("3_tkm4y")
+flip_h = true
 
 [node name="tile_background20" parent="Level_zone/Playing_field" instance=ExtResource("5_m7stk")]
 layout_mode = 2
+texture = ExtResource("7_2r22n")
 
 [node name="tile_background21" parent="Level_zone/Playing_field" instance=ExtResource("5_m7stk")]
 layout_mode = 2
 
 [node name="tile_background22" parent="Level_zone/Playing_field" instance=ExtResource("5_m7stk")]
 layout_mode = 2
+texture = ExtResource("7_2r22n")
 
 [node name="tile_background23" parent="Level_zone/Playing_field" instance=ExtResource("5_m7stk")]
 layout_mode = 2
+flip_v = true
 
 [node name="tile_background24" parent="Level_zone/Playing_field" instance=ExtResource("5_m7stk")]
 layout_mode = 2
+texture = ExtResource("3_tkm4y")
+flip_v = true
 
 [node name="tile_background25" parent="Level_zone/Playing_field" instance=ExtResource("5_m7stk")]
 layout_mode = 2
+texture = ExtResource("4_s74nc")
+flip_v = true
 
 [node name="MarginContainer7" type="MarginContainer" parent="Level_zone/Playing_field"]
 custom_minimum_size = Vector2(88, 88)
@@ -146,6 +176,8 @@ layout_mode = 2
 
 [node name="tile_background26" parent="Level_zone/Playing_field" instance=ExtResource("5_m7stk")]
 layout_mode = 2
+texture = ExtResource("4_s74nc")
+flip_v = true
 
 [node name="MarginContainer8" type="MarginContainer" parent="Level_zone/Playing_field"]
 custom_minimum_size = Vector2(88, 88)
@@ -153,6 +185,8 @@ layout_mode = 2
 
 [node name="tile_background27" parent="Level_zone/Playing_field" instance=ExtResource("5_m7stk")]
 layout_mode = 2
+texture = ExtResource("4_s74nc")
+flip_v = true
 
 [node name="MarginContainer9" type="MarginContainer" parent="Level_zone/Playing_field"]
 custom_minimum_size = Vector2(88, 88)

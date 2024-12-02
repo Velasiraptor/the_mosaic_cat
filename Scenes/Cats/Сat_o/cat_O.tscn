@@ -1,13 +1,69 @@
-[gd_scene load_steps=12 format=3 uid="uid://dfl8qsacj4yvt"]
+[gd_scene load_steps=15 format=3 uid="uid://dfl8qsacj4yvt"]
 
 [ext_resource type="Script" path="res://Scenes/Cats/Сat_o/cat_O.gd" id="1_q65ix"]
-[ext_resource type="Texture2D" uid="uid://dxfifx8dgewtn" path="res://Sprites/Cats/Cat_O/Cat_O.png" id="2_46vyx"]
-[ext_resource type="Texture2D" uid="uid://bgxcpxmgyaqk1" path="res://Sprites/Backgrounds/Relax_purple.png" id="2_mrp0l"]
-[ext_resource type="Texture2D" uid="uid://cl12svb74deey" path="res://Sprites/Cats/Cat_O/Cat_O_0.png" id="3_kkaq3"]
+[ext_resource type="Texture2D" uid="uid://dxfifx8dgewtn" path="res://Sprites/Cats/Cat_O/Classic/Cat_O.png" id="2_46vyx"]
+[ext_resource type="Texture2D" uid="uid://8axwwp5deins" path="res://Sprites/Cats/Cat_O/Classic/Cat_O_blinks.png" id="2_a0x4j"]
+[ext_resource type="Texture2D" uid="uid://cl12svb74deey" path="res://Sprites/Cats/Cat_O/Classic/Cat_O_0.png" id="3_kkaq3"]
 [ext_resource type="Script" path="res://Scenes/Cats/Сat_o/skeleton_cat.gd" id="3_m2d28"]
-[ext_resource type="Texture2D" uid="uid://c2rk2kfrsvcy1" path="res://Sprites/Cats/Cat_O/Cat_O_1_3.png" id="4_0fxfv"]
-[ext_resource type="Texture2D" uid="uid://cae07jqnoj8hv" path="res://Sprites/Cats/Cat_O/Cat_O_2.png" id="5_r8u8d"]
-[ext_resource type="Texture2D" uid="uid://b1qdplovst0nm" path="res://Sprites/Cats/Cat_O/Cat_O_4.png" id="6_mgf78"]
+[ext_resource type="Texture2D" uid="uid://c2rk2kfrsvcy1" path="res://Sprites/Cats/Cat_O/Classic/Cat_O_1_3.png" id="4_0fxfv"]
+[ext_resource type="Texture2D" uid="uid://d0vutlo6h5blv" path="res://Sprites/Cats/Cat_O/Classic/Cat_O_meow.png" id="4_8hlpa"]
+[ext_resource type="Texture2D" uid="uid://cae07jqnoj8hv" path="res://Sprites/Cats/Cat_O/Classic/Cat_O_2.png" id="5_r8u8d"]
+[ext_resource type="Texture2D" uid="uid://b1qdplovst0nm" path="res://Sprites/Cats/Cat_O/Classic/Cat_O_4.png" id="6_mgf78"]
+[ext_resource type="Script" path="res://addons/random_timer/random_timer.gd" id="9_sqbvy"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uvig5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_a0x4j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_a0x4j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_a0x4j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_a0x4j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_a0x4j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_a0x4j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_46vyx")
+}],
+"loop": false,
+"name": &"blinks_classic",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_46vyx")
+}],
+"loop": false,
+"name": &"idle_classic",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_8hlpa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_8hlpa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_8hlpa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_46vyx")
+}],
+"loop": false,
+"name": &"meow_classic",
+"speed": 5.0
+}]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nnhjx"]
 animations = [{
@@ -70,19 +126,15 @@ collision_mask = 0
 input_pickable = true
 script = ExtResource("1_q65ix")
 
-[node name="RelaxPurple" type="Sprite2D" parent="."]
-visible = false
-z_index = -1
-position = Vector2(-78, 42)
-texture = ExtResource("2_mrp0l")
-
-[node name="Sprite_Cat_O" type="Sprite2D" parent="."]
+[node name="Sprite_Cat_O" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_46vyx")
+sprite_frames = SubResource("SpriteFrames_uvig5")
+animation = &"idle_classic"
 
 [node name="Cat_O_animation" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
+visible = false
 position = Vector2(-4, 53)
 scale = Vector2(0.9, 0.9)
 sprite_frames = SubResource("SpriteFrames_nnhjx")
@@ -114,4 +166,20 @@ script = ExtResource("3_m2d28")
 [node name="CollisionShape2D_skeleton" type="CollisionShape2D" parent="Skeleton_cat"]
 shape = SubResource("RectangleShape2D_josus")
 
+[node name="RandomTimer_blinks" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+script = ExtResource("9_sqbvy")
+min_wait_time = 15.0
+max_wait_time = 20.0
+
+[node name="RandomTimer_meow" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+script = ExtResource("9_sqbvy")
+min_wait_time = 50.0
+max_wait_time = 70.0
+
 [connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="timeout" from="RandomTimer_blinks" to="." method="_on_random_timer_blinks_timeout"]
+[connection signal="timeout" from="RandomTimer_meow" to="." method="_on_random_timer_meow_timeout"]

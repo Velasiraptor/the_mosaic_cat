@@ -5,7 +5,7 @@ extends Node2D
 
 @onready var cats = %Cats
 
-@export var texture_cat := preload("res://Sprites/Cats/Cat_I/Cat_I.png")
+@export var texture_cat := preload("res://Sprites/Cats/Cat_I/Classic/Cat_I.png")
 @export var scene_cat := preload("res://Scenes/Cats/Cat_I/cat_i.tscn")
 
 @export var max_count := 3

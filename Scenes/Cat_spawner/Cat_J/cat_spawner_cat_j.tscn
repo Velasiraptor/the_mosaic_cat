@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cckdunq4vb5ib"]
 
-[ext_resource type="Texture2D" uid="uid://cfxl0smvm5ct3" path="res://Sprites/Cats/Cat_J/Cat_J.png" id="1_eqils"]
+[ext_resource type="Texture2D" uid="uid://cfxl0smvm5ct3" path="res://Sprites/Cats/Cat_J/Classic/Cat_J.png" id="1_eqils"]
 [ext_resource type="Script" path="res://Scenes/Cat_spawner/Cat_J/cat_spawner_cat_j.gd" id="1_q2t4o"]
 [ext_resource type="Texture2D" uid="uid://bvk5r224nkbig" path="res://Sprites/ball_of_thread.png" id="3_n5an6"]
 [ext_resource type="FontFile" uid="uid://cj7peb0hnv2rh" path="res://ChalkboardSE-Regular-02_0.ttf" id="4_qb0v8"]

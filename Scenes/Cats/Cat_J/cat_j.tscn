@@ -1,14 +1,56 @@
-[gd_scene load_steps=16 format=3 uid="uid://cn3efmqb5n0ou"]
+[gd_scene load_steps=20 format=3 uid="uid://cn3efmqb5n0ou"]
 
 [ext_resource type="Script" path="res://Scenes/Cats/Cat_J/cat_j.gd" id="1_7yjuo"]
 [ext_resource type="Script" path="res://Scenes/Cats/Сat_o/skeleton_cat.gd" id="2_0ao0f"]
-[ext_resource type="Texture2D" uid="uid://cfxl0smvm5ct3" path="res://Sprites/Cats/Cat_J/Cat_J.png" id="2_am10u"]
-[ext_resource type="Texture2D" uid="uid://bnfvduuuiv8xr" path="res://Sprites/Cats/Cat_J/Cat_J_0.png" id="3_0ua4g"]
-[ext_resource type="Texture2D" uid="uid://byhtx3tqv0dxm" path="res://Sprites/Cats/Cat_J/Cat_J_1.png" id="4_ls4al"]
-[ext_resource type="Texture2D" uid="uid://cw4ecg2hofv5v" path="res://Sprites/Cats/Cat_J/Cat_J_2.png" id="5_5h2fx"]
-[ext_resource type="Texture2D" uid="uid://dhsh5q83l5b0d" path="res://Sprites/Cats/Cat_J/Cat_J_3.png" id="6_607o3"]
-[ext_resource type="Texture2D" uid="uid://tb3ollwvglao" path="res://Sprites/Cats/Cat_J/Cat_J_4.png" id="7_s3262"]
-[ext_resource type="Texture2D" uid="uid://cfnm0tb5c8v3n" path="res://Sprites/Cats/Cat_J/Cat_J_5.png" id="8_1tqk0"]
+[ext_resource type="Texture2D" uid="uid://cfxl0smvm5ct3" path="res://Sprites/Cats/Cat_J/Classic/Cat_J.png" id="2_am10u"]
+[ext_resource type="Texture2D" uid="uid://bnfvduuuiv8xr" path="res://Sprites/Cats/Cat_J/Classic/Cat_J_0.png" id="3_0ua4g"]
+[ext_resource type="Texture2D" uid="uid://crfxt5rnr08h5" path="res://Sprites/Cats/Cat_J/Classic/Cat_J_blinks.png" id="3_oj3pf"]
+[ext_resource type="Texture2D" uid="uid://xanitentcgde" path="res://Sprites/Cats/Cat_J/Classic/Cat_J_meow.png" id="4_11gca"]
+[ext_resource type="Texture2D" uid="uid://byhtx3tqv0dxm" path="res://Sprites/Cats/Cat_J/Classic/Cat_J_1.png" id="4_ls4al"]
+[ext_resource type="Texture2D" uid="uid://cw4ecg2hofv5v" path="res://Sprites/Cats/Cat_J/Classic/Cat_J_2.png" id="5_5h2fx"]
+[ext_resource type="Texture2D" uid="uid://dhsh5q83l5b0d" path="res://Sprites/Cats/Cat_J/Classic/Cat_J_3.png" id="6_607o3"]
+[ext_resource type="Texture2D" uid="uid://tb3ollwvglao" path="res://Sprites/Cats/Cat_J/Classic/Cat_J_4.png" id="7_s3262"]
+[ext_resource type="Texture2D" uid="uid://cfnm0tb5c8v3n" path="res://Sprites/Cats/Cat_J/Classic/Cat_J_5.png" id="8_1tqk0"]
+[ext_resource type="Script" path="res://addons/random_timer/random_timer.gd" id="10_kitb0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eok23"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_oj3pf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_am10u")
+}],
+"loop": false,
+"name": &"blinks_classic",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_am10u")
+}],
+"loop": false,
+"name": &"idle_classic",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_11gca")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_11gca")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_11gca")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_am10u")
+}],
+"loop": false,
+"name": &"meow_classic",
+"speed": 5.0
+}]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ywrr1"]
 animations = [{
@@ -54,13 +96,13 @@ size = Vector2(4, 74)
 [node name="Cat_J" type="CharacterBody2D"]
 script = ExtResource("1_7yjuo")
 
-[node name="Sprite_Cat_J" type="Sprite2D" parent="."]
+[node name="Sprite_Cat_J" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
-visible = false
 position = Vector2(44, 0)
 rotation = 1.5708
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_am10u")
+sprite_frames = SubResource("SpriteFrames_eok23")
+animation = &"meow_classic"
 
 [node name="Cat_J_animation" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
@@ -130,4 +172,20 @@ shape = SubResource("RectangleShape2D_8hxbb")
 position = Vector2(-41, 84)
 shape = SubResource("RectangleShape2D_j0tr1")
 
+[node name="RandomTimer_blinks" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+script = ExtResource("10_kitb0")
+min_wait_time = 5.0
+max_wait_time = 12.0
+
+[node name="RandomTimer_meow" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+script = ExtResource("10_kitb0")
+min_wait_time = 30.0
+max_wait_time = 60.0
+
 [connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="timeout" from="RandomTimer_blinks" to="." method="_on_random_timer_blinks_timeout"]
+[connection signal="timeout" from="RandomTimer_meow" to="." method="_on_random_timer_meow_timeout"]

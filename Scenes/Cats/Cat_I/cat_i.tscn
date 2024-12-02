@@ -1,12 +1,54 @@
-[gd_scene load_steps=14 format=3 uid="uid://b7optxv042qe"]
+[gd_scene load_steps=18 format=3 uid="uid://b7optxv042qe"]
 
-[ext_resource type="Texture2D" uid="uid://bflaykw5ld1q8" path="res://Sprites/Cats/Cat_I/Cat_I.png" id="1_61fyr"]
+[ext_resource type="Texture2D" uid="uid://bflaykw5ld1q8" path="res://Sprites/Cats/Cat_I/Classic/Cat_I.png" id="1_61fyr"]
 [ext_resource type="Script" path="res://Scenes/Cats/Cat_I/cat_i.gd" id="1_uaxcf"]
 [ext_resource type="Script" path="res://Scenes/Cats/Сat_o/skeleton_cat.gd" id="2_uc38e"]
-[ext_resource type="Texture2D" uid="uid://vqi4u6ai62om" path="res://Sprites/Cats/Cat_I/Cat_I_0.png" id="3_susss"]
-[ext_resource type="Texture2D" uid="uid://bektw1cnjukt8" path="res://Sprites/Cats/Cat_I/Cat_I_1.png" id="4_u6ddx"]
-[ext_resource type="Texture2D" uid="uid://bhdu8drg03kp" path="res://Sprites/Cats/Cat_I/Cat_2.png" id="5_tvo3j"]
-[ext_resource type="Texture2D" uid="uid://bntlhsf2k0c0" path="res://Sprites/Cats/Cat_I/Cat_I_3.png" id="6_wfuqk"]
+[ext_resource type="Texture2D" uid="uid://vqi4u6ai62om" path="res://Sprites/Cats/Cat_I/Classic/Cat_I_0.png" id="3_susss"]
+[ext_resource type="Texture2D" uid="uid://b36tmpvcbyjwl" path="res://Sprites/Cats/Cat_I/Classic/Cat_I_blinks.png" id="3_xlvrg"]
+[ext_resource type="Texture2D" uid="uid://dg8oj38mr8c4r" path="res://Sprites/Cats/Cat_I/Classic/Cat_I_meow.png" id="4_lpy20"]
+[ext_resource type="Texture2D" uid="uid://bektw1cnjukt8" path="res://Sprites/Cats/Cat_I/Classic/Cat_I_1.png" id="4_u6ddx"]
+[ext_resource type="Texture2D" uid="uid://bhdu8drg03kp" path="res://Sprites/Cats/Cat_I/Classic/Cat_2.png" id="5_tvo3j"]
+[ext_resource type="Texture2D" uid="uid://bntlhsf2k0c0" path="res://Sprites/Cats/Cat_I/Classic/Cat_I_3.png" id="6_wfuqk"]
+[ext_resource type="Script" path="res://addons/random_timer/random_timer.gd" id="10_iyd5h"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xx3sa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_xlvrg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_61fyr")
+}],
+"loop": false,
+"name": &"blinks_classic",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_61fyr")
+}],
+"loop": true,
+"name": &"idle_classic",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_lpy20")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_lpy20")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_lpy20")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_61fyr")
+}],
+"loop": false,
+"name": &"meow_classic",
+"speed": 5.0
+}]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xjr5y"]
 animations = [{
@@ -64,18 +106,22 @@ size = Vector2(10, 32)
 [node name="Cat_I" type="CharacterBody2D"]
 script = ExtResource("1_uaxcf")
 
-[node name="Sprite_Cat_I" type="Sprite2D" parent="."]
+[node name="Sprite_Cat_I" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(0, -44)
 rotation = 1.5708
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_61fyr")
+sprite_frames = SubResource("SpriteFrames_xx3sa")
+animation = &"meow_classic"
+frame = 3
+frame_progress = 1.0
 
 [node name="Center" type="Marker2D" parent="Sprite_Cat_I"]
 unique_name_in_owner = true
 
 [node name="Cat_I_animation" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
+visible = false
 position = Vector2(-4, -52)
 rotation = 1.5708
 scale = Vector2(0.8, 0.8)
@@ -129,4 +175,20 @@ unique_name_in_owner = true
 position = Vector2(0, 119)
 shape = SubResource("RectangleShape2D_a0yce")
 
+[node name="RandomTimer_blinks" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+script = ExtResource("10_iyd5h")
+min_wait_time = 5.0
+max_wait_time = 12.0
+
+[node name="RandomTimer_meow" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+script = ExtResource("10_iyd5h")
+min_wait_time = 30.0
+max_wait_time = 60.0
+
 [connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="timeout" from="RandomTimer_blinks" to="." method="_on_random_timer_blinks_timeout"]
+[connection signal="timeout" from="RandomTimer_meow" to="." method="_on_random_timer_meow_timeout"]
