@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bifgr83jy5dk"]
+[gd_scene load_steps=9 format=3 uid="uid://bifgr83jy5dk"]
 
 [ext_resource type="Script" path="res://Scenes/levels/level_4x4/level_4x_4_tile.gd" id="1_mso84"]
 [ext_resource type="PackedScene" uid="uid://q1ij6djenla5" path="res://Scenes/Tile/tile_background.tscn" id="2_qfu54"]
+[ext_resource type="Texture2D" uid="uid://d1eofwab4d5ap" path="res://Sprites/Tiles_backgrounds/Tile_back_2.png" id="3_2r7yv"]
 [ext_resource type="Texture2D" uid="uid://c3iosvvivwx2y" path="res://icon.svg" id="3_kt3ao"]
+[ext_resource type="Texture2D" uid="uid://v2aw3toqya8" path="res://Sprites/Tiles_backgrounds/Tile_back_1_LR.png" id="4_fg1xi"]
+[ext_resource type="Texture2D" uid="uid://cqbkqmmj6iqiy" path="res://Sprites/Tiles_backgrounds/Tile_back_1_TD.png" id="4_lkold"]
 [ext_resource type="PackedScene" uid="uid://cn5oc0v733jlg" path="res://Scenes/Background/backgrounds.tscn" id="5_p4j46"]
 [ext_resource type="Texture2D" uid="uid://bawukujtgkq5l" path="res://Sprites/Сarpets/Carpet_blue.png" id="6_3bnh5"]
 
@@ -42,18 +45,27 @@ columns = 4
 
 [node name="tile_background" parent="Control/Playing_field" instance=ExtResource("2_qfu54")]
 layout_mode = 2
+texture = ExtResource("3_2r7yv")
+flip_h = true
 
 [node name="tile_background2" parent="Control/Playing_field" instance=ExtResource("2_qfu54")]
 layout_mode = 2
+texture = ExtResource("4_lkold")
+flip_v = true
 
 [node name="tile_background3" parent="Control/Playing_field" instance=ExtResource("2_qfu54")]
 layout_mode = 2
+texture = ExtResource("4_lkold")
+flip_v = true
 
 [node name="tile_background4" parent="Control/Playing_field" instance=ExtResource("2_qfu54")]
 layout_mode = 2
+texture = ExtResource("3_2r7yv")
 
 [node name="tile_background5" parent="Control/Playing_field" instance=ExtResource("2_qfu54")]
 layout_mode = 2
+texture = ExtResource("4_fg1xi")
+flip_h = true
 
 [node name="tile_background6" parent="Control/Playing_field" instance=ExtResource("2_qfu54")]
 layout_mode = 2
@@ -63,9 +75,12 @@ layout_mode = 2
 
 [node name="tile_background8" parent="Control/Playing_field" instance=ExtResource("2_qfu54")]
 layout_mode = 2
+texture = ExtResource("4_fg1xi")
 
 [node name="tile_background9" parent="Control/Playing_field" instance=ExtResource("2_qfu54")]
 layout_mode = 2
+texture = ExtResource("4_fg1xi")
+flip_h = true
 
 [node name="tile_background10" parent="Control/Playing_field" instance=ExtResource("2_qfu54")]
 layout_mode = 2
@@ -75,18 +90,26 @@ layout_mode = 2
 
 [node name="tile_background12" parent="Control/Playing_field" instance=ExtResource("2_qfu54")]
 layout_mode = 2
+texture = ExtResource("4_fg1xi")
 
 [node name="tile_background13" parent="Control/Playing_field" instance=ExtResource("2_qfu54")]
 layout_mode = 2
+texture = ExtResource("3_2r7yv")
+flip_h = true
+flip_v = true
 
 [node name="tile_background14" parent="Control/Playing_field" instance=ExtResource("2_qfu54")]
 layout_mode = 2
+texture = ExtResource("4_lkold")
 
 [node name="tile_background15" parent="Control/Playing_field" instance=ExtResource("2_qfu54")]
 layout_mode = 2
+texture = ExtResource("4_lkold")
 
 [node name="tile_background16" parent="Control/Playing_field" instance=ExtResource("2_qfu54")]
 layout_mode = 2
+texture = ExtResource("3_2r7yv")
+flip_v = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
