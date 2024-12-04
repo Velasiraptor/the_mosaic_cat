@@ -13,6 +13,10 @@ extends CharacterBody2D
 
 @onready var color_tiles = %Color_tiles
 
+@onready var random_timer_blinks = %RandomTimer_blinks
+@onready var random_timer_meow = %RandomTimer_meow
+@onready var animation_in_field = %Animation_in_field
+
 var start_position := Vector2()
 
 var dragging = false  # Флаг перетаскивания
@@ -30,6 +34,7 @@ func _ready():
 	collision_touch.scale = Vector2(1.8, 1)
 	#start_position = global_position
 	sprite_cat_z.visible = true
+	sprite_cat_z.play("idle_classic")
 	cat_z_animation.visible = false
 	cat_z_animation.stop()
 	
@@ -97,6 +102,7 @@ func not_dragging():
 	
 	#анимация
 	sprite_cat_z.visible = true
+	sprite_cat_z.play("idle_classic")
 	cat_z_animation.visible = false
 	cat_z_animation.stop()
 	
@@ -105,6 +111,10 @@ func not_dragging():
 	cat_z_animation.z_index = 0
 	if count_tile_in_cat != 0:
 		self.position = start_position # Возвращение к стартовой позиции
+		
+		random_timer_blinks.stop()
+		random_timer_meow.stop()
+		
 		get_tree().call_group("Spawner_Cat_Z", "count_cat_plus") # Прибавляем надпись у спаунера
 		get_tree().call_group("Spawner_Cat_Z", "check_pickable_cats")
 		rotation_degrees = 0
@@ -112,11 +122,16 @@ func not_dragging():
 		await  get_tree().create_timer(0.05).timeout
 		count_tile_in_cat = full_tiles 
 	elif count_tile_in_cat == 0:
+		animation_cat_in_field() # включение анимации
 		self.global_position = snap_to_grid(self.global_position)
 		get_tree().call_group("Spawner_Cat_Z", "check_pickable_cats")
 		await get_tree().create_timer(0.05).timeout #ПРОВЕРКА ЕСЛИ КОТ НЕПРАВИЛЬНО ВСТАЛ
 		if count_tile_in_cat != 0 and not dragging:
 			self.position = start_position # Возвращение к стартовой позиции
+			
+			random_timer_blinks.stop()
+			random_timer_meow.stop()
+			
 			get_tree().call_group("Spawner_Cat_Z", "count_cat_plus") # Прибавляем надпись у спаунера
 			get_tree().call_group("Spawner_Cat_Z", "check_pickable_cats")
 			rotation_degrees = 0
@@ -125,6 +140,20 @@ func not_dragging():
 			count_tile_in_cat = full_tiles 
 	get_tree().call_group("Level", "finish_game")
 
+func animation_cat_in_field(): #Анимация кота на поле
+	animation_in_field.play("scale")
+	sprite_cat_z.play("idle_classic")
+	random_timer_blinks.start_random()
+	random_timer_meow.start_random()
+
+func _on_random_timer_blinks_timeout(): #Таймер моргания
+	sprite_cat_z.play("blinks_classic")
+	random_timer_blinks.start_random()
+func _on_random_timer_meow_timeout(): #Таймер мяукания
+	random_timer_blinks.stop()
+	sprite_cat_z.play("meow_classic")
+	random_timer_blinks.start_random()
+	random_timer_meow.start_random()
 
 func cat_completed_minus():
 	count_tile_in_cat -= 1

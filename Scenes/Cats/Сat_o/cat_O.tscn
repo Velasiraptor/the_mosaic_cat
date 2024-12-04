@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dfl8qsacj4yvt"]
+[gd_scene load_steps=18 format=3 uid="uid://dfl8qsacj4yvt"]
 
 [ext_resource type="Script" path="res://Scenes/Cats/Сat_o/cat_O.gd" id="1_q65ix"]
 [ext_resource type="Texture2D" uid="uid://dxfifx8dgewtn" path="res://Sprites/Cats/Cat_O/Classic/Cat_O.png" id="2_46vyx"]
@@ -121,6 +121,43 @@ size = Vector2(160, 160)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_josus"]
 size = Vector2(100, 100)
 
+[sub_resource type="Animation" id="Animation_mghvl"]
+resource_name = "scale"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite_Cat_O:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(0.55, 0.55), Vector2(0.48, 0.48), Vector2(0.5, 0.5)]
+}
+
+[sub_resource type="Animation" id="Animation_20ew2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite_Cat_O:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, 0.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n7ck7"]
+_data = {
+"RESET": SubResource("Animation_20ew2"),
+"scale": SubResource("Animation_mghvl")
+}
+
 [node name="Cat_O" type="CharacterBody2D"]
 collision_mask = 0
 input_pickable = true
@@ -179,6 +216,12 @@ one_shot = true
 script = ExtResource("9_sqbvy")
 min_wait_time = 50.0
 max_wait_time = 70.0
+
+[node name="Animation_in_field" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_n7ck7")
+}
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="timeout" from="RandomTimer_blinks" to="." method="_on_random_timer_blinks_timeout"]

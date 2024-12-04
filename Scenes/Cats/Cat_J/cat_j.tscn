@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cn3efmqb5n0ou"]
+[gd_scene load_steps=23 format=3 uid="uid://cn3efmqb5n0ou"]
 
 [ext_resource type="Script" path="res://Scenes/Cats/Cat_J/cat_j.gd" id="1_7yjuo"]
 [ext_resource type="Script" path="res://Scenes/Cats/Сat_o/skeleton_cat.gd" id="2_0ao0f"]
@@ -93,6 +93,43 @@ size = Vector2(4, 69)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j0tr1"]
 size = Vector2(4, 74)
 
+[sub_resource type="Animation" id="Animation_4lx4j"]
+resource_name = "scale"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite_Cat_J:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(0.55, 0.55), Vector2(0.48, 0.48), Vector2(0.5, 0.5)]
+}
+
+[sub_resource type="Animation" id="Animation_dyd3m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite_Cat_J:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, 0.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u80mm"]
+_data = {
+"RESET": SubResource("Animation_dyd3m"),
+"scale": SubResource("Animation_4lx4j")
+}
+
 [node name="Cat_J" type="CharacterBody2D"]
 script = ExtResource("1_7yjuo")
 
@@ -185,6 +222,12 @@ one_shot = true
 script = ExtResource("10_kitb0")
 min_wait_time = 30.0
 max_wait_time = 60.0
+
+[node name="Animation_in_field" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_u80mm")
+}
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="timeout" from="RandomTimer_blinks" to="." method="_on_random_timer_blinks_timeout"]

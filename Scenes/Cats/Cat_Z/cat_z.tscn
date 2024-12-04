@@ -1,12 +1,57 @@
-[gd_scene load_steps=14 format=3 uid="uid://ck00iw4huvbp1"]
+[gd_scene load_steps=21 format=3 uid="uid://ck00iw4huvbp1"]
 
 [ext_resource type="Script" path="res://Scenes/Cats/Cat_Z/cat_z.gd" id="1_enm1i"]
-[ext_resource type="Texture2D" uid="uid://cq1ylv6eynm73" path="res://Sprites/Cats/Cat_Z/Cat_Z.png" id="2_ej6i4"]
-[ext_resource type="Texture2D" uid="uid://mm88q0ngujei" path="res://Sprites/Cats/Cat_Z/Cat_Z_0.png" id="3_dw3y4"]
-[ext_resource type="Texture2D" uid="uid://b6da3qmc5xsll" path="res://Sprites/Cats/Cat_Z/Cat_Z_1_5.png" id="4_y172m"]
-[ext_resource type="Texture2D" uid="uid://dx2s3l0u8jn2t" path="res://Sprites/Cats/Cat_Z/Cat_Z_2_4.png" id="5_1atsn"]
+[ext_resource type="Texture2D" uid="uid://cq1ylv6eynm73" path="res://Sprites/Cats/Cat_Z/Classic/Cat_Z.png" id="2_ej6i4"]
+[ext_resource type="Texture2D" uid="uid://c4risvkqaqqfw" path="res://Sprites/Cats/Cat_Z/Classic/Cat_Z_blinks.png" id="2_wovvr"]
+[ext_resource type="Texture2D" uid="uid://mm88q0ngujei" path="res://Sprites/Cats/Cat_Z/Classic/Cat_Z_0.png" id="3_dw3y4"]
+[ext_resource type="Texture2D" uid="uid://cvp76vnrauy7" path="res://Sprites/Cats/Cat_Z/Classic/Cat_Z_meow.png" id="4_wmqif"]
+[ext_resource type="Texture2D" uid="uid://b6da3qmc5xsll" path="res://Sprites/Cats/Cat_Z/Classic/Cat_Z_1_5.png" id="4_y172m"]
+[ext_resource type="Texture2D" uid="uid://dx2s3l0u8jn2t" path="res://Sprites/Cats/Cat_Z/Classic/Cat_Z_2_4.png" id="5_1atsn"]
 [ext_resource type="Script" path="res://Scenes/Cats/Сat_o/skeleton_cat.gd" id="5_b0djr"]
-[ext_resource type="Texture2D" uid="uid://3j6sb5avm5bu" path="res://Sprites/Cats/Cat_Z/Cat_Z_3.png" id="6_ef7rp"]
+[ext_resource type="Texture2D" uid="uid://3j6sb5avm5bu" path="res://Sprites/Cats/Cat_Z/Classic/Cat_Z_3.png" id="6_ef7rp"]
+[ext_resource type="Script" path="res://addons/random_timer/random_timer.gd" id="8_t18ny"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p4atb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_wovvr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ej6i4")
+}],
+"loop": false,
+"name": &"blinks_classic",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ej6i4")
+}],
+"loop": false,
+"name": &"idle_classic",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_wmqif")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_wmqif")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_wmqif")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_wmqif")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ej6i4")
+}],
+"loop": false,
+"name": &"meow_classic",
+"speed": 5.0
+}]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hu1vs"]
 animations = [{
@@ -58,17 +103,56 @@ size = Vector2(87, 10)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uwoss"]
 size = Vector2(10, 97)
 
+[sub_resource type="Animation" id="Animation_blx5p"]
+resource_name = "scale"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite_Cat_Z:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(0.55, 0.55), Vector2(0.48, 0.48), Vector2(0.5, 0.5)]
+}
+
+[sub_resource type="Animation" id="Animation_8ql41"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite_Cat_Z:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, 0.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_egr7w"]
+_data = {
+"RESET": SubResource("Animation_8ql41"),
+"scale": SubResource("Animation_blx5p")
+}
+
 [node name="Cat_Z" type="CharacterBody2D"]
 script = ExtResource("1_enm1i")
 
-[node name="Sprite_Cat_Z" type="Sprite2D" parent="."]
+[node name="Sprite_Cat_Z" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(44, 0)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_ej6i4")
+sprite_frames = SubResource("SpriteFrames_p4atb")
+animation = &"idle_classic"
 
 [node name="Cat_Z_animation" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
+visible = false
 position = Vector2(40, 35)
 scale = Vector2(0.9, 0.9)
 sprite_frames = SubResource("SpriteFrames_hu1vs")
@@ -150,4 +234,26 @@ shape = SubResource("RectangleShape2D_uwoss")
 position = Vector2(48, 84)
 shape = SubResource("RectangleShape2D_0rb1f")
 
+[node name="RandomTimer_blinks" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+script = ExtResource("8_t18ny")
+min_wait_time = 5.0
+max_wait_time = 12.0
+
+[node name="RandomTimer_meow" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+script = ExtResource("8_t18ny")
+min_wait_time = 30.0
+max_wait_time = 60.0
+
+[node name="Animation_in_field" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_egr7w")
+}
+
 [connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="timeout" from="RandomTimer_blinks" to="." method="_on_random_timer_blinks_timeout"]
+[connection signal="timeout" from="RandomTimer_meow" to="." method="_on_random_timer_meow_timeout"]

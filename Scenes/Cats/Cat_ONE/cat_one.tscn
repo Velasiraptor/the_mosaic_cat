@@ -1,10 +1,46 @@
-[gd_scene load_steps=9 format=3 uid="uid://bb11ua6fqlwxu"]
+[gd_scene load_steps=15 format=3 uid="uid://bb11ua6fqlwxu"]
 
 [ext_resource type="Script" path="res://Scenes/Cats/Cat_ONE/cat_one.gd" id="1_72l7s"]
-[ext_resource type="Texture2D" uid="uid://bs33sy33jeqxj" path="res://Sprites/Cats/Cat_ONE/Cat_One.png" id="1_myklk"]
-[ext_resource type="Texture2D" uid="uid://g3ssogc3tssp" path="res://Sprites/Cats/Cat_ONE/Cat_ONE_0.png" id="2_wm5rj"]
-[ext_resource type="Texture2D" uid="uid://dfrhs1n8l1ejx" path="res://Sprites/Cats/Cat_ONE/Cat_ONE_1.png" id="3_eyl5b"]
+[ext_resource type="Texture2D" uid="uid://bs33sy33jeqxj" path="res://Sprites/Cats/Cat_ONE/Classic/Cat_One.png" id="1_myklk"]
+[ext_resource type="Texture2D" uid="uid://dk8g0yr87hl8o" path="res://Sprites/Cats/Cat_ONE/Classic/Cat_ONE_blinks.png" id="2_52v5r"]
+[ext_resource type="Texture2D" uid="uid://g3ssogc3tssp" path="res://Sprites/Cats/Cat_ONE/Classic/Cat_ONE_0.png" id="2_wm5rj"]
+[ext_resource type="Texture2D" uid="uid://dfrhs1n8l1ejx" path="res://Sprites/Cats/Cat_ONE/Classic/Cat_ONE_1.png" id="3_eyl5b"]
 [ext_resource type="Script" path="res://Scenes/Cats/Сat_o/skeleton_cat.gd" id="6_m256g"]
+[ext_resource type="Script" path="res://addons/random_timer/random_timer.gd" id="7_xi3dx"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0bd4d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_52v5r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_myklk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_52v5r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_myklk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_52v5r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_myklk")
+}],
+"loop": false,
+"name": &"blinks_classic",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_myklk")
+}],
+"loop": false,
+"name": &"idle_classic",
+"speed": 5.0
+}]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_do31e"]
 animations = [{
@@ -26,17 +62,56 @@ size = Vector2(82, 82)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gpcn0"]
 size = Vector2(5, 5)
 
+[sub_resource type="Animation" id="Animation_n7wsa"]
+resource_name = "scale"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite_Cat_ONE:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.45, 0.45), Vector2(0.5, 0.5), Vector2(0.43, 0.43), Vector2(0.45, 0.45)]
+}
+
+[sub_resource type="Animation" id="Animation_fxw1m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite_Cat_ONE:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.45, 0.45)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sbeif"]
+_data = {
+"RESET": SubResource("Animation_fxw1m"),
+"scale": SubResource("Animation_n7wsa")
+}
+
 [node name="Cat_ONE" type="CharacterBody2D"]
 script = ExtResource("1_72l7s")
 
-[node name="Sprite_Cat_ONE" type="Sprite2D" parent="."]
+[node name="Sprite_Cat_ONE" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(44, -44)
 scale = Vector2(0.45, 0.45)
-texture = ExtResource("1_myklk")
+sprite_frames = SubResource("SpriteFrames_0bd4d")
+animation = &"blinks_classic"
 
 [node name="Cat_ONE_animation" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
+visible = false
 position = Vector2(44, -46)
 scale = Vector2(0.9, 0.9)
 sprite_frames = SubResource("SpriteFrames_do31e")
@@ -71,4 +146,18 @@ script = ExtResource("6_m256g")
 position = Vector2(-4, -4)
 shape = SubResource("RectangleShape2D_gpcn0")
 
+[node name="RandomTimer_blinks" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+script = ExtResource("7_xi3dx")
+min_wait_time = 6.0
+max_wait_time = 10.0
+
+[node name="Animation_in_field" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_sbeif")
+}
+
 [connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="timeout" from="RandomTimer_blinks" to="." method="_on_random_timer_blinks_timeout"]

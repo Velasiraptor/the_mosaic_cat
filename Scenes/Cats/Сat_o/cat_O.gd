@@ -17,6 +17,7 @@ extends CharacterBody2D
 @onready var random_timer_blinks = %RandomTimer_blinks
 @onready var random_timer_meow = %RandomTimer_meow
 
+@onready var animation_in_field = %Animation_in_field
 
 
 var start_position := Vector2()
@@ -136,6 +137,7 @@ func not_dragging():
 	get_tree().call_group("Level", "finish_game")
 
 func animation_cat_in_field(): #Анимация кота на поле
+	animation_in_field.play("scale")
 	sprite_cat_o.play("idle_classic")
 	random_timer_blinks.start_random()
 	random_timer_meow.start_random()

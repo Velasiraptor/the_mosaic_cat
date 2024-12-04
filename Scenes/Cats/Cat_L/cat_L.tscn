@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c4g1typh3hasr"]
+[gd_scene load_steps=19 format=3 uid="uid://c4g1typh3hasr"]
 
 [ext_resource type="Script" path="res://Scenes/Cats/Cat_L/cat_L.gd" id="1_2vq1f"]
 [ext_resource type="Texture2D" uid="uid://dextpm3l0g7w5" path="res://Sprites/Cats/Cat_L/Classic/Cat_L.png" id="2_01d7n"]
@@ -82,6 +82,43 @@ size = Vector2(4, 75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3cvp5"]
 size = Vector2(4, 68)
+
+[sub_resource type="Animation" id="Animation_t0if1"]
+resource_name = "scale"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite_Cat_L:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(0.55, 0.55), Vector2(0.48, 0.48), Vector2(0.5, 0.5)]
+}
+
+[sub_resource type="Animation" id="Animation_x6i3q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite_Cat_L:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, 0.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6dhlo"]
+_data = {
+"RESET": SubResource("Animation_x6i3q"),
+"scale": SubResource("Animation_t0if1")
+}
 
 [node name="Cat_L" type="CharacterBody2D"]
 script = ExtResource("1_2vq1f")
@@ -178,6 +215,12 @@ one_shot = true
 script = ExtResource("6_27w3n")
 min_wait_time = 30.0
 max_wait_time = 60.0
+
+[node name="Animation_in_field" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_6dhlo")
+}
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="timeout" from="RandomTimer_blinks" to="." method="_on_random_timer_blinks_timeout"]
