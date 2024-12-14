@@ -18,9 +18,13 @@ extends Node2D
 
 @onready var cats = %Cats
 
+@onready var camera_2d = %Camera2D
 
 var full_tile := 69 # кол-во игровых клеток
 @onready var timer_check_finish = %Timer_check_finish
+
+@onready var window_next_lvl = %Window_next_lvl
+
 
 var cats_start = ["Cat_I", "Cat_J", "Cat_L", "Cat_o", "Cat_ONE", "Cat_S", "Cat_T", "Cat_Z"]
 
@@ -28,9 +32,29 @@ func _physics_process(delta):
 	scale_button_rotate()
 
 func _ready():
+	position_spawners()
 	random_combo()
 	rotate_level()
 	mirror_level()
+	
+
+func position_spawners():
+	var offset = 450
+	# Получаем видимую область камеру
+	var camera_size  = get_viewport_rect().size / camera_2d.zoom
+	
+	# Левый и правый край видимой области
+	var left_edge = camera_2d.global_position.x - (camera_size.x / 2)
+	var right_edge = camera_2d.global_position.x + (camera_size.x / 2)
+	
+	container_spawn_1.global_position.x = left_edge + offset
+	container_spawn_2.global_position.x = left_edge + offset
+	container_spawn_3.global_position.x = left_edge + offset
+	container_spawn_4.global_position.x = left_edge + offset
+	container_spawn_5.global_position.x = right_edge - offset
+	container_spawn_6.global_position.x = right_edge - offset
+	container_spawn_7.global_position.x = right_edge - offset
+	container_spawn_8.global_position.x = right_edge - offset
 
 func finish_game():
 	timer_check_finish.start()
@@ -40,14 +64,7 @@ func finish_game():
 			victory_count_tile -= 1
 	if victory_count_tile == 0:
 		timer_check_finish.stop()
-		var next_lvl = Global.all_levels
-		next_lvl = next_lvl.pick_random()
-		while next_lvl == Global.last_lvl:
-			next_lvl = Global.all_levels
-			next_lvl = next_lvl.pick_random()
-		Global.last_lvl = next_lvl
-		get_parent().add_child(next_lvl.instantiate())
-		queue_free()
+		window_visible()
 
 func _on_timer_check_finish_timeout():
 	var victory_count_tile = full_tile
@@ -55,20 +72,17 @@ func _on_timer_check_finish_timeout():
 		if i.modulate != Color(1, 1, 1, 1):
 			victory_count_tile -= 1
 	if victory_count_tile == 0:
-		var next_lvl = Global.all_levels
-		next_lvl = next_lvl.pick_random()
-		while next_lvl == Global.last_lvl:
-			next_lvl = Global.all_levels
-			next_lvl = next_lvl.pick_random()
-		Global.last_lvl = next_lvl
-		get_parent().add_child(next_lvl.instantiate())
-		queue_free()
+		window_visible()
+
+func window_visible():
+	window_next_lvl.visible = true
+	window_next_lvl.animation_window()
 
 func scale_button_rotate():
 	if Global.check_rotate_cat == false:
 		button_rotate.scale.x = 6
 	else:
-		button_rotate.scale.x = 30
+		button_rotate.scale.x = 100
 
 func mirror_level():
 	var rndm_number_x = randi_range(0, 2)

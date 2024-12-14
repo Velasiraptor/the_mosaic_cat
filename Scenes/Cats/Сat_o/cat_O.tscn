@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dfl8qsacj4yvt"]
+[gd_scene load_steps=19 format=3 uid="uid://dfl8qsacj4yvt"]
 
 [ext_resource type="Script" path="res://Scenes/Cats/Сat_o/cat_O.gd" id="1_q65ix"]
 [ext_resource type="Texture2D" uid="uid://dxfifx8dgewtn" path="res://Sprites/Cats/Cat_O/Classic/Cat_O.png" id="2_46vyx"]
@@ -121,6 +121,21 @@ size = Vector2(160, 160)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_josus"]
 size = Vector2(100, 100)
 
+[sub_resource type="Animation" id="Animation_20ew2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite_Cat_O:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, 0.5)]
+}
+
 [sub_resource type="Animation" id="Animation_mghvl"]
 resource_name = "scale"
 length = 0.3
@@ -137,8 +152,9 @@ tracks/0/keys = {
 "values": [Vector2(0.5, 0.5), Vector2(0.55, 0.55), Vector2(0.48, 0.48), Vector2(0.5, 0.5)]
 }
 
-[sub_resource type="Animation" id="Animation_20ew2"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_jw5gr"]
+resource_name = "sleep"
+length = 6.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -146,16 +162,17 @@ tracks/0/path = NodePath("Sprite_Cat_O:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 1.2, 2.4, 3.6, 4.8, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(0.5, 0.5)]
+"values": [Vector2(0.5, 0.5), Vector2(0.52, 0.52), Vector2(0.5, 0.5), Vector2(0.52, 0.52), Vector2(0.5, 0.5), Vector2(0.52, 0.52)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_n7ck7"]
 _data = {
 "RESET": SubResource("Animation_20ew2"),
-"scale": SubResource("Animation_mghvl")
+"scale": SubResource("Animation_mghvl"),
+"sleep": SubResource("Animation_jw5gr")
 }
 
 [node name="Cat_O" type="CharacterBody2D"]
@@ -167,7 +184,7 @@ script = ExtResource("1_q65ix")
 unique_name_in_owner = true
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_uvig5")
-animation = &"idle_classic"
+animation = &"blinks_classic"
 
 [node name="Cat_O_animation" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bifgr83jy5dk"]
+[gd_scene load_steps=11 format=3 uid="uid://bifgr83jy5dk"]
 
 [ext_resource type="Script" path="res://Scenes/levels/level_4x4/level_4x_4_tile.gd" id="1_mso84"]
 [ext_resource type="PackedScene" uid="uid://q1ij6djenla5" path="res://Scenes/Tile/tile_background.tscn" id="2_qfu54"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://cqbkqmmj6iqiy" path="res://Sprites/Tiles_backgrounds/Tile_back_1_TD.png" id="4_lkold"]
 [ext_resource type="PackedScene" uid="uid://cn5oc0v733jlg" path="res://Scenes/Background/backgrounds.tscn" id="5_p4j46"]
 [ext_resource type="Texture2D" uid="uid://bawukujtgkq5l" path="res://Sprites/Сarpets/Carpet_blue.png" id="6_3bnh5"]
+[ext_resource type="PackedScene" uid="uid://dcp0b8ip7e5na" path="res://Scenes/UI/window_next_lvl.tscn" id="9_bm4hs"]
+[ext_resource type="PackedScene" uid="uid://0svk02u1bxcg" path="res://Scenes/Timer_victory/timer_victory.tscn" id="10_d8fhg"]
 
 [node name="Level_4x4_tile" type="Node2D" groups=["Level"]]
 script = ExtResource("1_mso84")
@@ -112,10 +114,11 @@ texture = ExtResource("3_2r7yv")
 flip_v = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
+unique_name_in_owner = true
 
 [node name="Container_spawn_1" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(-768, -371)
+position = Vector2(-800, -371)
 
 [node name="CarpetBlue" type="Sprite2D" parent="Container_spawn_1"]
 scale = Vector2(1.6, 1.6)
@@ -123,7 +126,7 @@ texture = ExtResource("6_3bnh5")
 
 [node name="Container_spawn_2" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(-768, -40)
+position = Vector2(-800, -40)
 
 [node name="CarpetBlue" type="Sprite2D" parent="Container_spawn_2"]
 scale = Vector2(1.6, 1.6)
@@ -131,7 +134,7 @@ texture = ExtResource("6_3bnh5")
 
 [node name="Container_spawn_3" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(-768, 324)
+position = Vector2(-800, 324)
 
 [node name="CarpetBlue" type="Sprite2D" parent="Container_spawn_3"]
 scale = Vector2(1.6, 1.6)
@@ -139,7 +142,7 @@ texture = ExtResource("6_3bnh5")
 
 [node name="Container_spawn_4" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(784, -371)
+position = Vector2(800, -371)
 
 [node name="CarpetBlue" type="Sprite2D" parent="Container_spawn_4"]
 scale = Vector2(1.6, 1.6)
@@ -147,7 +150,7 @@ texture = ExtResource("6_3bnh5")
 
 [node name="Container_spawn_5" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(784, -40)
+position = Vector2(800, -40)
 
 [node name="CarpetBlue" type="Sprite2D" parent="Container_spawn_5"]
 scale = Vector2(1.6, 1.6)
@@ -155,36 +158,20 @@ texture = ExtResource("6_3bnh5")
 
 [node name="Container_spawn_6" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(784, 324)
+position = Vector2(800, 324)
 
 [node name="CarpetBlue" type="Sprite2D" parent="Container_spawn_6"]
 scale = Vector2(1.6, 1.6)
 texture = ExtResource("6_3bnh5")
-
-[node name="Button_RESTART" type="Button" parent="."]
-custom_minimum_size = Vector2(100, 100)
-offset_left = -596.0
-offset_top = 412.0
-offset_right = -496.0
-offset_bottom = 512.0
-text = "ПЕРЕМЕШАТЬ"
-
-[node name="Button_SKIP" type="Button" parent="."]
-custom_minimum_size = Vector2(100, 100)
-offset_left = 496.0
-offset_top = 412.0
-offset_right = 612.0
-offset_bottom = 512.0
-text = "ПРОПУСТИТЬ"
 
 [node name="Cats" type="Node2D" parent="."]
 unique_name_in_owner = true
 
 [node name="Button_ROTATE" type="TouchScreenButton" parent="."]
 unique_name_in_owner = true
-modulate = Color(0.427451, 0.756863, 0, 0)
+modulate = Color(1, 1, 1, 0)
 position = Vector2(-1869, -890)
-scale = Vector2(6, 14)
+scale = Vector2(6, 25.4219)
 texture_normal = ExtResource("3_kt3ao")
 action = "rotate_cat"
 
@@ -193,8 +180,14 @@ unique_name_in_owner = true
 wait_time = 0.5
 one_shot = true
 
+[node name="Timer_victory" parent="." instance=ExtResource("10_d8fhg")]
+layer = -1
+B_time = 30.0
+C_time = 30.0
+
 [node name="Backgrounds" parent="." instance=ExtResource("5_p4j46")]
 
-[connection signal="pressed" from="Button_RESTART" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Button_SKIP" to="." method="_on_button_skip_pressed"]
+[node name="Window_next_lvl" parent="." instance=ExtResource("9_bm4hs")]
+unique_name_in_owner = true
+
 [connection signal="timeout" from="Timer_check_finish" to="." method="_on_timer_check_finish_timeout"]

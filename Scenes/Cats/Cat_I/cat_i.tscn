@@ -103,6 +103,21 @@ size = Vector2(10, 70)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a0yce"]
 size = Vector2(10, 32)
 
+[sub_resource type="Animation" id="Animation_ok6d7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite_Cat_I:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, 0.5)]
+}
+
 [sub_resource type="Animation" id="Animation_6gffj"]
 resource_name = "scale"
 length = 0.3
@@ -117,21 +132,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(0.5, 0.5), Vector2(0.55, 0.55), Vector2(0.48, 0.48), Vector2(0.5, 0.5)]
-}
-
-[sub_resource type="Animation" id="Animation_ok6d7"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite_Cat_I:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0.5, 0.5)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_alrod"]

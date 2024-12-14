@@ -79,6 +79,7 @@ func _on_input_event(viewport, event, shape_idx):
 			sprite_cat_o.visible = false
 			cat_o_animation.visible = true
 			cat_o_animation.play()
+			animation_in_field.stop()
 			
 			if abs(position.x - get_parent().position.x) <= 400 and abs(position.y - get_parent().position.y) <= 400:
 				get_tree().call_group("Spawner_Cat_O", "count_cat_minus") # Вычитаем надпись у спаунера
@@ -101,6 +102,7 @@ func not_dragging():
 	sprite_cat_o.play("idle_classic")
 	cat_o_animation.visible = false
 	cat_o_animation.stop()
+	animation_in_field.stop()
 	
 	collision_touch.scale = Vector2(1, 1)
 	sprite_cat_o.z_index = 0
@@ -144,6 +146,7 @@ func animation_cat_in_field(): #Анимация кота на поле
 
 func _on_random_timer_blinks_timeout(): #Таймер моргания
 	sprite_cat_o.play("blinks_classic")
+	animation_in_field.play("sleep")
 	random_timer_blinks.start_random()
 func _on_random_timer_meow_timeout(): #Таймер мяукания
 	random_timer_blinks.stop()

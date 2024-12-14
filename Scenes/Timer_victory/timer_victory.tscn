@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://0svk02u1bxcg"]
+
+[ext_resource type="Script" path="res://Scenes/Timer_victory/timer_victory.gd" id="1_ll3ku"]
+[ext_resource type="FontFile" uid="uid://cj7peb0hnv2rh" path="res://ChalkboardSE-Regular-02_0.ttf" id="2_crbv2"]
+
+[node name="Timer_victory" type="CanvasLayer" groups=["timer_victory"]]
+script = ExtResource("1_ll3ku")
+B_time = 60.0
+C_time = 60.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -112.5
+offset_top = -189.0
+offset_right = 112.5
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label_time" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = ExtResource("2_crbv2")
+theme_override_font_sizes/font_size = 88
+text = "10:10"
+
+[node name="Margin" type="MarginContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true

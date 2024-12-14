@@ -1,0 +1,87 @@
+[gd_scene load_steps=6 format=3 uid="uid://dlgjrthf5vmeo"]
+
+[ext_resource type="Script" path="res://Scenes/Endless_mode/Endless_mode.gd" id="1_pqqi7"]
+[ext_resource type="Texture2D" uid="uid://8oxeascoarrg" path="res://Sprites/UI/Buttons/Exit_button.png" id="2_6u8rk"]
+[ext_resource type="Texture2D" uid="uid://cpgdp7fppao3o" path="res://Sprites/UI/Buttons/Exit_button_pressed.png" id="3_dwdwi"]
+[ext_resource type="Texture2D" uid="uid://di7xmptn4qj7w" path="res://Sprites/UI/Buttons/Setting_button.png" id="4_67dns"]
+[ext_resource type="Texture2D" uid="uid://7uigjj186cqd" path="res://Sprites/UI/Buttons/Setting_button_pressed.png" id="5_fpivc"]
+
+[node name="Endless_mode" type="Node2D"]
+script = ExtResource("1_pqqi7")
+
+[node name="UI_endless_mode" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Full_screen" type="HBoxContainer" parent="UI_endless_mode"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Left_half_screen" type="MarginContainer" parent="UI_endless_mode/Full_screen"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Left_edge" type="HBoxContainer" parent="UI_endless_mode/Full_screen/Left_half_screen"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="UI_endless_mode/Full_screen/Left_half_screen/Left_edge"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="Left_edge_y" type="VBoxContainer" parent="UI_endless_mode/Full_screen/Left_half_screen/Left_edge"]
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="UI_endless_mode/Full_screen/Left_half_screen/Left_edge/Left_edge_y"]
+custom_minimum_size = Vector2(150, 35)
+layout_mode = 2
+
+[node name="Button" type="MarginContainer" parent="UI_endless_mode/Full_screen/Left_half_screen/Left_edge/Left_edge_y"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+
+[node name="Button_EXIT" type="TextureButton" parent="UI_endless_mode/Full_screen/Left_half_screen/Left_edge/Left_edge_y/Button"]
+z_index = 1
+layout_mode = 2
+texture_normal = ExtResource("2_6u8rk")
+texture_pressed = ExtResource("3_dwdwi")
+texture_hover = ExtResource("3_dwdwi")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Right_half_screen" type="MarginContainer" parent="UI_endless_mode/Full_screen"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Right_edge" type="HBoxContainer" parent="UI_endless_mode/Full_screen/Right_half_screen"]
+layout_mode = 2
+alignment = 2
+
+[node name="Left_edge_y" type="VBoxContainer" parent="UI_endless_mode/Full_screen/Right_half_screen/Right_edge"]
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="UI_endless_mode/Full_screen/Right_half_screen/Right_edge/Left_edge_y"]
+custom_minimum_size = Vector2(150, 35)
+layout_mode = 2
+
+[node name="Button" type="MarginContainer" parent="UI_endless_mode/Full_screen/Right_half_screen/Right_edge/Left_edge_y"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+
+[node name="Button_Setting" type="TextureButton" parent="UI_endless_mode/Full_screen/Right_half_screen/Right_edge/Left_edge_y/Button"]
+z_index = 1
+layout_mode = 2
+texture_normal = ExtResource("4_67dns")
+texture_pressed = ExtResource("5_fpivc")
+texture_hover = ExtResource("5_fpivc")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="UI_endless_mode/Full_screen/Right_half_screen/Right_edge"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+
+[connection signal="pressed" from="UI_endless_mode/Full_screen/Left_half_screen/Left_edge/Left_edge_y/Button/Button_EXIT" to="." method="_on_button_exit_pressed"]
+[connection signal="pressed" from="UI_endless_mode/Full_screen/Right_half_screen/Right_edge/Left_edge_y/Button/Button_Setting" to="." method="_on_button_setting_pressed"]

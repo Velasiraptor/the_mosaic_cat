@@ -22,7 +22,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_bvj6j")
-metadata/_edit_use_anchors_ = true
 
 [node name="Texture" type="TextureRect" parent="."]
 material = SubResource("ShaderMaterial_1eahc")

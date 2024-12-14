@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://djf5gblb2km6o"]
+[gd_scene load_steps=12 format=3 uid="uid://djf5gblb2km6o"]
 
 [ext_resource type="Script" path="res://Scenes/levels/level_circle/level_circle.gd" id="1_1on0o"]
 [ext_resource type="Texture2D" uid="uid://d1eofwab4d5ap" path="res://Sprites/Tiles_backgrounds/Tile_back_2.png" id="3_pdlkp"]
@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://v2aw3toqya8" path="res://Sprites/Tiles_backgrounds/Tile_back_1_LR.png" id="6_867d7"]
 [ext_resource type="Texture2D" uid="uid://defh7tb8vtb2l" path="res://Sprites/Tiles_backgrounds/Rock.png" id="6_m4lj6"]
 [ext_resource type="PackedScene" uid="uid://cn5oc0v733jlg" path="res://Scenes/Background/backgrounds.tscn" id="6_nwglf"]
+[ext_resource type="PackedScene" uid="uid://0svk02u1bxcg" path="res://Scenes/Timer_victory/timer_victory.tscn" id="9_pww3f"]
+[ext_resource type="PackedScene" uid="uid://dcp0b8ip7e5na" path="res://Scenes/UI/window_next_lvl.tscn" id="10_u7c1k"]
 
 [node name="LevelCircle" type="Node2D" groups=["Level"]]
 script = ExtResource("1_1on0o")
@@ -298,10 +300,11 @@ custom_minimum_size = Vector2(88, 88)
 layout_mode = 2
 
 [node name="Camera2D" type="Camera2D" parent="."]
+unique_name_in_owner = true
 
 [node name="Container_spawn_1" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(-768, -401)
+position = Vector2(-800, -401)
 
 [node name="CarpetBlue" type="Sprite2D" parent="Container_spawn_1"]
 scale = Vector2(1.6, 1.6)
@@ -309,7 +312,7 @@ texture = ExtResource("6_31n5v")
 
 [node name="Container_spawn_2" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(-768, -142)
+position = Vector2(-800, -142)
 
 [node name="CarpetBlue" type="Sprite2D" parent="Container_spawn_2"]
 scale = Vector2(1.6, 1.6)
@@ -317,7 +320,7 @@ texture = ExtResource("6_31n5v")
 
 [node name="Container_spawn_3" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(-768, 127)
+position = Vector2(-800, 127)
 
 [node name="CarpetBlue" type="Sprite2D" parent="Container_spawn_3"]
 scale = Vector2(1.6, 1.6)
@@ -325,7 +328,7 @@ texture = ExtResource("6_31n5v")
 
 [node name="Container_spawn_4" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(-768, 386)
+position = Vector2(-800, 386)
 
 [node name="CarpetBlue" type="Sprite2D" parent="Container_spawn_4"]
 scale = Vector2(1.6, 1.6)
@@ -333,7 +336,7 @@ texture = ExtResource("6_31n5v")
 
 [node name="Container_spawn_5" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(768, -401)
+position = Vector2(800, -401)
 
 [node name="CarpetBlue" type="Sprite2D" parent="Container_spawn_5"]
 scale = Vector2(1.6, 1.6)
@@ -341,7 +344,7 @@ texture = ExtResource("6_31n5v")
 
 [node name="Container_spawn_6" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(768, -142)
+position = Vector2(800, -142)
 
 [node name="CarpetBlue" type="Sprite2D" parent="Container_spawn_6"]
 scale = Vector2(1.6, 1.6)
@@ -349,7 +352,7 @@ texture = ExtResource("6_31n5v")
 
 [node name="Container_spawn_7" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(768, 127)
+position = Vector2(800, 127)
 
 [node name="CarpetBlue" type="Sprite2D" parent="Container_spawn_7"]
 scale = Vector2(1.6, 1.6)
@@ -357,33 +360,17 @@ texture = ExtResource("6_31n5v")
 
 [node name="Container_spawn_8" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(768, 386)
+position = Vector2(800, 386)
 
 [node name="CarpetBlue" type="Sprite2D" parent="Container_spawn_8"]
 scale = Vector2(1.6, 1.6)
 texture = ExtResource("6_31n5v")
 
-[node name="Button_SKIP" type="Button" parent="."]
-custom_minimum_size = Vector2(100, 100)
-offset_left = 496.0
-offset_top = 412.0
-offset_right = 612.0
-offset_bottom = 512.0
-text = "ПРОПУСТИТЬ"
-
-[node name="Button_RESTART" type="Button" parent="."]
-custom_minimum_size = Vector2(100, 100)
-offset_left = -596.0
-offset_top = 412.0
-offset_right = -478.0
-offset_bottom = 512.0
-text = "ПЕРЕМЕШАТЬ"
-
 [node name="Button_ROTATE" type="TouchScreenButton" parent="."]
 unique_name_in_owner = true
 modulate = Color(0.427451, 0.756863, 0, 0)
 position = Vector2(-1869, -890)
-scale = Vector2(6, 14)
+scale = Vector2(6, 27.8438)
 texture_normal = ExtResource("4_m8qpc")
 action = "rotate_cat"
 
@@ -395,8 +382,12 @@ unique_name_in_owner = true
 wait_time = 0.5
 one_shot = true
 
+[node name="Timer_victory" parent="." instance=ExtResource("9_pww3f")]
+layer = -1
+
 [node name="Backgrounds" parent="." instance=ExtResource("6_nwglf")]
 
-[connection signal="pressed" from="Button_SKIP" to="." method="_on_button_skip_pressed"]
-[connection signal="pressed" from="Button_RESTART" to="." method="_on_button_restart_pressed"]
+[node name="Window_next_lvl" parent="." instance=ExtResource("10_u7c1k")]
+unique_name_in_owner = true
+
 [connection signal="timeout" from="Timer_check_finish" to="." method="_on_timer_check_finish_timeout"]
