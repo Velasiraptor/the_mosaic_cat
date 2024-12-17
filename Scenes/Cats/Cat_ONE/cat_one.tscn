@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bb11ua6fqlwxu"]
+[gd_scene load_steps=18 format=3 uid="uid://bb11ua6fqlwxu"]
 
 [ext_resource type="Script" path="res://Scenes/Cats/Cat_ONE/cat_one.gd" id="1_72l7s"]
 [ext_resource type="Texture2D" uid="uid://bs33sy33jeqxj" path="res://Sprites/Cats/Cat_ONE/Classic/Cat_One.png" id="1_myklk"]
@@ -7,6 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://dfrhs1n8l1ejx" path="res://Sprites/Cats/Cat_ONE/Classic/Cat_ONE_1.png" id="3_eyl5b"]
 [ext_resource type="Script" path="res://Scenes/Cats/Сat_o/skeleton_cat.gd" id="6_m256g"]
 [ext_resource type="Script" path="res://addons/random_timer/random_timer.gd" id="7_xi3dx"]
+[ext_resource type="AudioStream" uid="uid://cg5wq1d1d6jr3" path="res://Sounds/Cats/Rotate_cat.mp3" id="8_37a4p"]
+[ext_resource type="AudioStream" uid="uid://dbvpuutphijyf" path="res://Sounds/Cats/Drag/Drag_cat_ONE.mp3" id="9_slf6p"]
+[ext_resource type="AudioStream" uid="uid://ddfkcg4kk2g8l" path="res://Sounds/Cats/Cat_ONE_blinks.mp3" id="10_5ps5r"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0bd4d"]
 animations = [{
@@ -62,6 +65,21 @@ size = Vector2(82, 82)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gpcn0"]
 size = Vector2(5, 5)
 
+[sub_resource type="Animation" id="Animation_fxw1m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite_Cat_ONE:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.45, 0.45)]
+}
+
 [sub_resource type="Animation" id="Animation_n7wsa"]
 resource_name = "scale"
 length = 0.3
@@ -76,21 +94,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(0.45, 0.45), Vector2(0.5, 0.5), Vector2(0.43, 0.43), Vector2(0.45, 0.45)]
-}
-
-[sub_resource type="Animation" id="Animation_fxw1m"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite_Cat_ONE:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0.45, 0.45)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sbeif"]
@@ -151,13 +154,29 @@ unique_name_in_owner = true
 one_shot = true
 script = ExtResource("7_xi3dx")
 min_wait_time = 6.0
-max_wait_time = 10.0
+max_wait_time = 15.0
 
 [node name="Animation_in_field" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
 libraries = {
 "": SubResource("AnimationLibrary_sbeif")
 }
+
+[node name="Sounds" type="Node" parent="."]
+
+[node name="Sound_rotate" type="AudioStreamPlayer" parent="Sounds"]
+unique_name_in_owner = true
+stream = ExtResource("8_37a4p")
+
+[node name="Sound_drag" type="AudioStreamPlayer" parent="Sounds"]
+unique_name_in_owner = true
+stream = ExtResource("9_slf6p")
+volume_db = -5.0
+
+[node name="Sound_blink" type="AudioStreamPlayer" parent="Sounds"]
+unique_name_in_owner = true
+stream = ExtResource("10_5ps5r")
+volume_db = -15.0
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="timeout" from="RandomTimer_blinks" to="." method="_on_random_timer_blinks_timeout"]

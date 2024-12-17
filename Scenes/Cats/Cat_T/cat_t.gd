@@ -17,6 +17,11 @@ extends CharacterBody2D
 @onready var random_timer_meow = %RandomTimer_meow
 @onready var animation_in_field = %Animation_in_field
 
+@onready var sound_rotate = %Sound_rotate
+@onready var sound_drag = %Sound_drag
+@onready var sound_drag_2 = %Sound_drag_2
+@onready var meows_sounds = %meows_sounds
+
 
 var start_position := Vector2()
 
@@ -142,6 +147,11 @@ func not_dragging():
 	get_tree().call_group("Level", "finish_game")
 
 func animation_cat_in_field(): #Анимация кота на поле
+	var random_purr = randi_range(0,1)
+	if random_purr == 0:
+		sound_drag.play()
+	else:
+		sound_drag_2.play()
 	animation_in_field.play("scale")
 	sprite_cat_t.play("idle_classic")
 	random_timer_blinks.start_random()
@@ -153,8 +163,16 @@ func _on_random_timer_blinks_timeout(): #Таймер моргания
 func _on_random_timer_meow_timeout(): #Таймер мяукания
 	random_timer_blinks.stop()
 	sprite_cat_t.play("meow_classic")
+	
+	get_random_meow_sound().play()
+	
 	random_timer_blinks.start_random()
 	random_timer_meow.start_random()
+
+func get_random_meow_sound():
+	var all_meows = meows_sounds.get_children()
+	var random_index = randi() % all_meows.size()
+	return all_meows[random_index]
 
 func cat_completed_minus():
 	count_tile_in_cat -= 1
@@ -170,6 +188,7 @@ func snap_to_grid(position: Vector2) -> Vector2:
 
 func rotate_cat_button():
 	if Input.is_action_just_pressed("rotate_cat"):
+		sound_rotate.play()
 		rotation_degrees += 90
 		sprite_cat_t.visible = true
 		cat_t_animation.visible = false

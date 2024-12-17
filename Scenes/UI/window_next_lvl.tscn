@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dcp0b8ip7e5na"]
+[gd_scene load_steps=23 format=3 uid="uid://dcp0b8ip7e5na"]
 
 [ext_resource type="Shader" path="res://Shaders/Blur.gdshader" id="1_nr6h7"]
 [ext_resource type="Script" path="res://Scenes/UI/window_next_lvl.gd" id="1_qqqsl"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://cegno5xvayk1x" path="res://Sprites/UI/Effects/Light/Light_2.png" id="8_4i7kg"]
 [ext_resource type="Texture2D" uid="uid://5ifgh0wggxql" path="res://Sprites/UI/Effects/Light/Light_3.png" id="9_o0r46"]
 [ext_resource type="Texture2D" uid="uid://byewpn7e7t6tw" path="res://Sprites/UI/Rating/Rating_A.png" id="10_k8qkq"]
+[ext_resource type="AudioStream" uid="uid://dgeugopjmdsd0" path="res://Sounds/Buttons/Button.mp3" id="12_p8p07"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jf31i"]
 shader = ExtResource("1_nr6h7")
@@ -403,6 +404,11 @@ unique_name_in_owner = true
 libraries = {
 "": SubResource("AnimationLibrary_nme3e")
 }
+
+[node name="Audio_button" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("12_p8p07")
+volume_db = -15.0
 
 [connection signal="pressed" from="ColorRect/Center/Window_cat/Window_next_lvl/Window/VBox/Margin_top/HBox/Margin_left_button/VBox/Button/MM_Button" to="." method="_on_mm_button_pressed"]
 [connection signal="pressed" from="ColorRect/Center/Window_cat/Window_next_lvl/Window/VBox/Margin_top/HBox/Margin_right_button/VBox/Button/Next_lvl_button" to="." method="_on_next_lvl_button_pressed"]

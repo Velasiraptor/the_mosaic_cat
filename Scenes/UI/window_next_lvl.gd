@@ -6,6 +6,7 @@ extends CanvasLayer
 
 @onready var rating = %Rating
 
+@onready var audio_button = %Audio_button
 
 
 var rating_A_texture = load("res://Sprites/UI/Rating/Rating_A.png")
@@ -24,9 +25,14 @@ func animation_window():
 
 
 func _on_mm_button_pressed(): #Выход в главное меню
+	audio_button.play()
+	await get_tree().create_timer(0.2).timeout #Для звука
 	get_tree().change_scene_to_file("res://Scenes/UI/MainMenu/main_menu.tscn")
 
 func _on_next_lvl_button_pressed():
+	audio_button.play()
+	await get_tree().create_timer(0.2).timeout #Для звука
+	
 	var next_lvl = Global.all_levels
 	next_lvl = next_lvl.pick_random()
 	while next_lvl == Global.last_lvl:

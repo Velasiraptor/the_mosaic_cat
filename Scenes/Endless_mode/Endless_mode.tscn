@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dlgjrthf5vmeo"]
+[gd_scene load_steps=7 format=3 uid="uid://dlgjrthf5vmeo"]
 
 [ext_resource type="Script" path="res://Scenes/Endless_mode/Endless_mode.gd" id="1_pqqi7"]
 [ext_resource type="Texture2D" uid="uid://8oxeascoarrg" path="res://Sprites/UI/Buttons/Exit_button.png" id="2_6u8rk"]
 [ext_resource type="Texture2D" uid="uid://cpgdp7fppao3o" path="res://Sprites/UI/Buttons/Exit_button_pressed.png" id="3_dwdwi"]
 [ext_resource type="Texture2D" uid="uid://di7xmptn4qj7w" path="res://Sprites/UI/Buttons/Setting_button.png" id="4_67dns"]
 [ext_resource type="Texture2D" uid="uid://7uigjj186cqd" path="res://Sprites/UI/Buttons/Setting_button_pressed.png" id="5_fpivc"]
+[ext_resource type="AudioStream" uid="uid://dgeugopjmdsd0" path="res://Sounds/Buttons/Button.mp3" id="6_bw82x"]
 
 [node name="Endless_mode" type="Node2D"]
 script = ExtResource("1_pqqi7")
@@ -82,6 +83,11 @@ stretch_mode = 0
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 size_flags_horizontal = 8
+
+[node name="Audio_button" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("6_bw82x")
+volume_db = -15.0
 
 [connection signal="pressed" from="UI_endless_mode/Full_screen/Left_half_screen/Left_edge/Left_edge_y/Button/Button_EXIT" to="." method="_on_button_exit_pressed"]
 [connection signal="pressed" from="UI_endless_mode/Full_screen/Right_half_screen/Right_edge/Left_edge_y/Button/Button_Setting" to="." method="_on_button_setting_pressed"]

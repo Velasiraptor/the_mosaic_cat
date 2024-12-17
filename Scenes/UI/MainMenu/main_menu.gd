@@ -1,6 +1,8 @@
 extends Control
 
 @onready var texture_back = %Texture_back
+@onready var audio_button = %Audio_button
+
 
 # Максимальное смещение в пикселях
 const MAX_OFFSET = 20
@@ -32,16 +34,26 @@ func _process(delta):
 
 
 func _on_play_button_pressed():
+	audio_button.play()
+	await get_tree().create_timer(0.2).timeout #Для звука
 	get_tree().change_scene_to_file("res://Scenes/Endless_mode/Endless_mode.tscn")
 
 
 func _on_button_exit_pressed(): #Выход
+	audio_button.play()
 	get_tree().quit()
 
 
 func _on_button_setting_pressed(): #Настройки
+	audio_button.play()
 	pass # Replace with function body.
 
 
 func _on_shop_button_pressed(): #Магазин
+	audio_button.play()
+	pass # Replace with function body.
+
+
+func _on_collection_button_pressed(): #Коллекция
+	audio_button.play()
 	pass # Replace with function body.

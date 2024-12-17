@@ -15,8 +15,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -112.5
-offset_top = -189.0
+offset_top = -133.0
 offset_right = 112.5
+offset_bottom = 56.0
 grow_horizontal = 2
 grow_vertical = 0
 
@@ -31,7 +32,7 @@ theme_override_font_sizes/font_size = 88
 text = "10:10"
 
 [node name="Margin" type="MarginContainer" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 30)
+custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
 [node name="Timer" type="Timer" parent="."]

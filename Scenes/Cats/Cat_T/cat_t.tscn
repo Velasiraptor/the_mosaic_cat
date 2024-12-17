@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://ccwidcn74jcf0"]
+[gd_scene load_steps=30 format=3 uid="uid://ccwidcn74jcf0"]
 
 [ext_resource type="Texture2D" uid="uid://qtoja1y3gioq" path="res://Sprites/Cats/Cat_T/Classic/Cat_T.png" id="1_evnvg"]
 [ext_resource type="Script" path="res://Scenes/Cats/Cat_T/cat_t.gd" id="1_obdpc"]
@@ -10,6 +10,14 @@
 [ext_resource type="Script" path="res://Scenes/Cats/Сat_o/skeleton_cat.gd" id="6_0de5v"]
 [ext_resource type="Texture2D" uid="uid://dsv1hf8a6rni4" path="res://Sprites/Cats/Cat_T/Classic/Cat_T_3.png" id="6_r0qjt"]
 [ext_resource type="Script" path="res://addons/random_timer/random_timer.gd" id="8_h2sj6"]
+[ext_resource type="AudioStream" uid="uid://cg5wq1d1d6jr3" path="res://Sounds/Cats/Rotate_cat.mp3" id="11_ptre4"]
+[ext_resource type="AudioStream" uid="uid://b7ck42t2qc5u7" path="res://Sounds/Cats/Drag/Drag_cat.mp3" id="12_bvdnw"]
+[ext_resource type="AudioStream" uid="uid://cstrunhb2f405" path="res://Sounds/Cats/Drag/Drag_cat_2.mp3" id="13_oxkcp"]
+[ext_resource type="AudioStream" uid="uid://by6453j5c6t7h" path="res://Sounds/Cats/Meows/Cats/meow_0.mp3" id="14_rurj8"]
+[ext_resource type="AudioStream" uid="uid://i70hdb8dbc0" path="res://Sounds/Cats/Meows/Cats/meow_1.mp3" id="15_x7qya"]
+[ext_resource type="AudioStream" uid="uid://cer8128a1u61x" path="res://Sounds/Cats/Meows/Cats/meow_2.mp3" id="16_32amg"]
+[ext_resource type="AudioStream" uid="uid://byn2q6k7mdpmk" path="res://Sounds/Cats/Meows/Cats/meow_3.mp3" id="17_p7l3r"]
+[ext_resource type="AudioStream" uid="uid://dqyyj77l0p86j" path="res://Sounds/Cats/Meows/Cats/meow_4.mp3" id="18_8klvc"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_72drm"]
 animations = [{
@@ -235,13 +243,52 @@ unique_name_in_owner = true
 one_shot = true
 script = ExtResource("8_h2sj6")
 min_wait_time = 30.0
-max_wait_time = 60.0
+max_wait_time = 90.0
 
 [node name="Animation_in_field" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
 libraries = {
 "": SubResource("AnimationLibrary_l044r")
 }
+
+[node name="Sounds" type="Node" parent="."]
+
+[node name="Sound_rotate" type="AudioStreamPlayer" parent="Sounds"]
+unique_name_in_owner = true
+stream = ExtResource("11_ptre4")
+
+[node name="Sound_drag" type="AudioStreamPlayer" parent="Sounds"]
+unique_name_in_owner = true
+stream = ExtResource("12_bvdnw")
+volume_db = -15.0
+
+[node name="Sound_drag_2" type="AudioStreamPlayer" parent="Sounds"]
+unique_name_in_owner = true
+stream = ExtResource("13_oxkcp")
+volume_db = -17.0
+
+[node name="meows_sounds" type="Node" parent="Sounds"]
+unique_name_in_owner = true
+
+[node name="Sound_meow_0" type="AudioStreamPlayer" parent="Sounds/meows_sounds"]
+stream = ExtResource("14_rurj8")
+volume_db = -15.0
+
+[node name="Sound_meow_1" type="AudioStreamPlayer" parent="Sounds/meows_sounds"]
+stream = ExtResource("15_x7qya")
+volume_db = -15.0
+
+[node name="Sound_meow_2" type="AudioStreamPlayer" parent="Sounds/meows_sounds"]
+stream = ExtResource("16_32amg")
+volume_db = -15.0
+
+[node name="Sound_meow_3" type="AudioStreamPlayer" parent="Sounds/meows_sounds"]
+stream = ExtResource("17_p7l3r")
+volume_db = -15.0
+
+[node name="Sound_meow_4" type="AudioStreamPlayer" parent="Sounds/meows_sounds"]
+stream = ExtResource("18_8klvc")
+volume_db = -15.0
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="timeout" from="RandomTimer_blinks" to="." method="_on_random_timer_blinks_timeout"]

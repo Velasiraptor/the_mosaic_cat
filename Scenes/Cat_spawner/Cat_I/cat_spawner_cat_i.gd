@@ -34,7 +34,7 @@ func get_cat(max_count: int):
 	for i in max_count:
 		data_cat[i].get_start_position()
 
-func check_pickable_cats(): # ЗДЕСЬ ОШИБКА ИЗ-ЗА ТОГО, ЧТО COUNT МЕНЬШЕ ЧЕМ ВСЕГО КОТОВ!!
+func check_pickable_cats():
 	for i in max_count: 
 		if data_cat[i].global_position != position:
 			data_cat[i].input_pickable = true
