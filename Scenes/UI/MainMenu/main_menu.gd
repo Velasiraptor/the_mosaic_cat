@@ -15,6 +15,7 @@ var calibration_offset: Vector3 = Vector3()
 
 
 func _ready():
+	get_tree().paused = false
 	# Сохраняем изначальную позицию текстуры
 	base_position = texture_back.position
 	calibration_offset = Input.get_accelerometer()

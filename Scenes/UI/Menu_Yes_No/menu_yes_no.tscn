@@ -119,53 +119,6 @@ layout_mode = 2
 custom_minimum_size = Vector2(922, 187)
 layout_mode = 2
 
-[node name="HBox" type="HBoxContainer" parent="Center/Window_cat/Window_next_lvl/Window/VBox/Margin_top"]
-layout_mode = 2
-
-[node name="Margin_1" type="MarginContainer" parent="Center/Window_cat/Window_next_lvl/Window/VBox/Margin_top/HBox"]
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
-size_flags_horizontal = 0
-
-[node name="Margin_left_button" type="MarginContainer" parent="Center/Window_cat/Window_next_lvl/Window/VBox/Margin_top/HBox"]
-custom_minimum_size = Vector2(153, 0)
-layout_mode = 2
-size_flags_horizontal = 0
-
-[node name="VBox" type="VBoxContainer" parent="Center/Window_cat/Window_next_lvl/Window/VBox/Margin_top/HBox/Margin_left_button"]
-layout_mode = 2
-
-[node name="Margin" type="MarginContainer" parent="Center/Window_cat/Window_next_lvl/Window/VBox/Margin_top/HBox/Margin_left_button/VBox"]
-custom_minimum_size = Vector2(153, 120)
-layout_mode = 2
-
-[node name="Margin_2" type="MarginContainer" parent="Center/Window_cat/Window_next_lvl/Window/VBox/Margin_top/HBox"]
-custom_minimum_size = Vector2(153, 0)
-layout_mode = 2
-size_flags_horizontal = 0
-
-[node name="Margin_3" type="MarginContainer" parent="Center/Window_cat/Window_next_lvl/Window/VBox/Margin_top/HBox"]
-custom_minimum_size = Vector2(153, 0)
-layout_mode = 2
-size_flags_horizontal = 0
-
-[node name="Margin_right_button" type="MarginContainer" parent="Center/Window_cat/Window_next_lvl/Window/VBox/Margin_top/HBox"]
-custom_minimum_size = Vector2(153, 0)
-layout_mode = 2
-size_flags_horizontal = 0
-
-[node name="VBox" type="VBoxContainer" parent="Center/Window_cat/Window_next_lvl/Window/VBox/Margin_top/HBox/Margin_right_button"]
-layout_mode = 2
-
-[node name="Margin" type="MarginContainer" parent="Center/Window_cat/Window_next_lvl/Window/VBox/Margin_top/HBox/Margin_right_button/VBox"]
-custom_minimum_size = Vector2(153, 120)
-layout_mode = 2
-
-[node name="Margin_4" type="MarginContainer" parent="Center/Window_cat/Window_next_lvl/Window/VBox/Margin_top/HBox"]
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
-size_flags_horizontal = 0
-
 [node name="Margin_down" type="MarginContainer" parent="Center/Window_cat/Window_next_lvl/Window/VBox"]
 custom_minimum_size = Vector2(307, 634)
 layout_mode = 2

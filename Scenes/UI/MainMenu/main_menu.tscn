@@ -550,6 +550,7 @@ visible = false
 
 [node name="Menu_Yes_No" parent="." instance=ExtResource("20_045vr")]
 unique_name_in_owner = true
+visible = false
 text_menu_exit = true
 
 [connection signal="pressed" from="Full_screen/Left_half_screen/Left_edge/Left_edge_y/Button/Button_EXIT" to="." method="_on_button_exit_pressed"]
