@@ -8,6 +8,8 @@ extends CanvasLayer
 
 @onready var audio_button = %Audio_button
 
+@onready var menu_yes_no = %Menu_Yes_No
+
 
 var rating_A_texture = load("res://Sprites/UI/Rating/Rating_A.png")
 var rating_B_texture = load("res://Sprites/UI/Rating/Rating_B.png")
@@ -26,8 +28,7 @@ func animation_window():
 
 func _on_mm_button_pressed(): #Выход в главное меню
 	audio_button.play()
-	await get_tree().create_timer(0.2).timeout #Для звука
-	get_tree().change_scene_to_file("res://Scenes/UI/MainMenu/main_menu.tscn")
+	menu_yes_no.visible = true
 
 func _on_next_lvl_button_pressed():
 	audio_button.play()

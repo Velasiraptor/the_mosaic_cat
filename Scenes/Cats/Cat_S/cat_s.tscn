@@ -276,7 +276,7 @@ volume_db = -15.0
 [node name="Sound_drag_2" type="AudioStreamPlayer" parent="Sounds"]
 unique_name_in_owner = true
 stream = ExtResource("13_fu0c5")
-volume_db = -17.0
+volume_db = -20.0
 
 [node name="meows_sounds" type="Node" parent="Sounds"]
 unique_name_in_owner = true

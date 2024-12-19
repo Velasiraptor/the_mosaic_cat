@@ -1,17 +1,18 @@
-[gd_scene load_steps=23 format=3 uid="uid://dcp0b8ip7e5na"]
+[gd_scene load_steps=24 format=3 uid="uid://dcp0b8ip7e5na"]
 
 [ext_resource type="Shader" path="res://Shaders/Blur.gdshader" id="1_nr6h7"]
 [ext_resource type="Script" path="res://Scenes/UI/window_next_lvl.gd" id="1_qqqsl"]
 [ext_resource type="Texture2D" uid="uid://chbaaeg6hn34o" path="res://Sprites/UI/Window.png" id="2_2e0i3"]
-[ext_resource type="Texture2D" uid="uid://rx2hhdj72j7g" path="res://Sprites/UI/Buttons/Main_menu_button.png" id="3_4awm3"]
-[ext_resource type="Texture2D" uid="uid://bi203lp8ygvtf" path="res://Sprites/UI/Buttons/Main_menu_button_pressed.png" id="4_o1340"]
+[ext_resource type="Texture2D" uid="uid://8oxeascoarrg" path="res://Sprites/UI/Buttons/Exit_button.png" id="4_tl5wj"]
 [ext_resource type="Texture2D" uid="uid://cs4uqvk4piwc0" path="res://Sprites/UI/Buttons/Next_button.png" id="5_r24ye"]
+[ext_resource type="Texture2D" uid="uid://cpgdp7fppao3o" path="res://Sprites/UI/Buttons/Exit_button_pressed.png" id="5_xsicl"]
 [ext_resource type="Texture2D" uid="uid://bbsxur7y47kfg" path="res://Sprites/UI/Buttons/Next_button_pressed.png" id="6_db57a"]
 [ext_resource type="Texture2D" uid="uid://btr2ufsp373ju" path="res://Sprites/UI/Effects/Light/Light_1.png" id="7_8kdan"]
 [ext_resource type="Texture2D" uid="uid://cegno5xvayk1x" path="res://Sprites/UI/Effects/Light/Light_2.png" id="8_4i7kg"]
 [ext_resource type="Texture2D" uid="uid://5ifgh0wggxql" path="res://Sprites/UI/Effects/Light/Light_3.png" id="9_o0r46"]
 [ext_resource type="Texture2D" uid="uid://byewpn7e7t6tw" path="res://Sprites/UI/Rating/Rating_A.png" id="10_k8qkq"]
 [ext_resource type="AudioStream" uid="uid://dgeugopjmdsd0" path="res://Sounds/Buttons/Button.mp3" id="12_p8p07"]
+[ext_resource type="PackedScene" uid="uid://bvv23p02yuiif" path="res://Scenes/UI/Menu_Yes_No/menu_yes_no.tscn" id="13_7y73f"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jf31i"]
 shader = ExtResource("1_nr6h7")
@@ -158,7 +159,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_u5h5u"]
 resource_name = "Scale"
-length = 0.5
+length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -166,10 +167,10 @@ tracks/0/path = NodePath("Window_cat:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5),
+"times": PackedFloat32Array(0, 0.15, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(0.9, 0.9), Vector2(1.1, 1.1), Vector2(1, 1)]
+"values": [Vector2(0.95, 0.95), Vector2(1.05, 1.05), Vector2(1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nme3e"]
@@ -269,9 +270,9 @@ layout_mode = 2
 
 [node name="MM_Button" type="TextureButton" parent="ColorRect/Center/Window_cat/Window_next_lvl/Window/VBox/Margin_top/HBox/Margin_left_button/VBox/Button"]
 layout_mode = 2
-texture_normal = ExtResource("3_4awm3")
-texture_pressed = ExtResource("4_o1340")
-texture_hover = ExtResource("4_o1340")
+texture_normal = ExtResource("4_tl5wj")
+texture_pressed = ExtResource("5_xsicl")
+texture_hover = ExtResource("5_xsicl")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -407,8 +408,13 @@ libraries = {
 
 [node name="Audio_button" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
+process_mode = 3
 stream = ExtResource("12_p8p07")
 volume_db = -15.0
+
+[node name="Menu_Yes_No" parent="." instance=ExtResource("13_7y73f")]
+unique_name_in_owner = true
+visible = false
 
 [connection signal="pressed" from="ColorRect/Center/Window_cat/Window_next_lvl/Window/VBox/Margin_top/HBox/Margin_left_button/VBox/Button/MM_Button" to="." method="_on_mm_button_pressed"]
 [connection signal="pressed" from="ColorRect/Center/Window_cat/Window_next_lvl/Window/VBox/Margin_top/HBox/Margin_right_button/VBox/Button/Next_lvl_button" to="." method="_on_next_lvl_button_pressed"]

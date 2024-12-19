@@ -1,0 +1,295 @@
+[gd_scene load_steps=14 format=3 uid="uid://bvv23p02yuiif"]
+
+[ext_resource type="Texture2D" uid="uid://chbaaeg6hn34o" path="res://Sprites/UI/Window.png" id="1_44oc2"]
+[ext_resource type="Script" path="res://Scenes/UI/Menu_Yes_No/menu_yes_no.gd" id="1_ynmur"]
+[ext_resource type="Shader" path="res://Shaders/Blur.gdshader" id="2_laouy"]
+[ext_resource type="AudioStream" uid="uid://dgeugopjmdsd0" path="res://Sounds/Buttons/Button.mp3" id="4_685h3"]
+[ext_resource type="Texture2D" uid="uid://7jl46djinwey" path="res://Sprites/UI/Buttons/Yes_button.png" id="5_a3p2x"]
+[ext_resource type="Texture2D" uid="uid://desldhov8siv6" path="res://Sprites/UI/Buttons/Yes_button_pressed.png" id="6_0looe"]
+[ext_resource type="FontFile" uid="uid://cj7peb0hnv2rh" path="res://ChalkboardSE-Regular-02_0.ttf" id="7_ddhqu"]
+[ext_resource type="Texture2D" uid="uid://b0na45weesh2y" path="res://Sprites/UI/Buttons/No_button.png" id="7_hq5hg"]
+[ext_resource type="Texture2D" uid="uid://2acquephhrvo" path="res://Sprites/UI/Buttons/No_button_pressed.png" id="8_pijsn"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tiv7x"]
+shader = ExtResource("2_laouy")
+shader_parameter/lod = 1.2
+
+[sub_resource type="Animation" id="Animation_e061v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Window_cat:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_u5h5u"]
+resource_name = "Scale"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Window_cat:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.95, 0.95), Vector2(1.05, 1.05), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nme3e"]
+_data = {
+"RESET": SubResource("Animation_e061v"),
+"Scale": SubResource("Animation_u5h5u")
+}
+
+[node name="Menu_Yes_No" type="CanvasLayer"]
+process_mode = 3
+layer = 2
+script = ExtResource("1_ynmur")
+
+[node name="Color_Blur" type="ColorRect" parent="."]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.109804, 0.0666667, 0.00784314, 0.45098)
+
+[node name="Blur" type="ColorRect" parent="Color_Blur"]
+material = SubResource("ShaderMaterial_tiv7x")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Center" type="CenterContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Window_cat" type="Node2D" parent="Center"]
+
+[node name="Window_next_lvl" type="CenterContainer" parent="Center/Window_cat"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -512.6
+offset_top = -508.75
+offset_right = 512.6
+offset_bottom = 508.75
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Window" type="MarginContainer" parent="Center/Window_cat/Window_next_lvl"]
+custom_minimum_size = Vector2(922, 922)
+layout_mode = 2
+
+[node name="Window_Sprite" type="TextureRect" parent="Center/Window_cat/Window_next_lvl/Window"]
+layout_mode = 2
+texture = ExtResource("1_44oc2")
+expand_mode = 1
+
+[node name="VBox" type="VBoxContainer" parent="Center/Window_cat/Window_next_lvl/Window"]
+layout_mode = 2
+
+[node name="Margin_top" type="MarginContainer" parent="Center/Window_cat/Window_next_lvl/Window/VBox"]
+custom_minimum_size = Vector2(922, 187)
+layout_mode = 2
+
+[node name="HBox" type="HBoxContainer" parent="Center/Window_cat/Window_next_lvl/Window/VBox/Margin_top"]
+layout_mode = 2
+
+[node name="Margin_1" type="MarginContainer" parent="Center/Window_cat/Window_next_lvl/Window/VBox/Margin_top/HBox"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Margin_left_button" type="MarginContainer" parent="Center/Window_cat/Window_next_lvl/Window/VBox/Margin_top/HBox"]
+custom_minimum_size = Vector2(153, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="VBox" type="VBoxContainer" parent="Center/Window_cat/Window_next_lvl/Window/VBox/Margin_top/HBox/Margin_left_button"]
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="Center/Window_cat/Window_next_lvl/Window/VBox/Margin_top/HBox/Margin_left_button/VBox"]
+custom_minimum_size = Vector2(153, 120)
+layout_mode = 2
+
+[node name="Margin_2" type="MarginContainer" parent="Center/Window_cat/Window_next_lvl/Window/VBox/Margin_top/HBox"]
+custom_minimum_size = Vector2(153, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Margin_3" type="MarginContainer" parent="Center/Window_cat/Window_next_lvl/Window/VBox/Margin_top/HBox"]
+custom_minimum_size = Vector2(153, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Margin_right_button" type="MarginContainer" parent="Center/Window_cat/Window_next_lvl/Window/VBox/Margin_top/HBox"]
+custom_minimum_size = Vector2(153, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="VBox" type="VBoxContainer" parent="Center/Window_cat/Window_next_lvl/Window/VBox/Margin_top/HBox/Margin_right_button"]
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="Center/Window_cat/Window_next_lvl/Window/VBox/Margin_top/HBox/Margin_right_button/VBox"]
+custom_minimum_size = Vector2(153, 120)
+layout_mode = 2
+
+[node name="Margin_4" type="MarginContainer" parent="Center/Window_cat/Window_next_lvl/Window/VBox/Margin_top/HBox"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Margin_down" type="MarginContainer" parent="Center/Window_cat/Window_next_lvl/Window/VBox"]
+custom_minimum_size = Vector2(307, 634)
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="Center/Window_cat/Window_next_lvl/Window/VBox/Margin_down"]
+layout_mode = 2
+
+[node name="Center_margin" type="MarginContainer" parent="Center/Window_cat/Window_next_lvl/Window/VBox/Margin_down/VBox"]
+custom_minimum_size = Vector2(0, 380)
+layout_mode = 2
+
+[node name="HBox" type="HBoxContainer" parent="Center/Window_cat/Window_next_lvl/Window/VBox/Margin_down/VBox/Center_margin"]
+layout_mode = 2
+
+[node name="Margin_1" type="MarginContainer" parent="Center/Window_cat/Window_next_lvl/Window/VBox/Margin_down/VBox/Center_margin/HBox"]
+custom_minimum_size = Vector2(121, 0)
+layout_mode = 2
+
+[node name="Text_Margin" type="MarginContainer" parent="Center/Window_cat/Window_next_lvl/Window/VBox/Margin_down/VBox/Center_margin/HBox"]
+custom_minimum_size = Vector2(680, 380)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Text_center" type="Label" parent="Center/Window_cat/Window_next_lvl/Window/VBox/Margin_down/VBox/Center_margin/HBox/Text_Margin"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.231373, 0.133333, 0.105882, 1)
+theme_override_colors/font_outline_color = Color(0.764706, 0.545098, 0.376471, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("7_ddhqu")
+theme_override_font_sizes/font_size = 88
+text = "Выйти в главное 
+меню?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Margin_2" type="MarginContainer" parent="Center/Window_cat/Window_next_lvl/Window/VBox/Margin_down/VBox/Center_margin/HBox"]
+custom_minimum_size = Vector2(121, 0)
+layout_mode = 2
+
+[node name="YN_margin" type="MarginContainer" parent="Center/Window_cat/Window_next_lvl/Window/VBox/Margin_down/VBox"]
+custom_minimum_size = Vector2(0, 140)
+layout_mode = 2
+
+[node name="HBox_YN" type="HBoxContainer" parent="Center/Window_cat/Window_next_lvl/Window/VBox/Margin_down/VBox/YN_margin"]
+layout_mode = 2
+
+[node name="Margin_L" type="MarginContainer" parent="Center/Window_cat/Window_next_lvl/Window/VBox/Margin_down/VBox/YN_margin/HBox_YN"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="Margin_Lb" type="MarginContainer" parent="Center/Window_cat/Window_next_lvl/Window/VBox/Margin_down/VBox/YN_margin/HBox_YN"]
+custom_minimum_size = Vector2(307, 0)
+layout_mode = 2
+
+[node name="Yes_Button" type="TextureButton" parent="Center/Window_cat/Window_next_lvl/Window/VBox/Margin_down/VBox/YN_margin/HBox_YN/Margin_Lb"]
+layout_mode = 2
+texture_normal = ExtResource("5_a3p2x")
+texture_pressed = ExtResource("6_0looe")
+texture_hover = ExtResource("6_0looe")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Yes_label" type="Label" parent="Center/Window_cat/Window_next_lvl/Window/VBox/Margin_down/VBox/YN_margin/HBox_YN/Margin_Lb/Yes_Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.231373, 0.133333, 0.105882, 1)
+theme_override_fonts/font = ExtResource("7_ddhqu")
+theme_override_font_sizes/font_size = 88
+text = "ДА"
+horizontal_alignment = 1
+
+[node name="Margin_Center" type="MarginContainer" parent="Center/Window_cat/Window_next_lvl/Window/VBox/Margin_down/VBox/YN_margin/HBox_YN"]
+custom_minimum_size = Vector2(207, 0)
+layout_mode = 2
+
+[node name="Margin_Rb" type="MarginContainer" parent="Center/Window_cat/Window_next_lvl/Window/VBox/Margin_down/VBox/YN_margin/HBox_YN"]
+custom_minimum_size = Vector2(307, 0)
+layout_mode = 2
+
+[node name="No_Button" type="TextureButton" parent="Center/Window_cat/Window_next_lvl/Window/VBox/Margin_down/VBox/YN_margin/HBox_YN/Margin_Rb"]
+layout_mode = 2
+texture_normal = ExtResource("7_hq5hg")
+texture_pressed = ExtResource("8_pijsn")
+texture_hover = ExtResource("8_pijsn")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Yes_label" type="Label" parent="Center/Window_cat/Window_next_lvl/Window/VBox/Margin_down/VBox/YN_margin/HBox_YN/Margin_Rb/No_Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.231373, 0.133333, 0.105882, 1)
+theme_override_fonts/font = ExtResource("7_ddhqu")
+theme_override_font_sizes/font_size = 88
+text = "НЕТ"
+horizontal_alignment = 1
+
+[node name="Margin_R" type="MarginContainer" parent="Center/Window_cat/Window_next_lvl/Window/VBox/Margin_down/VBox/YN_margin/HBox_YN"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="Down_margin2" type="MarginContainer" parent="Center/Window_cat/Window_next_lvl/Window/VBox/Margin_down/VBox"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="Animation_scale" type="AnimationPlayer" parent="Center"]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_nme3e")
+}
+
+[node name="Audio_button" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("4_685h3")
+volume_db = -15.0
+
+[connection signal="pressed" from="Center/Window_cat/Window_next_lvl/Window/VBox/Margin_down/VBox/YN_margin/HBox_YN/Margin_Lb/Yes_Button" to="." method="_on_yes_button_pressed"]
+[connection signal="pressed" from="Center/Window_cat/Window_next_lvl/Window/VBox/Margin_down/VBox/YN_margin/HBox_YN/Margin_Rb/No_Button" to="." method="_on_no_button_pressed"]

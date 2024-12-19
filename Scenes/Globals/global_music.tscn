@@ -3,6 +3,7 @@
 [ext_resource type="AudioStream" uid="uid://cso64xoi12q26" path="res://Music/MM_Music.mp3" id="1_ghgxc"]
 
 [node name="Global_music" type="Node"]
+process_mode = 3
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_ghgxc")

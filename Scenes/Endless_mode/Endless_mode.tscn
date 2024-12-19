@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dlgjrthf5vmeo"]
+[gd_scene load_steps=9 format=3 uid="uid://dlgjrthf5vmeo"]
 
 [ext_resource type="Script" path="res://Scenes/Endless_mode/Endless_mode.gd" id="1_pqqi7"]
 [ext_resource type="Texture2D" uid="uid://8oxeascoarrg" path="res://Sprites/UI/Buttons/Exit_button.png" id="2_6u8rk"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://di7xmptn4qj7w" path="res://Sprites/UI/Buttons/Setting_button.png" id="4_67dns"]
 [ext_resource type="Texture2D" uid="uid://7uigjj186cqd" path="res://Sprites/UI/Buttons/Setting_button_pressed.png" id="5_fpivc"]
 [ext_resource type="AudioStream" uid="uid://dgeugopjmdsd0" path="res://Sounds/Buttons/Button.mp3" id="6_bw82x"]
+[ext_resource type="PackedScene" uid="uid://cqaiqngx3wi3e" path="res://Scenes/UI/Setting_menu/setting_menu.tscn" id="7_krosh"]
+[ext_resource type="PackedScene" uid="uid://bvv23p02yuiif" path="res://Scenes/UI/Menu_Yes_No/menu_yes_no.tscn" id="8_sspj6"]
 
 [node name="Endless_mode" type="Node2D"]
 script = ExtResource("1_pqqi7")
@@ -86,8 +88,15 @@ size_flags_horizontal = 8
 
 [node name="Audio_button" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
+process_mode = 3
 stream = ExtResource("6_bw82x")
 volume_db = -15.0
+
+[node name="Setting_menu" parent="." instance=ExtResource("7_krosh")]
+unique_name_in_owner = true
+
+[node name="Menu_Yes_No" parent="." instance=ExtResource("8_sspj6")]
+unique_name_in_owner = true
 
 [connection signal="pressed" from="UI_endless_mode/Full_screen/Left_half_screen/Left_edge/Left_edge_y/Button/Button_EXIT" to="." method="_on_button_exit_pressed"]
 [connection signal="pressed" from="UI_endless_mode/Full_screen/Right_half_screen/Right_edge/Left_edge_y/Button/Button_Setting" to="." method="_on_button_setting_pressed"]

@@ -38,3 +38,14 @@ layout_mode = 2
 [node name="Timer" type="Timer" parent="."]
 unique_name_in_owner = true
 one_shot = true
+
+[node name="Timer_B" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="Timer_C" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
+[connection signal="timeout" from="Timer_B" to="." method="_on_timer_b_timeout"]
+[connection signal="timeout" from="Timer_C" to="." method="_on_timer_c_timeout"]

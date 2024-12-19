@@ -3,6 +3,8 @@ extends Control
 @onready var texture_back = %Texture_back
 @onready var audio_button = %Audio_button
 
+@onready var menu_yes_no = %Menu_Yes_No
+
 
 # Максимальное смещение в пикселях
 const MAX_OFFSET = 20
@@ -41,12 +43,14 @@ func _on_play_button_pressed():
 
 func _on_button_exit_pressed(): #Выход
 	audio_button.play()
-	get_tree().quit()
+	menu_yes_no.visible = true
+	menu_yes_no.anim_play()
+	menu_yes_no.visible_back()
 
 
 func _on_button_setting_pressed(): #Настройки
 	audio_button.play()
-	pass # Replace with function body.
+	get_tree().call_group("Setting_menu", "animation_setting_scale")
 
 
 func _on_shop_button_pressed(): #Магазин

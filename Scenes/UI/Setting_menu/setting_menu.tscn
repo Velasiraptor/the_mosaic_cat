@@ -1,0 +1,214 @@
+[gd_scene load_steps=11 format=3 uid="uid://cqaiqngx3wi3e"]
+
+[ext_resource type="Shader" path="res://Shaders/Blur.gdshader" id="1_ih1he"]
+[ext_resource type="Script" path="res://Scenes/UI/Setting_menu/setting_menu.gd" id="1_mm8eu"]
+[ext_resource type="Texture2D" uid="uid://chbaaeg6hn34o" path="res://Sprites/UI/Window.png" id="2_teple"]
+[ext_resource type="Texture2D" uid="uid://rx2hhdj72j7g" path="res://Sprites/UI/Buttons/Main_menu_button.png" id="3_b7fnh"]
+[ext_resource type="Texture2D" uid="uid://bi203lp8ygvtf" path="res://Sprites/UI/Buttons/Main_menu_button_pressed.png" id="4_gxc0c"]
+[ext_resource type="AudioStream" uid="uid://dgeugopjmdsd0" path="res://Sounds/Buttons/Button.mp3" id="5_iows8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_odpsc"]
+shader = ExtResource("1_ih1he")
+shader_parameter/lod = 1.2
+
+[sub_resource type="Animation" id="Animation_e061v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Window_cat:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_u5h5u"]
+resource_name = "Scale"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Window_cat:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.95, 0.95), Vector2(1.05, 1.05), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nme3e"]
+_data = {
+"RESET": SubResource("Animation_e061v"),
+"Scale": SubResource("Animation_u5h5u")
+}
+
+[node name="Setting_menu" type="CanvasLayer" groups=["Setting_menu"]]
+process_mode = 3
+script = ExtResource("1_mm8eu")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.109804, 0.0666667, 0.00784314, 0.45098)
+
+[node name="Blur" type="ColorRect" parent="ColorRect"]
+material = SubResource("ShaderMaterial_odpsc")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Center" type="CenterContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Window_cat" type="Node2D" parent="ColorRect/Center"]
+
+[node name="Window_next_lvl" type="CenterContainer" parent="ColorRect/Center/Window_cat"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -512.6
+offset_top = -508.75
+offset_right = 512.6
+offset_bottom = 508.75
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Window" type="MarginContainer" parent="ColorRect/Center/Window_cat/Window_next_lvl"]
+custom_minimum_size = Vector2(922, 922)
+layout_mode = 2
+
+[node name="Window_Sprite" type="TextureRect" parent="ColorRect/Center/Window_cat/Window_next_lvl/Window"]
+layout_mode = 2
+texture = ExtResource("2_teple")
+expand_mode = 1
+
+[node name="VBox" type="VBoxContainer" parent="ColorRect/Center/Window_cat/Window_next_lvl/Window"]
+layout_mode = 2
+
+[node name="Margin_top" type="MarginContainer" parent="ColorRect/Center/Window_cat/Window_next_lvl/Window/VBox"]
+custom_minimum_size = Vector2(922, 287)
+layout_mode = 2
+
+[node name="HBox" type="HBoxContainer" parent="ColorRect/Center/Window_cat/Window_next_lvl/Window/VBox/Margin_top"]
+layout_mode = 2
+
+[node name="Margin_1" type="MarginContainer" parent="ColorRect/Center/Window_cat/Window_next_lvl/Window/VBox/Margin_top/HBox"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Margin_left_button" type="MarginContainer" parent="ColorRect/Center/Window_cat/Window_next_lvl/Window/VBox/Margin_top/HBox"]
+custom_minimum_size = Vector2(153, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="VBox" type="VBoxContainer" parent="ColorRect/Center/Window_cat/Window_next_lvl/Window/VBox/Margin_top/HBox/Margin_left_button"]
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="ColorRect/Center/Window_cat/Window_next_lvl/Window/VBox/Margin_top/HBox/Margin_left_button/VBox"]
+custom_minimum_size = Vector2(153, 120)
+layout_mode = 2
+
+[node name="Button" type="MarginContainer" parent="ColorRect/Center/Window_cat/Window_next_lvl/Window/VBox/Margin_top/HBox/Margin_left_button/VBox"]
+custom_minimum_size = Vector2(153, 153)
+layout_mode = 2
+
+[node name="Back_Button" type="TextureButton" parent="ColorRect/Center/Window_cat/Window_next_lvl/Window/VBox/Margin_top/HBox/Margin_left_button/VBox/Button"]
+layout_mode = 2
+texture_normal = ExtResource("3_b7fnh")
+texture_pressed = ExtResource("4_gxc0c")
+texture_hover = ExtResource("4_gxc0c")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Margin_2" type="MarginContainer" parent="ColorRect/Center/Window_cat/Window_next_lvl/Window/VBox/Margin_top/HBox"]
+custom_minimum_size = Vector2(153, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Margin_3" type="MarginContainer" parent="ColorRect/Center/Window_cat/Window_next_lvl/Window/VBox/Margin_top/HBox"]
+custom_minimum_size = Vector2(153, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Margin_right_button" type="MarginContainer" parent="ColorRect/Center/Window_cat/Window_next_lvl/Window/VBox/Margin_top/HBox"]
+custom_minimum_size = Vector2(153, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="VBox" type="VBoxContainer" parent="ColorRect/Center/Window_cat/Window_next_lvl/Window/VBox/Margin_top/HBox/Margin_right_button"]
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="ColorRect/Center/Window_cat/Window_next_lvl/Window/VBox/Margin_top/HBox/Margin_right_button/VBox"]
+custom_minimum_size = Vector2(153, 120)
+layout_mode = 2
+
+[node name="Margin_4" type="MarginContainer" parent="ColorRect/Center/Window_cat/Window_next_lvl/Window/VBox/Margin_top/HBox"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Margin_down" type="MarginContainer" parent="ColorRect/Center/Window_cat/Window_next_lvl/Window/VBox"]
+custom_minimum_size = Vector2(307, 634)
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="ColorRect/Center/Window_cat/Window_next_lvl/Window/VBox/Margin_down"]
+layout_mode = 2
+
+[node name="Center_margin" type="MarginContainer" parent="ColorRect/Center/Window_cat/Window_next_lvl/Window/VBox/Margin_down/VBox"]
+custom_minimum_size = Vector2(0, 580)
+layout_mode = 2
+
+[node name="HBox" type="HBoxContainer" parent="ColorRect/Center/Window_cat/Window_next_lvl/Window/VBox/Margin_down/VBox/Center_margin"]
+layout_mode = 2
+
+[node name="Margin_1" type="MarginContainer" parent="ColorRect/Center/Window_cat/Window_next_lvl/Window/VBox/Margin_down/VBox/Center_margin/HBox"]
+custom_minimum_size = Vector2(221, 0)
+layout_mode = 2
+
+[node name="Margin_2" type="MarginContainer" parent="ColorRect/Center/Window_cat/Window_next_lvl/Window/VBox/Margin_down/VBox/Center_margin/HBox"]
+custom_minimum_size = Vector2(181, 0)
+layout_mode = 2
+
+[node name="Down_margin" type="MarginContainer" parent="ColorRect/Center/Window_cat/Window_next_lvl/Window/VBox/Margin_down/VBox"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="Animation_scale" type="AnimationPlayer" parent="ColorRect/Center"]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_nme3e")
+}
+
+[node name="Audio_button" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+process_mode = 3
+stream = ExtResource("5_iows8")
+volume_db = -15.0
+
+[connection signal="pressed" from="ColorRect/Center/Window_cat/Window_next_lvl/Window/VBox/Margin_top/HBox/Margin_left_button/VBox/Button/Back_Button" to="." method="_on_back_button_pressed"]
