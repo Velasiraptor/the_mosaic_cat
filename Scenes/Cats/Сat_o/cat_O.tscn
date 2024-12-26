@@ -183,7 +183,6 @@ _data = {
 }
 
 [node name="Cat_O" type="CharacterBody2D"]
-collision_mask = 0
 input_pickable = true
 script = ExtResource("1_q65ix")
 
@@ -252,16 +251,19 @@ libraries = {
 [node name="Sound_rotate" type="AudioStreamPlayer" parent="Sounds"]
 unique_name_in_owner = true
 stream = ExtResource("11_s60cc")
+bus = &"Sounds"
 
 [node name="Sound_drag" type="AudioStreamPlayer" parent="Sounds"]
 unique_name_in_owner = true
 stream = ExtResource("12_5rarn")
 volume_db = -15.0
+bus = &"Sounds"
 
 [node name="Sound_blinks" type="AudioStreamPlayer" parent="Sounds"]
 unique_name_in_owner = true
 stream = ExtResource("13_dco6j")
 volume_db = -15.0
+bus = &"Sounds"
 
 [node name="meows_sounds" type="Node" parent="Sounds"]
 unique_name_in_owner = true
@@ -269,18 +271,22 @@ unique_name_in_owner = true
 [node name="Sound_meow_0" type="AudioStreamPlayer" parent="Sounds/meows_sounds"]
 stream = ExtResource("14_xrj6v")
 volume_db = -15.0
+bus = &"Sounds"
 
 [node name="Sound_meow_1" type="AudioStreamPlayer" parent="Sounds/meows_sounds"]
 stream = ExtResource("15_kdu8j")
 volume_db = -15.0
+bus = &"Sounds"
 
 [node name="Sound_meow_2" type="AudioStreamPlayer" parent="Sounds/meows_sounds"]
 stream = ExtResource("16_22hrh")
 volume_db = -15.0
+bus = &"Sounds"
 
 [node name="Sound_meow_3" type="AudioStreamPlayer" parent="Sounds/meows_sounds"]
 stream = ExtResource("17_jq4o5")
 volume_db = -15.0
+bus = &"Sounds"
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="timeout" from="RandomTimer_blinks" to="." method="_on_random_timer_blinks_timeout"]

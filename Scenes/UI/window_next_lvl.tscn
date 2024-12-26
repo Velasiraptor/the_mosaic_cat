@@ -270,6 +270,7 @@ layout_mode = 2
 
 [node name="MM_Button" type="TextureButton" parent="ColorRect/Center/Window_cat/Window_next_lvl/Window/VBox/Margin_top/HBox/Margin_left_button/VBox/Button"]
 layout_mode = 2
+focus_mode = 0
 texture_normal = ExtResource("4_tl5wj")
 texture_pressed = ExtResource("5_xsicl")
 texture_hover = ExtResource("5_xsicl")
@@ -304,6 +305,7 @@ layout_mode = 2
 
 [node name="Next_lvl_button" type="TextureButton" parent="ColorRect/Center/Window_cat/Window_next_lvl/Window/VBox/Margin_top/HBox/Margin_right_button/VBox/Button"]
 layout_mode = 2
+focus_mode = 0
 texture_normal = ExtResource("5_r24ye")
 texture_pressed = ExtResource("6_db57a")
 texture_hover = ExtResource("6_db57a")
@@ -411,6 +413,7 @@ unique_name_in_owner = true
 process_mode = 3
 stream = ExtResource("12_p8p07")
 volume_db = -15.0
+bus = &"Sounds"
 
 [node name="Menu_Yes_No" parent="." instance=ExtResource("13_7y73f")]
 unique_name_in_owner = true

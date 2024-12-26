@@ -148,7 +148,6 @@ func not_dragging():
 			count_tile_in_cat = full_tiles
 	get_tree().call_group("Level", "finish_game")
 
-
 func animation_cat_in_field(): #Анимация кота на поле
 	var random_purr = randi_range(0,1)
 	if random_purr == 0:

@@ -243,6 +243,7 @@ libraries = {
 unique_name_in_owner = true
 stream = ExtResource("4_685h3")
 volume_db = -15.0
+bus = &"Sounds"
 
 [connection signal="pressed" from="Center/Window_cat/Window_next_lvl/Window/VBox/Margin_down/VBox/YN_margin/HBox_YN/Margin_Lb/Yes_Button" to="." method="_on_yes_button_pressed"]
 [connection signal="pressed" from="Center/Window_cat/Window_next_lvl/Window/VBox/Margin_down/VBox/YN_margin/HBox_YN/Margin_Rb/No_Button" to="." method="_on_no_button_pressed"]

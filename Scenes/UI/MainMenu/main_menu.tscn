@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://baku8jq1humk3"]
+[gd_scene load_steps=27 format=3 uid="uid://baku8jq1humk3"]
 
 [ext_resource type="Texture2D" uid="uid://d3b4iwegqcyvq" path="res://Sprites/UI/MainMenu/MM_background.png" id="1_807c3"]
 [ext_resource type="Script" path="res://Scenes/UI/MainMenu/main_menu.gd" id="1_bari7"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cpgdp7fppao3o" path="res://Sprites/UI/Buttons/Exit_button_pressed.png" id="6_o8yj5"]
 [ext_resource type="Texture2D" uid="uid://bq3adr1rl4pvf" path="res://Sprites/UI/MainMenu/Buttons/MM_Shop_button_pressed.png" id="6_x2ejn"]
 [ext_resource type="Texture2D" uid="uid://barufgbtcggay" path="res://Sprites/UI/MainMenu/Buttons/MM_Collection_button.png" id="7_besrp"]
+[ext_resource type="Texture2D" uid="uid://lfyduyb3us6" path="res://Sprites/Xmas_hat.png" id="7_wk1el"]
 [ext_resource type="Texture2D" uid="uid://di7xmptn4qj7w" path="res://Sprites/UI/Buttons/Setting_button.png" id="7_yh62i"]
 [ext_resource type="Texture2D" uid="uid://7uigjj186cqd" path="res://Sprites/UI/Buttons/Setting_button_pressed.png" id="8_k0e6a"]
 [ext_resource type="Texture2D" uid="uid://b2qawvw7hf1jb" path="res://Sprites/UI/MainMenu/Buttons/MM_Collection_button_pressed.png" id="8_svkno"]
@@ -359,6 +360,14 @@ sprite_frames = SubResource("SpriteFrames_rrxgb")
 autoplay = "default"
 frame_progress = 0.724221
 
+[node name="XmasHat" type="Sprite2D" parent="Logo/VBox/CenterContainer"]
+modulate = Color(0.886262, 0.886261, 0.886262, 1)
+show_behind_parent = true
+position = Vector2(285, -95)
+rotation = 0.268127
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("7_wk1el")
+
 [node name="Full_screen" type="HBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -393,6 +402,7 @@ layout_mode = 2
 [node name="Button_EXIT" type="TextureButton" parent="Full_screen/Left_half_screen/Left_edge/Left_edge_y/Button"]
 z_index = 1
 layout_mode = 2
+focus_mode = 0
 texture_normal = ExtResource("5_00ene")
 texture_pressed = ExtResource("6_o8yj5")
 texture_hover = ExtResource("6_o8yj5")
@@ -421,6 +431,7 @@ layout_mode = 2
 [node name="Button_Setting" type="TextureButton" parent="Full_screen/Right_half_screen/Right_edge/Left_edge_y/Button"]
 z_index = 1
 layout_mode = 2
+focus_mode = 0
 texture_normal = ExtResource("7_yh62i")
 texture_pressed = ExtResource("8_k0e6a")
 texture_hover = ExtResource("8_k0e6a")
@@ -457,6 +468,7 @@ offset_right = 210.0
 offset_bottom = 210.0
 grow_horizontal = 2
 grow_vertical = 2
+focus_mode = 0
 texture_normal = ExtResource("2_5yu3y")
 texture_pressed = ExtResource("3_xlhd7")
 texture_hover = ExtResource("3_xlhd7")
@@ -492,6 +504,7 @@ offset_left = -210.0
 offset_top = -210.0
 offset_right = 70.0
 offset_bottom = 70.0
+focus_mode = 0
 texture_normal = ExtResource("5_swmfn")
 texture_pressed = ExtResource("6_x2ejn")
 texture_hover = ExtResource("6_x2ejn")
@@ -521,6 +534,7 @@ offset_left = -210.0
 offset_top = -210.0
 offset_right = 70.0
 offset_bottom = 70.0
+focus_mode = 0
 texture_normal = ExtResource("7_besrp")
 texture_pressed = ExtResource("8_svkno")
 texture_hover = ExtResource("8_svkno")
@@ -544,6 +558,7 @@ unique_name_in_owner = true
 process_mode = 3
 stream = ExtResource("18_8mwai")
 volume_db = -15.0
+bus = &"Sounds"
 
 [node name="Setting_menu" parent="." instance=ExtResource("19_874t1")]
 visible = false

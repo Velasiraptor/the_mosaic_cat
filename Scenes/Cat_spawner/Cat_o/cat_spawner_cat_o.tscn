@@ -2,8 +2,10 @@
 
 [ext_resource type="Script" path="res://Scenes/Cat_spawner/Cat_o/cat_spawner.gd" id="1_5j1pp"]
 [ext_resource type="Texture2D" uid="uid://dxfifx8dgewtn" path="res://Sprites/Cats/Cat_O/Classic/Cat_O.png" id="2_3dlth"]
-[ext_resource type="Texture2D" uid="uid://bvk5r224nkbig" path="res://Sprites/ball_of_thread.png" id="3_axfyl"]
 [ext_resource type="FontFile" uid="uid://cj7peb0hnv2rh" path="res://ChalkboardSE-Regular-02_0.ttf" id="4_gircr"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wt73l"]
+load_path = "res://.godot/imported/ball_of_thread.png-0da8d11d7d771583369b3e914f6cfc3d.ctex"
 
 [node name="Cat_spawner_cat_o" type="Node2D" groups=["Spawner_Cat_O"]]
 script = ExtResource("1_5j1pp")
@@ -20,7 +22,7 @@ unique_name_in_owner = true
 [node name="BallOfThread" type="Sprite2D" parent="."]
 position = Vector2(36, 53)
 scale = Vector2(0.32, 0.32)
-texture = ExtResource("3_axfyl")
+texture = SubResource("CompressedTexture2D_wt73l")
 
 [node name="Label_count" type="Label" parent="BallOfThread"]
 unique_name_in_owner = true

@@ -167,15 +167,18 @@ libraries = {
 [node name="Sound_rotate" type="AudioStreamPlayer" parent="Sounds"]
 unique_name_in_owner = true
 stream = ExtResource("8_37a4p")
+bus = &"Sounds"
 
 [node name="Sound_drag" type="AudioStreamPlayer" parent="Sounds"]
 unique_name_in_owner = true
 stream = ExtResource("9_slf6p")
+bus = &"Sounds"
 
 [node name="Sound_blink" type="AudioStreamPlayer" parent="Sounds"]
 unique_name_in_owner = true
 stream = ExtResource("10_5ps5r")
 volume_db = -15.0
+bus = &"Sounds"
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="timeout" from="RandomTimer_blinks" to="." method="_on_random_timer_blinks_timeout"]

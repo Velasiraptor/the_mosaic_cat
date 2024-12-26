@@ -47,6 +47,7 @@ layout_mode = 2
 [node name="Button_EXIT" type="TextureButton" parent="UI_endless_mode/Full_screen/Left_half_screen/Left_edge/Left_edge_y/Button"]
 z_index = 1
 layout_mode = 2
+focus_mode = 0
 texture_normal = ExtResource("2_6u8rk")
 texture_pressed = ExtResource("3_dwdwi")
 texture_hover = ExtResource("3_dwdwi")
@@ -75,6 +76,7 @@ layout_mode = 2
 [node name="Button_Setting" type="TextureButton" parent="UI_endless_mode/Full_screen/Right_half_screen/Right_edge/Left_edge_y/Button"]
 z_index = 1
 layout_mode = 2
+focus_mode = 0
 texture_normal = ExtResource("4_67dns")
 texture_pressed = ExtResource("5_fpivc")
 texture_hover = ExtResource("5_fpivc")

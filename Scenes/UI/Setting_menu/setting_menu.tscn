@@ -6,10 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://rx2hhdj72j7g" path="res://Sprites/UI/Buttons/Main_menu_button.png" id="3_b7fnh"]
 [ext_resource type="Texture2D" uid="uid://bi203lp8ygvtf" path="res://Sprites/UI/Buttons/Main_menu_button_pressed.png" id="4_gxc0c"]
 [ext_resource type="AudioStream" uid="uid://dgeugopjmdsd0" path="res://Sounds/Buttons/Button.mp3" id="5_iows8"]
-[ext_resource type="Texture2D" uid="uid://c6tk2nwv8424o" path="res://Sprites/UI/Volume_point.png" id="6_3wgs5"]
 [ext_resource type="Texture2D" uid="uid://bueybgyv6upir" path="res://Sprites/UI/Setting/Music_icon.png" id="6_aw3t0"]
 [ext_resource type="Texture2D" uid="uid://b0120tl6qnaek" path="res://Sprites/UI/Setting/Sound_icon.png" id="6_lwrs3"]
 [ext_resource type="Texture2D" uid="uid://dbvggaeppqyps" path="res://Sprites/UI/Setting/Volume_point.png" id="9_1f1b1"]
+[ext_resource type="AudioStream" uid="uid://cg5wq1d1d6jr3" path="res://Sounds/Cats/Rotate_cat.mp3" id="10_4t5wj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_odpsc"]
 shader = ExtResource("1_ih1he")
@@ -145,6 +145,7 @@ size_flags_vertical = 4
 
 [node name="Back_Button" type="TextureButton" parent="ColorRect/Center/Window_cat/Window_next_lvl/Window/VBox/Margin_top/VBox/Button"]
 layout_mode = 2
+focus_mode = 0
 texture_normal = ExtResource("3_b7fnh")
 texture_pressed = ExtResource("4_gxc0c")
 texture_hover = ExtResource("4_gxc0c")
@@ -227,34 +228,38 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Margin_T" type="MarginContainer" parent="ColorRect/Center/Window_cat/Window_next_lvl/Window/VBox/Margin_down/VBox/HBox/Margin_Sliders/VBox_Sliders"]
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
-
-[node name="Volume_sounds" type="HSlider" parent="ColorRect/Center/Window_cat/Window_next_lvl/Window/VBox/Margin_down/VBox/HBox/Margin_Sliders/VBox_Sliders"]
-layout_mode = 2
-theme_override_icons/grabber = ExtResource("6_3wgs5")
-theme_override_icons/grabber_highlight = ExtResource("9_1f1b1")
-theme_override_icons/grabber_disabled = ExtResource("9_1f1b1")
-theme_override_icons/tick = ExtResource("9_1f1b1")
-theme_override_styles/slider = SubResource("StyleBoxLine_mxo5o")
-theme_override_styles/grabber_area = SubResource("StyleBoxLine_5kot6")
-theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_1rcnw")
-max_value = 10.0
-
-[node name="Margin_D" type="MarginContainer" parent="ColorRect/Center/Window_cat/Window_next_lvl/Window/VBox/Margin_down/VBox/HBox/Margin_Sliders/VBox_Sliders"]
-custom_minimum_size = Vector2(0, 100)
+custom_minimum_size = Vector2(0, 90)
 layout_mode = 2
 
 [node name="Volume_music" type="HSlider" parent="ColorRect/Center/Window_cat/Window_next_lvl/Window/VBox/Margin_down/VBox/HBox/Margin_Sliders/VBox_Sliders"]
+unique_name_in_owner = true
 layout_mode = 2
-theme_override_icons/grabber = ExtResource("6_3wgs5")
+focus_mode = 0
+theme_override_icons/grabber = ExtResource("9_1f1b1")
 theme_override_icons/grabber_highlight = ExtResource("9_1f1b1")
-theme_override_icons/grabber_disabled = ExtResource("9_1f1b1")
 theme_override_icons/tick = ExtResource("9_1f1b1")
 theme_override_styles/slider = SubResource("StyleBoxLine_mxo5o")
 theme_override_styles/grabber_area = SubResource("StyleBoxLine_5kot6")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_1rcnw")
 max_value = 10.0
+value = 7.0
+
+[node name="Margin_D" type="MarginContainer" parent="ColorRect/Center/Window_cat/Window_next_lvl/Window/VBox/Margin_down/VBox/HBox/Margin_Sliders/VBox_Sliders"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+
+[node name="Volume_sounds" type="HSlider" parent="ColorRect/Center/Window_cat/Window_next_lvl/Window/VBox/Margin_down/VBox/HBox/Margin_Sliders/VBox_Sliders"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+theme_override_icons/grabber = ExtResource("9_1f1b1")
+theme_override_icons/grabber_highlight = ExtResource("9_1f1b1")
+theme_override_icons/tick = ExtResource("9_1f1b1")
+theme_override_styles/slider = SubResource("StyleBoxLine_mxo5o")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_5kot6")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_1rcnw")
+max_value = 10.0
+value = 5.0
 
 [node name="Margin_R" type="MarginContainer" parent="ColorRect/Center/Window_cat/Window_next_lvl/Window/VBox/Margin_down/VBox/HBox"]
 custom_minimum_size = Vector2(200, 380)
@@ -275,5 +280,18 @@ unique_name_in_owner = true
 process_mode = 3
 stream = ExtResource("5_iows8")
 volume_db = -15.0
+bus = &"Sounds"
+
+[node name="Audio_music" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("10_4t5wj")
+bus = &"Music"
+
+[node name="Audio_sound" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("10_4t5wj")
+bus = &"Sounds"
 
 [connection signal="pressed" from="ColorRect/Center/Window_cat/Window_next_lvl/Window/VBox/Margin_top/VBox/Button/Back_Button" to="." method="_on_back_button_pressed"]
+[connection signal="value_changed" from="ColorRect/Center/Window_cat/Window_next_lvl/Window/VBox/Margin_down/VBox/HBox/Margin_Sliders/VBox_Sliders/Volume_music" to="." method="_on_volume_music_value_changed"]
+[connection signal="value_changed" from="ColorRect/Center/Window_cat/Window_next_lvl/Window/VBox/Margin_down/VBox/HBox/Margin_Sliders/VBox_Sliders/Volume_sounds" to="." method="_on_volume_sounds_value_changed"]
