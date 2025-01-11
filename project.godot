@@ -21,7 +21,7 @@ boot_splash/minimum_display_time=1000
 [autoload]
 
 Global="*res://Scripts/Global.gd"
-GlobalMusic="*res://Scenes/Globals/global_music.tscn"
+GlobalMusic="*res://Scenes/Globals/Music/global_music.tscn"
 SaveFile="*res://Scenes/Globals/SAVE_file.gd"
 
 [display]

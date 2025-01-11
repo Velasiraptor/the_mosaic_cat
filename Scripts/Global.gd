@@ -16,8 +16,11 @@ var level_lethal_company = load("res://Scenes/levels/level_lethal_company/level_
 var level_ghost = load("res://Scenes/levels/level_ghost/level_ghost.tscn")
 var level_axolotl = load("res://Scenes/levels/level_axolotl/level_axolotl.tscn")
 var level_puzzle = load("res://Scenes/levels/level_puzzle/level_puzzle.tscn")
+var level_bread = load("res://Scenes/levels/level_bread/level_bread.tscn")
+var level_coffee = load("res://Scenes/levels/level_coffee/level_coffee.tscn")
 var level_heart = load("res://Scenes/levels/level_heart/level_heart.tscn")
 var level_paw = load("res://Scenes/levels/level_paw/level_paw.tscn")
+
 
 var all_levels = [
 	#Маленькие уровни
@@ -29,6 +32,8 @@ var all_levels = [
 	level_ghost,
 	level_axolotl,
 	level_puzzle,
+	level_bread,
+	level_coffee,
 	#Большие уровни
 	level_blob,
 	level_circle,

@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2p0bwnactd7f"]
+
+[ext_resource type="Script" path="res://Scenes/Globals/Music/global_music.gd" id="1_84twv"]
+[ext_resource type="AudioStream" uid="uid://cso64xoi12q26" path="res://Music/MM_Music.mp3" id="1_ghgxc"]
+[ext_resource type="AudioStream" uid="uid://kykpvv82ffpu" path="res://Music/MM_Music_2.mp3" id="3_3hrfe"]
+
+[node name="Global_music" type="Node"]
+process_mode = 3
+script = ExtResource("1_84twv")
+
+[node name="All_classic_music" type="Node" parent="."]
+unique_name_in_owner = true
+
+[node name="Music_1" type="AudioStreamPlayer" parent="All_classic_music"]
+unique_name_in_owner = true
+stream = ExtResource("1_ghgxc")
+volume_db = -22.0
+bus = &"Music"
+
+[node name="Music_2" type="AudioStreamPlayer" parent="All_classic_music"]
+unique_name_in_owner = true
+stream = ExtResource("3_3hrfe")
+volume_db = -22.0
+bus = &"Music"
+
+[connection signal="finished" from="All_classic_music/Music_1" to="." method="_on_music_1_finished"]
+[connection signal="finished" from="All_classic_music/Music_2" to="." method="_on_music_2_finished"]

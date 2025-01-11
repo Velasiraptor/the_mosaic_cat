@@ -242,7 +242,7 @@ theme_override_styles/slider = SubResource("StyleBoxLine_mxo5o")
 theme_override_styles/grabber_area = SubResource("StyleBoxLine_5kot6")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_1rcnw")
 max_value = 10.0
-value = 7.0
+value = 4.0
 
 [node name="Margin_D" type="MarginContainer" parent="ColorRect/Center/Window_cat/Window_next_lvl/Window/VBox/Margin_down/VBox/HBox/Margin_Sliders/VBox_Sliders"]
 custom_minimum_size = Vector2(0, 70)

@@ -10,6 +10,10 @@ extends CanvasLayer
 
 @onready var menu_yes_no = %Menu_Yes_No
 
+@onready var rating_a_sound = %Rating_A_sound
+@onready var rating_b_sound = %Rating_B_sound
+@onready var rating_c_sound = %Rating_C_sound
+
 
 var rating_A_texture = load("res://Sprites/UI/Rating/Rating_A.png")
 var rating_B_texture = load("res://Sprites/UI/Rating/Rating_B.png")
@@ -17,13 +21,14 @@ var rating_C_texture = load("res://Sprites/UI/Rating/Rating_C.png")
 
 func _ready():
 	visible = false
-	
+
 
 func animation_window():
 	get_tree().call_group("timer_victory", "timer_victory_stop")
 	animation_next_lvl.play("Scale")
 	animation_light.play("light_move")
 	animation_light_rotation.play("rotation")
+	sound_victory()
 
 
 func _on_mm_button_pressed(): #Выход в главное меню
@@ -52,3 +57,11 @@ func rating_C():
 	if visible == false:
 		rating.texture = rating_C_texture
 		get_tree().call_group("timer_victory", "timer_red")
+
+func sound_victory():
+	if rating.texture == rating_A_texture:
+		rating_a_sound.play()
+	elif rating.texture == rating_B_texture:
+		rating_b_sound.play()
+	else:
+		rating_c_sound.play()
