@@ -4,6 +4,7 @@ extends Node2D
 @export var active_mirror := true ##кнопка вкл/выкл отзеркаливания уровня
 @export var active_rotate := true ##кнопка вкл/выкл переворачивания уровня
 
+
 @export var combo_1 = {
 	"I cat": [1, 1],
 	"J cat": [1, 1],
