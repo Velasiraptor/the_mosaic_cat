@@ -5,6 +5,8 @@ var check_rotate_cat := false
 var last_lvl = load("res://Scenes/levels/level_4x4/level_4x4_tile.tscn")
 
 var level_4x4 = load("res://Scenes/levels/level_4x4/level_4x4_tile.tscn")
+var level_rye = load("res://Scenes/levels/level_rye/level_rye.tscn")
+var level_mushroom = load("res://Scenes/levels/level_mushroom/level_mushroom.tscn")
 var level_6x6 = load("res://Scenes/levels/level_6x6/level_6x6_tile.tscn")
 var level_blob = load("res://Scenes/levels/level_blob/level_blob.tscn")
 var level_circle = load("res://Scenes/levels/level_circle/level_circle.tscn")
@@ -20,11 +22,14 @@ var level_bread = load("res://Scenes/levels/level_bread/level_bread.tscn")
 var level_coffee = load("res://Scenes/levels/level_coffee/level_coffee.tscn")
 var level_heart = load("res://Scenes/levels/level_heart/level_heart.tscn")
 var level_paw = load("res://Scenes/levels/level_paw/level_paw.tscn")
+var level_tree = load("res://Scenes/levels/level_tree/level_tree.tscn")
 
 
 var all_levels = [
 	#Маленькие уровни
 	level_4x4,
+	level_rye,
+	level_mushroom,
 	#Средние уровни
 	level_6x6,
 	level_butterfly,
@@ -42,7 +47,8 @@ var all_levels = [
 	level_ring,
 	#Огромные уровни
 	level_heart,
-	level_paw
+	level_paw,
+	level_tree
 ]
 
 var last_background = load("res://Sprites/Backgrounds/Relax_purple.png")
