@@ -1,0 +1,688 @@
+[gd_scene load_steps=13 format=3 uid="uid://cwxufel1xh1nk"]
+
+[ext_resource type="Script" path="res://Scenes/levels/level_supermarket/level_supermarket.gd" id="1_jca0s"]
+[ext_resource type="PackedScene" uid="uid://q1ij6djenla5" path="res://Scenes/Tile/tile_background.tscn" id="2_p6lry"]
+[ext_resource type="Texture2D" uid="uid://d1eofwab4d5ap" path="res://Sprites/Tiles_backgrounds/Tile_back_2.png" id="3_51kdb"]
+[ext_resource type="Texture2D" uid="uid://cqbkqmmj6iqiy" path="res://Sprites/Tiles_backgrounds/Tile_back_1_TD.png" id="4_opgqh"]
+[ext_resource type="Texture2D" uid="uid://v2aw3toqya8" path="res://Sprites/Tiles_backgrounds/Tile_back_1_LR.png" id="5_pm2ow"]
+[ext_resource type="Texture2D" uid="uid://defh7tb8vtb2l" path="res://Sprites/Tiles_backgrounds/Rock.png" id="6_bsma5"]
+[ext_resource type="Texture2D" uid="uid://ujarh7ofbs38" path="res://Sprites/Tiles_backgrounds/Tile_back_3_LR.png" id="7_06a67"]
+[ext_resource type="Texture2D" uid="uid://bawukujtgkq5l" path="res://Sprites/Сarpets/Carpet_blue.png" id="10_xfxs6"]
+[ext_resource type="Texture2D" uid="uid://c3iosvvivwx2y" path="res://icon.svg" id="11_0i72h"]
+[ext_resource type="PackedScene" uid="uid://0svk02u1bxcg" path="res://Scenes/Timer_victory/timer_victory.tscn" id="12_1qj0u"]
+[ext_resource type="PackedScene" uid="uid://cn5oc0v733jlg" path="res://Scenes/Background/backgrounds.tscn" id="13_3ap7x"]
+[ext_resource type="PackedScene" uid="uid://dcp0b8ip7e5na" path="res://Scenes/UI/window_next_lvl.tscn" id="14_st7f7"]
+
+[node name="level_supermarket" type="Node2D" groups=["Level"]]
+script = ExtResource("1_jca0s")
+combo_1 = {
+"I cat": [3, 3],
+"J cat": [1, 2],
+"L cat": [4, 4],
+"O cat": [2, 2],
+"One cat": [6, 7],
+"S cat": [1, 2],
+"T cat": [2, 2],
+"Z cat": [2, 2]
+}
+combo_2 = {
+"I cat": [3, 3],
+"J cat": [3, 3],
+"L cat": [3, 3],
+"O cat": [1, 2],
+"One cat": [2, 4],
+"S cat": [1, 2],
+"T cat": [4, 4],
+"Z cat": [2, 2]
+}
+combo_3 = {
+"I cat": [5, 5],
+"J cat": [3, 3],
+"L cat": [1, 1],
+"O cat": [1, 2],
+"One cat": [2, 4],
+"S cat": [1, 1],
+"T cat": [3, 3],
+"Z cat": [1, 2]
+}
+combo_4 = {
+"I cat": [1, 2],
+"J cat": [6, 6],
+"L cat": [3, 3],
+"O cat": [1, 2],
+"One cat": [6, 7],
+"S cat": [1, 1],
+"T cat": [3, 3],
+"Z cat": [1, 1]
+}
+combo_5 = {
+"I cat": [3, 3],
+"J cat": [1, 1],
+"L cat": [3, 3],
+"O cat": [4, 4],
+"One cat": [6, 7],
+"S cat": [1, 2],
+"T cat": [3, 3],
+"Z cat": [1, 2]
+}
+combo_6 = {
+"I cat": [2, 2],
+"J cat": [3, 3],
+"L cat": [1, 2],
+"O cat": [1, 2],
+"One cat": [6, 7],
+"S cat": [2, 2],
+"T cat": [4, 4],
+"Z cat": [2, 2]
+}
+combo_7 = {
+"I cat": [3, 3],
+"J cat": [2, 2],
+"L cat": [3, 3],
+"O cat": [1, 1],
+"One cat": [6, 7],
+"S cat": [4, 4],
+"T cat": [1, 1],
+"Z cat": [1, 2]
+}
+full_tile = 62
+
+[node name="Level_zone" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -88.0
+offset_bottom = -88.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="Playing_field" type="GridContainer" parent="Level_zone"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -176.0
+offset_top = -176.0
+offset_right = 176.0
+offset_bottom = 176.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 10
+
+[node name="MarginContainer11" type="MarginContainer" parent="Level_zone/Playing_field"]
+custom_minimum_size = Vector2(88, 88)
+layout_mode = 2
+
+[node name="MarginContainer12" type="MarginContainer" parent="Level_zone/Playing_field"]
+custom_minimum_size = Vector2(88, 88)
+layout_mode = 2
+
+[node name="MarginContainer13" type="MarginContainer" parent="Level_zone/Playing_field"]
+custom_minimum_size = Vector2(88, 88)
+layout_mode = 2
+
+[node name="tile_background" parent="Level_zone/Playing_field" instance=ExtResource("2_p6lry")]
+layout_mode = 2
+texture = ExtResource("3_51kdb")
+flip_h = true
+
+[node name="tile_background2" parent="Level_zone/Playing_field" instance=ExtResource("2_p6lry")]
+layout_mode = 2
+texture = ExtResource("4_opgqh")
+flip_h = true
+flip_v = true
+
+[node name="tile_background3" parent="Level_zone/Playing_field" instance=ExtResource("2_p6lry")]
+layout_mode = 2
+texture = ExtResource("4_opgqh")
+flip_h = true
+flip_v = true
+
+[node name="tile_background4" parent="Level_zone/Playing_field" instance=ExtResource("2_p6lry")]
+layout_mode = 2
+texture = ExtResource("3_51kdb")
+
+[node name="MarginContainer14" type="MarginContainer" parent="Level_zone/Playing_field"]
+custom_minimum_size = Vector2(88, 88)
+layout_mode = 2
+
+[node name="MarginContainer15" type="MarginContainer" parent="Level_zone/Playing_field"]
+custom_minimum_size = Vector2(88, 88)
+layout_mode = 2
+
+[node name="MarginContainer16" type="MarginContainer" parent="Level_zone/Playing_field"]
+custom_minimum_size = Vector2(88, 88)
+layout_mode = 2
+
+[node name="MarginContainer17" type="MarginContainer" parent="Level_zone/Playing_field"]
+custom_minimum_size = Vector2(88, 88)
+layout_mode = 2
+
+[node name="MarginContainer18" type="MarginContainer" parent="Level_zone/Playing_field"]
+custom_minimum_size = Vector2(88, 88)
+layout_mode = 2
+
+[node name="tile_background5" parent="Level_zone/Playing_field" instance=ExtResource("2_p6lry")]
+layout_mode = 2
+texture = ExtResource("7_06a67")
+flip_h = true
+
+[node name="tile_background6" parent="Level_zone/Playing_field" instance=ExtResource("2_p6lry")]
+layout_mode = 2
+texture = ExtResource("4_opgqh")
+flip_h = true
+
+[node name="Rock" type="TextureRect" parent="Level_zone/Playing_field"]
+custom_minimum_size = Vector2(88, 88)
+layout_mode = 2
+texture = ExtResource("6_bsma5")
+expand_mode = 1
+
+[node name="Rock2" type="TextureRect" parent="Level_zone/Playing_field"]
+custom_minimum_size = Vector2(88, 88)
+layout_mode = 2
+texture = ExtResource("6_bsma5")
+expand_mode = 1
+
+[node name="tile_background7" parent="Level_zone/Playing_field" instance=ExtResource("2_p6lry")]
+layout_mode = 2
+texture = ExtResource("4_opgqh")
+flip_h = true
+
+[node name="tile_background8" parent="Level_zone/Playing_field" instance=ExtResource("2_p6lry")]
+layout_mode = 2
+texture = ExtResource("7_06a67")
+
+[node name="MarginContainer19" type="MarginContainer" parent="Level_zone/Playing_field"]
+custom_minimum_size = Vector2(88, 88)
+layout_mode = 2
+
+[node name="MarginContainer20" type="MarginContainer" parent="Level_zone/Playing_field"]
+custom_minimum_size = Vector2(88, 88)
+layout_mode = 2
+
+[node name="tile_background9" parent="Level_zone/Playing_field" instance=ExtResource("2_p6lry")]
+layout_mode = 2
+texture = ExtResource("3_51kdb")
+flip_h = true
+
+[node name="tile_background10" parent="Level_zone/Playing_field" instance=ExtResource("2_p6lry")]
+layout_mode = 2
+texture = ExtResource("4_opgqh")
+flip_h = true
+flip_v = true
+
+[node name="tile_background11" parent="Level_zone/Playing_field" instance=ExtResource("2_p6lry")]
+layout_mode = 2
+texture = ExtResource("4_opgqh")
+flip_h = true
+flip_v = true
+
+[node name="tile_background12" parent="Level_zone/Playing_field" instance=ExtResource("2_p6lry")]
+layout_mode = 2
+texture = ExtResource("4_opgqh")
+flip_h = true
+flip_v = true
+
+[node name="tile_background13" parent="Level_zone/Playing_field" instance=ExtResource("2_p6lry")]
+layout_mode = 2
+texture = ExtResource("4_opgqh")
+flip_h = true
+flip_v = true
+
+[node name="tile_background14" parent="Level_zone/Playing_field" instance=ExtResource("2_p6lry")]
+layout_mode = 2
+texture = ExtResource("4_opgqh")
+flip_h = true
+flip_v = true
+
+[node name="tile_background15" parent="Level_zone/Playing_field" instance=ExtResource("2_p6lry")]
+layout_mode = 2
+texture = ExtResource("4_opgqh")
+flip_h = true
+flip_v = true
+
+[node name="tile_background16" parent="Level_zone/Playing_field" instance=ExtResource("2_p6lry")]
+layout_mode = 2
+texture = ExtResource("4_opgqh")
+flip_h = true
+flip_v = true
+
+[node name="tile_background17" parent="Level_zone/Playing_field" instance=ExtResource("2_p6lry")]
+layout_mode = 2
+texture = ExtResource("4_opgqh")
+flip_h = true
+flip_v = true
+
+[node name="tile_background18" parent="Level_zone/Playing_field" instance=ExtResource("2_p6lry")]
+layout_mode = 2
+texture = ExtResource("3_51kdb")
+
+[node name="tile_background19" parent="Level_zone/Playing_field" instance=ExtResource("2_p6lry")]
+layout_mode = 2
+texture = ExtResource("5_pm2ow")
+flip_h = true
+
+[node name="Rock3" type="TextureRect" parent="Level_zone/Playing_field"]
+custom_minimum_size = Vector2(88, 88)
+layout_mode = 2
+texture = ExtResource("6_bsma5")
+expand_mode = 1
+
+[node name="Rock4" type="TextureRect" parent="Level_zone/Playing_field"]
+custom_minimum_size = Vector2(88, 88)
+layout_mode = 2
+texture = ExtResource("6_bsma5")
+expand_mode = 1
+
+[node name="tile_background20" parent="Level_zone/Playing_field" instance=ExtResource("2_p6lry")]
+layout_mode = 2
+flip_h = true
+
+[node name="Rock5" type="TextureRect" parent="Level_zone/Playing_field"]
+custom_minimum_size = Vector2(88, 88)
+layout_mode = 2
+texture = ExtResource("6_bsma5")
+expand_mode = 1
+
+[node name="tile_background21" parent="Level_zone/Playing_field" instance=ExtResource("2_p6lry")]
+layout_mode = 2
+flip_h = true
+
+[node name="Rock6" type="TextureRect" parent="Level_zone/Playing_field"]
+custom_minimum_size = Vector2(88, 88)
+layout_mode = 2
+texture = ExtResource("6_bsma5")
+expand_mode = 1
+
+[node name="tile_background22" parent="Level_zone/Playing_field" instance=ExtResource("2_p6lry")]
+layout_mode = 2
+flip_h = true
+
+[node name="Rock7" type="TextureRect" parent="Level_zone/Playing_field"]
+custom_minimum_size = Vector2(88, 88)
+layout_mode = 2
+texture = ExtResource("6_bsma5")
+expand_mode = 1
+
+[node name="tile_background23" parent="Level_zone/Playing_field" instance=ExtResource("2_p6lry")]
+layout_mode = 2
+texture = ExtResource("5_pm2ow")
+
+[node name="tile_background24" parent="Level_zone/Playing_field" instance=ExtResource("2_p6lry")]
+layout_mode = 2
+texture = ExtResource("5_pm2ow")
+flip_h = true
+
+[node name="tile_background25" parent="Level_zone/Playing_field" instance=ExtResource("2_p6lry")]
+layout_mode = 2
+flip_h = true
+
+[node name="tile_background26" parent="Level_zone/Playing_field" instance=ExtResource("2_p6lry")]
+layout_mode = 2
+flip_h = true
+
+[node name="tile_background27" parent="Level_zone/Playing_field" instance=ExtResource("2_p6lry")]
+layout_mode = 2
+flip_h = true
+
+[node name="tile_background28" parent="Level_zone/Playing_field" instance=ExtResource("2_p6lry")]
+layout_mode = 2
+flip_h = true
+
+[node name="tile_background29" parent="Level_zone/Playing_field" instance=ExtResource("2_p6lry")]
+layout_mode = 2
+flip_h = true
+
+[node name="tile_background30" parent="Level_zone/Playing_field" instance=ExtResource("2_p6lry")]
+layout_mode = 2
+flip_h = true
+
+[node name="tile_background31" parent="Level_zone/Playing_field" instance=ExtResource("2_p6lry")]
+layout_mode = 2
+flip_h = true
+
+[node name="tile_background32" parent="Level_zone/Playing_field" instance=ExtResource("2_p6lry")]
+layout_mode = 2
+flip_h = true
+
+[node name="tile_background33" parent="Level_zone/Playing_field" instance=ExtResource("2_p6lry")]
+layout_mode = 2
+texture = ExtResource("5_pm2ow")
+
+[node name="tile_background34" parent="Level_zone/Playing_field" instance=ExtResource("2_p6lry")]
+layout_mode = 2
+texture = ExtResource("5_pm2ow")
+flip_h = true
+
+[node name="Rock8" type="TextureRect" parent="Level_zone/Playing_field"]
+custom_minimum_size = Vector2(88, 88)
+layout_mode = 2
+texture = ExtResource("6_bsma5")
+expand_mode = 1
+
+[node name="tile_background35" parent="Level_zone/Playing_field" instance=ExtResource("2_p6lry")]
+layout_mode = 2
+flip_h = true
+
+[node name="Rock9" type="TextureRect" parent="Level_zone/Playing_field"]
+custom_minimum_size = Vector2(88, 88)
+layout_mode = 2
+texture = ExtResource("6_bsma5")
+expand_mode = 1
+
+[node name="tile_background36" parent="Level_zone/Playing_field" instance=ExtResource("2_p6lry")]
+layout_mode = 2
+flip_h = true
+
+[node name="Rock10" type="TextureRect" parent="Level_zone/Playing_field"]
+custom_minimum_size = Vector2(88, 88)
+layout_mode = 2
+texture = ExtResource("6_bsma5")
+expand_mode = 1
+
+[node name="tile_background37" parent="Level_zone/Playing_field" instance=ExtResource("2_p6lry")]
+layout_mode = 2
+flip_h = true
+
+[node name="Rock11" type="TextureRect" parent="Level_zone/Playing_field"]
+custom_minimum_size = Vector2(88, 88)
+layout_mode = 2
+texture = ExtResource("6_bsma5")
+expand_mode = 1
+
+[node name="Rock12" type="TextureRect" parent="Level_zone/Playing_field"]
+custom_minimum_size = Vector2(88, 88)
+layout_mode = 2
+texture = ExtResource("6_bsma5")
+expand_mode = 1
+
+[node name="tile_background38" parent="Level_zone/Playing_field" instance=ExtResource("2_p6lry")]
+layout_mode = 2
+texture = ExtResource("3_51kdb")
+
+[node name="tile_background39" parent="Level_zone/Playing_field" instance=ExtResource("2_p6lry")]
+layout_mode = 2
+texture = ExtResource("5_pm2ow")
+flip_h = true
+
+[node name="tile_background40" parent="Level_zone/Playing_field" instance=ExtResource("2_p6lry")]
+layout_mode = 2
+flip_h = true
+
+[node name="tile_background41" parent="Level_zone/Playing_field" instance=ExtResource("2_p6lry")]
+layout_mode = 2
+flip_h = true
+
+[node name="tile_background42" parent="Level_zone/Playing_field" instance=ExtResource("2_p6lry")]
+layout_mode = 2
+flip_h = true
+
+[node name="tile_background43" parent="Level_zone/Playing_field" instance=ExtResource("2_p6lry")]
+layout_mode = 2
+flip_h = true
+
+[node name="tile_background44" parent="Level_zone/Playing_field" instance=ExtResource("2_p6lry")]
+layout_mode = 2
+flip_h = true
+
+[node name="tile_background45" parent="Level_zone/Playing_field" instance=ExtResource("2_p6lry")]
+layout_mode = 2
+flip_h = true
+
+[node name="tile_background46" parent="Level_zone/Playing_field" instance=ExtResource("2_p6lry")]
+layout_mode = 2
+flip_h = true
+
+[node name="tile_background47" parent="Level_zone/Playing_field" instance=ExtResource("2_p6lry")]
+layout_mode = 2
+flip_h = true
+
+[node name="tile_background48" parent="Level_zone/Playing_field" instance=ExtResource("2_p6lry")]
+layout_mode = 2
+texture = ExtResource("5_pm2ow")
+
+[node name="tile_background49" parent="Level_zone/Playing_field" instance=ExtResource("2_p6lry")]
+layout_mode = 2
+texture = ExtResource("3_51kdb")
+flip_h = true
+flip_v = true
+
+[node name="tile_background50" parent="Level_zone/Playing_field" instance=ExtResource("2_p6lry")]
+layout_mode = 2
+flip_h = true
+
+[node name="Rock13" type="TextureRect" parent="Level_zone/Playing_field"]
+custom_minimum_size = Vector2(88, 88)
+layout_mode = 2
+texture = ExtResource("6_bsma5")
+expand_mode = 1
+
+[node name="Rock14" type="TextureRect" parent="Level_zone/Playing_field"]
+custom_minimum_size = Vector2(88, 88)
+layout_mode = 2
+texture = ExtResource("6_bsma5")
+expand_mode = 1
+
+[node name="tile_background51" parent="Level_zone/Playing_field" instance=ExtResource("2_p6lry")]
+layout_mode = 2
+flip_h = true
+
+[node name="Rock15" type="TextureRect" parent="Level_zone/Playing_field"]
+custom_minimum_size = Vector2(88, 88)
+layout_mode = 2
+texture = ExtResource("6_bsma5")
+expand_mode = 1
+
+[node name="tile_background52" parent="Level_zone/Playing_field" instance=ExtResource("2_p6lry")]
+layout_mode = 2
+flip_h = true
+
+[node name="Rock16" type="TextureRect" parent="Level_zone/Playing_field"]
+custom_minimum_size = Vector2(88, 88)
+layout_mode = 2
+texture = ExtResource("6_bsma5")
+expand_mode = 1
+
+[node name="tile_background53" parent="Level_zone/Playing_field" instance=ExtResource("2_p6lry")]
+layout_mode = 2
+flip_h = true
+
+[node name="tile_background54" parent="Level_zone/Playing_field" instance=ExtResource("2_p6lry")]
+layout_mode = 2
+texture = ExtResource("3_51kdb")
+flip_v = true
+
+[node name="MarginContainer21" type="MarginContainer" parent="Level_zone/Playing_field"]
+custom_minimum_size = Vector2(88, 88)
+layout_mode = 2
+
+[node name="tile_background55" parent="Level_zone/Playing_field" instance=ExtResource("2_p6lry")]
+layout_mode = 2
+texture = ExtResource("3_51kdb")
+flip_h = true
+flip_v = true
+
+[node name="tile_background56" parent="Level_zone/Playing_field" instance=ExtResource("2_p6lry")]
+layout_mode = 2
+texture = ExtResource("4_opgqh")
+flip_h = true
+
+[node name="tile_background57" parent="Level_zone/Playing_field" instance=ExtResource("2_p6lry")]
+layout_mode = 2
+texture = ExtResource("4_opgqh")
+flip_h = true
+
+[node name="tile_background58" parent="Level_zone/Playing_field" instance=ExtResource("2_p6lry")]
+layout_mode = 2
+texture = ExtResource("4_opgqh")
+flip_h = true
+
+[node name="tile_background59" parent="Level_zone/Playing_field" instance=ExtResource("2_p6lry")]
+layout_mode = 2
+texture = ExtResource("4_opgqh")
+flip_h = true
+
+[node name="tile_background60" parent="Level_zone/Playing_field" instance=ExtResource("2_p6lry")]
+layout_mode = 2
+texture = ExtResource("4_opgqh")
+flip_h = true
+
+[node name="tile_background61" parent="Level_zone/Playing_field" instance=ExtResource("2_p6lry")]
+layout_mode = 2
+texture = ExtResource("4_opgqh")
+flip_h = true
+
+[node name="tile_background62" parent="Level_zone/Playing_field" instance=ExtResource("2_p6lry")]
+layout_mode = 2
+texture = ExtResource("3_51kdb")
+flip_v = true
+
+[node name="MarginContainer22" type="MarginContainer" parent="Level_zone/Playing_field"]
+custom_minimum_size = Vector2(88, 88)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Level_zone/Playing_field"]
+custom_minimum_size = Vector2(88, 88)
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="Level_zone/Playing_field"]
+custom_minimum_size = Vector2(88, 88)
+layout_mode = 2
+
+[node name="MarginContainer3" type="MarginContainer" parent="Level_zone/Playing_field"]
+custom_minimum_size = Vector2(88, 88)
+layout_mode = 2
+
+[node name="MarginContainer4" type="MarginContainer" parent="Level_zone/Playing_field"]
+custom_minimum_size = Vector2(88, 88)
+layout_mode = 2
+
+[node name="MarginContainer5" type="MarginContainer" parent="Level_zone/Playing_field"]
+custom_minimum_size = Vector2(88, 88)
+layout_mode = 2
+
+[node name="MarginContainer6" type="MarginContainer" parent="Level_zone/Playing_field"]
+custom_minimum_size = Vector2(88, 88)
+layout_mode = 2
+
+[node name="MarginContainer7" type="MarginContainer" parent="Level_zone/Playing_field"]
+custom_minimum_size = Vector2(88, 88)
+layout_mode = 2
+
+[node name="MarginContainer8" type="MarginContainer" parent="Level_zone/Playing_field"]
+custom_minimum_size = Vector2(88, 88)
+layout_mode = 2
+
+[node name="MarginContainer9" type="MarginContainer" parent="Level_zone/Playing_field"]
+custom_minimum_size = Vector2(88, 88)
+layout_mode = 2
+
+[node name="MarginContainer10" type="MarginContainer" parent="Level_zone/Playing_field"]
+custom_minimum_size = Vector2(88, 88)
+layout_mode = 2
+
+[node name="Camera2D" type="Camera2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Container_spawn_1" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-800, -401)
+
+[node name="CarpetBlue" type="Sprite2D" parent="Container_spawn_1"]
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("10_xfxs6")
+
+[node name="Container_spawn_2" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-800, -142)
+
+[node name="CarpetBlue" type="Sprite2D" parent="Container_spawn_2"]
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("10_xfxs6")
+
+[node name="Container_spawn_3" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-800, 127)
+
+[node name="CarpetBlue" type="Sprite2D" parent="Container_spawn_3"]
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("10_xfxs6")
+
+[node name="Container_spawn_4" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-800, 386)
+
+[node name="CarpetBlue" type="Sprite2D" parent="Container_spawn_4"]
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("10_xfxs6")
+
+[node name="Container_spawn_5" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(800, -401)
+
+[node name="CarpetBlue" type="Sprite2D" parent="Container_spawn_5"]
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("10_xfxs6")
+
+[node name="Container_spawn_6" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(800, -142)
+
+[node name="CarpetBlue" type="Sprite2D" parent="Container_spawn_6"]
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("10_xfxs6")
+
+[node name="Container_spawn_7" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(800, 127)
+
+[node name="CarpetBlue" type="Sprite2D" parent="Container_spawn_7"]
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("10_xfxs6")
+
+[node name="Container_spawn_8" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(800, 386)
+
+[node name="CarpetBlue" type="Sprite2D" parent="Container_spawn_8"]
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("10_xfxs6")
+
+[node name="Button_ROTATE" type="TouchScreenButton" parent="."]
+unique_name_in_owner = true
+modulate = Color(0.427451, 0.756863, 0, 0)
+position = Vector2(-1869, -890)
+scale = Vector2(6, 27.9688)
+texture_normal = ExtResource("11_0i72h")
+action = "rotate_cat"
+
+[node name="Cats" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Timer_check_finish" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.5
+one_shot = true
+
+[node name="Timer_victory" parent="." instance=ExtResource("12_1qj0u")]
+layer = -1
+B_time = 90.0
+C_time = 90.0
+
+[node name="Backgrounds" parent="." instance=ExtResource("13_3ap7x")]
+
+[node name="Window_next_lvl" parent="." instance=ExtResource("14_st7f7")]
+unique_name_in_owner = true
+
+[connection signal="timeout" from="Timer_check_finish" to="." method="_on_timer_check_finish_timeout"]

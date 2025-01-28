@@ -47,38 +47,6 @@ theme_override_constants/h_separation = 0
 theme_override_constants/v_separation = 0
 columns = 8
 
-[node name="MarginContainer" type="MarginContainer" parent="Level_zone/Playing_field"]
-custom_minimum_size = Vector2(88, 88)
-layout_mode = 2
-
-[node name="MarginContainer2" type="MarginContainer" parent="Level_zone/Playing_field"]
-custom_minimum_size = Vector2(88, 88)
-layout_mode = 2
-
-[node name="MarginContainer3" type="MarginContainer" parent="Level_zone/Playing_field"]
-custom_minimum_size = Vector2(88, 88)
-layout_mode = 2
-
-[node name="MarginContainer4" type="MarginContainer" parent="Level_zone/Playing_field"]
-custom_minimum_size = Vector2(88, 88)
-layout_mode = 2
-
-[node name="MarginContainer5" type="MarginContainer" parent="Level_zone/Playing_field"]
-custom_minimum_size = Vector2(88, 88)
-layout_mode = 2
-
-[node name="MarginContainer6" type="MarginContainer" parent="Level_zone/Playing_field"]
-custom_minimum_size = Vector2(88, 88)
-layout_mode = 2
-
-[node name="MarginContainer7" type="MarginContainer" parent="Level_zone/Playing_field"]
-custom_minimum_size = Vector2(88, 88)
-layout_mode = 2
-
-[node name="MarginContainer8" type="MarginContainer" parent="Level_zone/Playing_field"]
-custom_minimum_size = Vector2(88, 88)
-layout_mode = 2
-
 [node name="MarginContainer9" type="MarginContainer" parent="Level_zone/Playing_field"]
 custom_minimum_size = Vector2(88, 88)
 layout_mode = 2
@@ -285,6 +253,38 @@ flip_h = true
 layout_mode = 2
 texture = ExtResource("3_wmftx")
 flip_v = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Level_zone/Playing_field"]
+custom_minimum_size = Vector2(88, 88)
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="Level_zone/Playing_field"]
+custom_minimum_size = Vector2(88, 88)
+layout_mode = 2
+
+[node name="MarginContainer3" type="MarginContainer" parent="Level_zone/Playing_field"]
+custom_minimum_size = Vector2(88, 88)
+layout_mode = 2
+
+[node name="MarginContainer4" type="MarginContainer" parent="Level_zone/Playing_field"]
+custom_minimum_size = Vector2(88, 88)
+layout_mode = 2
+
+[node name="MarginContainer5" type="MarginContainer" parent="Level_zone/Playing_field"]
+custom_minimum_size = Vector2(88, 88)
+layout_mode = 2
+
+[node name="MarginContainer6" type="MarginContainer" parent="Level_zone/Playing_field"]
+custom_minimum_size = Vector2(88, 88)
+layout_mode = 2
+
+[node name="MarginContainer7" type="MarginContainer" parent="Level_zone/Playing_field"]
+custom_minimum_size = Vector2(88, 88)
+layout_mode = 2
+
+[node name="MarginContainer8" type="MarginContainer" parent="Level_zone/Playing_field"]
+custom_minimum_size = Vector2(88, 88)
+layout_mode = 2
 
 [node name="Camera2D" type="Camera2D" parent="."]
 unique_name_in_owner = true

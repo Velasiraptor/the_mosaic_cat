@@ -23,6 +23,8 @@ var level_coffee = load("res://Scenes/levels/level_coffee/level_coffee.tscn")
 var level_heart = load("res://Scenes/levels/level_heart/level_heart.tscn")
 var level_paw = load("res://Scenes/levels/level_paw/level_paw.tscn")
 var level_tree = load("res://Scenes/levels/level_tree/level_tree.tscn")
+var level_anchor = load("res://Scenes/levels/level_anchor/level_anchor.tscn")
+var level_supermarket = load("res://Scenes/levels/level_supermarket/level_supermarket.tscn")
 
 
 var all_levels = [
@@ -48,7 +50,9 @@ var all_levels = [
 	#Огромные уровни
 	level_heart,
 	level_paw,
-	level_tree
+	level_anchor,
+	level_tree,
+	level_supermarket
 ]
 
 var last_background = load("res://Sprites/Backgrounds/Relax_purple.png")
